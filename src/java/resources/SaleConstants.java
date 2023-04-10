@@ -25,15 +25,17 @@ public class SaleConstants {
     public final String INSERT_PAYMENT_ALL_DATA = "INSERT INTO ADMIN.payments Values (?, ?, ?, ?)";
     public final String INSERT_ORDER_ALL_DATA = "INSERT INTO ADMIN.orders Values (?, ?, ?, ?, ?, ?, ?)";
     // Update the data in the databases table
-    public final String UPDATE_CUSTOMER = "Update ADMIN.customers Set customer_name = ?, email = ?, address = ?, phone_no = ?, password = ? WHERE customer_id = ?";
-    public final String UPDATE_SUPPLIER = "USpdate ADMIN.supplier Set supplier_name = ?, mail = ?, location = ?, contact_no = ? WHERE supplier_id = ?";
-    public final String UPDATE_ITEM = "Update ADMIN.items Set customer_name = ?, email = ?, address = ?, phone_no = ? WHERE item_no = ?";
-    public final String UPDATE_PAYMENT = "Update ADMIN.payments Set amounts = ?, payment_date = ?, remarks = ? WHERE payment_no = ?";
-    public final String UPDATE_ORDER = "Update ADMIN.orders Set order_date = ?, order_qty = ?, descriptions = ?, item_no =?, payment_no = ?, customer_id = ? WHERE order_no = ?";
+    public final String UPDATE_CUSTOMER_DATA = "Update ADMIN.customers Set customer_name = ?, email = ?, address = ?, phone_no = ?, password = ? WHERE customer_id = ?";
+    public final String UPDATE_SUPPLIER_DATA = "USpdate ADMIN.supplier Set supplier_name = ?, mail = ?, location = ?, contact_no = ? WHERE supplier_id = ?";
+    public final String UPDATE_ITEM_DATA = "Update ADMIN.items Set customer_name = ?, email = ?, address = ?, phone_no = ? WHERE item_no = ?";
+    public final String UPDATE_PAYMENT_DATA = "Update ADMIN.payments Set amounts = ?, payment_date = ?, remarks = ? WHERE payment_no = ?";
+    public final String UPDATE_ORDER_DATA = "Update ADMIN.orders Set order_date = ?, order_qty = ?, descriptions = ?, item_no =?, payment_no = ?, customer_id = ? WHERE order_no = ?";
     // delete data from databses
-    public final String DELEDE_CUSTOMER = "DELETE FROM ADMIN.customers WHERE CUSTOMER_ID = ?";
-    public final String DELEDE_SUPPLIER = "DELETE FROM ADMIN.supplires WHERE SUPPLIER_ID = ?";
-    public final String DELEDE_ITEM = "DELETE FROM ADMIN.items WHERE ITEM_NO = ?";
-    public final String DELEDE_PAYMENT = "DELETE FROM ADMIN.payments WHERE PAYMENT_NO = ?";
-    public final String DELEDE_ORDER = "DELETE FROM ADMIN.orders WHERE ORDER_NO = ?";
+    public final String DELEDE_CUSTOMER_DATA = "DELETE FROM ADMIN.customers WHERE CUSTOMER_ID = ?";
+    public final String DELEDE_SUPPLIER_DATA = "DELETE FROM ADMIN.supplires WHERE SUPPLIER_ID = ?";
+    public final String DELEDE_ITEM_DATA = "DELETE FROM ADMIN.items WHERE ITEM_NO = ?";
+    public final String DELEDE_PAYMENT_DATA = "DELETE FROM ADMIN.payments WHERE PAYMENT_NO = ?";
+    public final String DELEDE_ORDER_DATA = "DELETE FROM ADMIN.orders WHERE ORDER_NO = ?";
+    // get the customer details
+    public final String GET_CUSTOMER_DATA = "Select * from ADMIN.customers WHERE customer_id = ?";
 }

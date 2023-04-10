@@ -13,7 +13,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="orderDbBean")
 @SessionScoped 
-public class OrderBean {
+public class OrderModelBean {
     int order_no;
     String order_date;
     int order_qty;

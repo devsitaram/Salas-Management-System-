@@ -10,17 +10,16 @@ package com.salemamagementsystem.model;
  */
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.apache.derby.client.am.Decimal;
 
 @ManagedBean(name="itemDbBean")
 @SessionScoped 
-public class ItemBean {
+public class ItemModelBean {
     int item_no;
     String item_name;
-    Decimal prices;
+    Double prices;
     String item_qty;
-    int supplier_id;
     String supply_date;
+    int supplier_id;
 
     public int getItem_no() {
         return item_no;
@@ -38,11 +37,11 @@ public class ItemBean {
         this.item_name = item_name;
     }
 
-    public Decimal getPrices() {
+    public Double getPrices() {
         return prices;
     }
 
-    public void setPrices(Decimal prices) {
+    public void setPrices(Double prices) {
         this.prices = prices;
     }
 
@@ -54,19 +53,19 @@ public class ItemBean {
         this.item_qty = item_qty;
     }
 
-    public int getSupplier_id() {
-        return supplier_id;
-    }
-
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
-    }
-
     public String getSupply_date() {
         return supply_date;
     }
 
     public void setSupply_date(String supply_date) {
         this.supply_date = supply_date;
+    }
+    
+    public int getSupplier_id() {
+        return supplier_id;
+    }
+
+    public void setSupplier_id(int supplier_id) {
+        this.supplier_id = supplier_id;
     }
 }

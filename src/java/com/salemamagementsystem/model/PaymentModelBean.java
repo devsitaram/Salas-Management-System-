@@ -10,13 +10,12 @@ package com.salemamagementsystem.model;
  */
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.apache.derby.client.am.Decimal;
 
 @ManagedBean(name="paymentDbBean")
 @SessionScoped 
-public class PaymentBean {
+public class PaymentModelBean {
     int payment_no;
-    Decimal amounts;
+    Double amounts;
     String payment_date;
     String remarks;
 
@@ -28,11 +27,11 @@ public class PaymentBean {
         this.payment_no = payment_no;
     }
 
-    public Decimal getAmounts() {
+    public Double getAmounts() {
         return amounts;
     }
 
-    public void setAmounts(Decimal amounts) {
+    public void setAmounts(Double amounts) {
         this.amounts = amounts;
     }
 

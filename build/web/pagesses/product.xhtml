@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>product pages</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <dir>
+            <h1>List of Customers</h1>
+
+            <h:dataTable value="#{customerDbBean.customerData}" var="customer"
+                         styleClass="table"
+                         headerClass="header"
+                         rowClasses="oddRows,evenRows"
+                         cellpadding="5" cellspacing="5">
+
+                <h:column>
+                    <f:facet name="header">customer Id</f:facet>
+                        #{customer.customer_id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                        #{customer.Customer_name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{customer.Email}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Address</f:facet>
+                        #{customer.Address}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Phone No</f:facet>
+                        #{customer.Phone_no}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Password</f:facet>
+                        #{customer.Password}
+                </h:column>
+
+            </h:dataTable>
+
+            <h:form>
+                <p><h:commandButton value="Add Entry" style="width: 500px; height: 30px" action="pagesses/login.xhtml"/></p>
+            </h:form>
+        </dir>
+    </body>
+</html>

@@ -9,7 +9,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="supplierDbBean")
 @SessionScoped 
-public class SupplerBean {
+public class SupplierModelBean {
     private int supplier_id;
     private String supplier_name;
     private String mail;
