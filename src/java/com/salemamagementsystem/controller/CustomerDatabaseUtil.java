@@ -23,7 +23,7 @@ import resources.SaleConstants;
 @RequestScoped
 @ManagedBean(name = "customerDbBean")
 @SessionScoped
-public class DatabaseUtil {
+public class CustomerDatabaseUtil {
 
     // customer table's global variables and also create an object of customer class, supplier class, payment class, item class and order class
     CustomerModelBean customerModelBean = new CustomerModelBean();
@@ -175,42 +175,95 @@ public class DatabaseUtil {
         }
     }
     
-    
-    
-    
-    
     // update the customer data
-    public void updateCustomerData(String name, String email, String address, String phone_no, String password, int customer_id) throws SQLException, ClassNotFoundException{
+    public void updateCustomerData(String name, String email, String address, String phoneNo, String password, int customerId) throws SQLException, ClassNotFoundException{
         connection = getDatabaseConnection();
         PreparedStatement updateStatement = connection.prepareStatement(saleConstants.UPDATE_CUSTOMER_DATA);
         updateStatement.setString(1, name);
         updateStatement.setString(2, email);
         updateStatement.setString(3, address);
-        updateStatement.setString(4, phone_no);
+        updateStatement.setString(4, phoneNo);
          updateStatement.setString(4, password);
-        updateStatement.setInt(6, customer_id); 
+        updateStatement.setInt(6, customerId); 
             
         updateStatement.executeUpdate(); // return the int data but this methods have return types is void
     }
     
-    /**
-     * all the given below methods are delete methods where unnecessary data was delete from database table
-     * @param customer_id,supplier_id,item_no,payment_no,order_no
-     * @throws SQLException
-     * @throws ClassNotFoundException
-     * deleteCustomerData methods can be delete the customer data,
-     * deleteSupplierData methods can be delete the supplier data,
-     * deleteItemDaata methods can be delete the item data,
-     * deletePaymentData methods can be delete the payment data,
-     * deleteOrderData methods can be delete the order data
-     */
-    // delete customer data from database
-    public void deleteCustomerData(int customer_id)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
+    public void deleteCustomer(int customerId)throws SQLException, ClassNotFoundException{
+        System.out.println("Customer Id: "+customerId);
         PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_CUSTOMER_DATA);
-        deleteStatement.setInt(1, customer_id);
+        deleteStatement.setInt(1, customerId);
         deleteStatement.executeUpdate();
     }
+    
+//    
+//    /**
+//     * all the given below methods are delete methods where unnecessary data was delete from database table
+//     * @param name
+//     * @param email
+//     * @param address
+//     * @param phoneNo
+//     * @param password
+//     * @param customerId
+//     * @throws SQLException
+//     * @throws ClassNotFoundException
+//     * deleteCustomerData methods can be delete the customer data,
+//     * deleteSupplierData methods can be delete the supplier data,
+//     * deleteItemDaata methods can be delete the item data,
+//     * deletePaymentData methods can be delete the payment data,
+//     * deleteOrderData methods can be delete the order data
+//     */
+    
+    public void deleteCustomerData(int customerId, String name, String email, String address, String phoneNo, String password)throws SQLException, ClassNotFoundException{
+        connection = getDatabaseConnection();
+        if (customerId ==0 && name.isEmpty() && email.isEmpty() && address.isEmpty() && phoneNo.isEmpty() && password.isEmpty()){
+            System.out.println("The fields is empty!");
+        } else {
+            // delete by Id
+            if(customerId !=0  && name.isEmpty() && email.isEmpty() && address.isEmpty() && phoneNo.isEmpty() && password.isEmpty()){
+                System.out.println("Customer Id: "+customerId);
+                PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_CUSTOMER_DATA);
+                deleteStatement.setInt(1, customerId);
+                deleteStatement.executeUpdate();
+            }
+            // delete by name
+            if (!name.isEmpty()){
+                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where customer_name = ?");
+                deleteStatement.setString(1, name);
+                deleteStatement.executeUpdate();
+            }
+            // delete by email
+            if (!email.isEmpty()){
+                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where EMAIL = ?");
+                deleteStatement.setString(1, email);
+                deleteStatement.executeUpdate();
+            } 
+            // delete by address
+            if (!address.isEmpty()){
+                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where ADDRESS = ?");
+                deleteStatement.setString(1, address);
+                deleteStatement.executeUpdate();
+            } 
+            // delete by phone number
+            if (!phoneNo.isEmpty()){
+                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where PHONE_NO = ?");
+                deleteStatement.setString(1, phoneNo);
+                deleteStatement.executeUpdate();
+            } 
+            // delete by password
+            if (!password.isEmpty()){
+                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where PASSWORD = ?");
+                deleteStatement.setString(1, password);
+                deleteStatement.executeUpdate();
+            }
+        }
+    }
+    
+    public void ma(){
+        
+    }
+    
+    
     
     // delete supplier data from database
     public void deleteSupplierData(int supplier_id)throws SQLException, ClassNotFoundException{

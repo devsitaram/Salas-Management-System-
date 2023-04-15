@@ -7,424 +7,108 @@
         <title>splash Page</title>
     </h:head>
     <h:body>
-        <div style="text-align: center; width: 200px; height: 250px; margin-top: 150px; margin-left: 600px">
-            <div class="loader">
-                <div class="face">
-                    <div class="circle"></div>
-                </div>
-                <div class="face">
-                    <h3 style="color: black;">BTS</h3>
-                    <div class="circle"></div>
-                </div>
+        <h:dataTable value="#{customerDbBean.customerData}" var="customer"
+                    styleClass="table"
+                    headerClass="header"
+                    rowClasses="oddRows,evenRows"
+                    cellpadding="5" cellspacing="5">
+           <h:column>
+               <f:facet name="header">customer Id</f:facet>
+                   #{customer.customer_id}
+           </h:column>
+           <h:column>
+               <f:facet name="header">Name</f:facet>
+                   #{customer.Customer_name}
+           </h:column>
+           <h:column>
+               <f:facet name="header">Email</f:facet>
+                   #{customer.Email}
+           </h:column>
+           <h:column>
+               <f:facet name="header">Address</f:facet>
+                   #{customer.Address}
+           </h:column>
+           <h:column>
+               <f:facet name="header">Phone No</f:facet>
+                   #{customer.Phone_no}
+           </h:column>
+           <h:column>
+               <f:facet name="header">Password</f:facet>
+                   #{customer.Password}
+           </h:column>
+         </h:dataTable>
+        
+        <h:form>
+            <h3>Edit Customer Details</h3>
+            <div style="width: 50%; float: left">
+                <p>Customer Id: 
+                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: -5px; width: 200px"
+                                requiredMessage="Please enter the valid phone number?"
+                                value="#{customerModelBean.customerId}" maxlength="3"
+                                converterMessage="Invalid your Id!">
+                        <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
+                    </h:inputText>
+                    <h:message for="customerIdInputText" styleClass="error"/>
+                </p>
+                <p>Name:
+                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 40px; width: 200px"
+                            requiredMessage="Please enter the valid name?"
+                            value="#{customerModelBean.customerName}" 
+                            validatorMessage="Invalid your name!">
+                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                    </h:inputText>
+                    <h:message for="nameInputText" styleClass="error"/>
+                </p>
+                <p>Email: 
+                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 41px; width: 200px"
+                            requiredMessage="Please enter the valid email?"
+                            value="#{customerModelBean.email}"
+                            validatorMessage="Invalid your email!">
+                       <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
+                    </h:inputText>
+                    <h:message for="emailInputText" styleClass="error"/>
+                </p>
+                <p>Address: 
+                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 21px; width: 200px"
+                            requiredMessage="Please enter the valid name?"
+                            value="#{customerModelBean.address}" 
+                            validatorMessage="Invalid your name!">
+                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                    </h:inputText>
+                    <h:message for="addressInputText" styleClass="error"/>
+                </p>
+                <p>Phone No: 
+                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 9px; width: 200px"
+                                requiredMessage="Please enter the valid phone number?"
+                                value="#{customerModelBean.phoneNo}" maxlength="10"
+                                validatorMessage="Invalid phone number!">
+                        <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
+                    </h:inputText>
+                    <h:message for="phoneInputText" styleClass="error"/>
+                </p>
+                <p>Password:                                                
+                    <h:inputText id="passwordInputText" rendered="true" 
+                                 style="margin-left: 10px; width: 200px"
+                            requiredMessage="Please enter the valid p?assword"
+                            value="#{customerModelBean.password}" >
+                    </h:inputText>
+               </p>
             </div>
-            <!--            <div class="loader">-->
-            <!--                <div>
-                                <ul>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg fill="currentColor" viewBox="0 0 90 120">
-                                            <path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
-                                        </svg>
-                                    </li>
-                                </ul>
-                            </div>-->
-<!--            <span>Loading</span>-->
-            <div class="newtons-cradle" style="margin-top: 20%">
-                <div class="newtons-cradle__dot"></div>
-                <div class="newtons-cradle__dot"></div>
-                <div class="newtons-cradle__dot"></div>
-                <div class="newtons-cradle__dot"></div>
+
+            <!--// update and delete button-->
+            <div style="width: 50%; float: right;  text-align: center">
+                                <h:commandButton value="Update" style="width: 25%; margin: 10px"
+                                 action="#{customerDbBean.updateCustomerData(
+                                        customerModelBean.customerName,
+                                        customerModelBean.address,
+                                        customerModelBean.email,
+                                        customerModelBean.phoneNo,
+                                        customerModelBean.password,
+                                        customerModelBean.customerId)}"/>
+                                
+                <h:commandButton value="Delete" action="#{customerDbBean.deleteCustomer(customerModelBean.customerId)}"/>
             </div>
-        </div>
-        <div>
-            <h:form>
-                <p style="text-align: center; margin-top: 50px"><h:commandButton class="button" value="Start" action="pagesses/login.xhtml"/></p>
-            </h:form>
-        </div>
+        </h:form>
     </h:body>
-
-
-    <style>
-        .loader {
-            width: 6em;
-            height: 6em;
-            font-size: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .loader .face {
-            position: absolute;
-            border-radius: 50%;
-            border-style: solid;
-            animation: animate023845 3s linear infinite;
-        }
-
-        .loader .face:nth-child(1) {
-            width: 100%;
-            height: 100%;
-            color: gold;
-            border-color: currentColor transparent transparent currentColor;
-            border-width: 0.2em 0.2em 0em 0em;
-            --deg: -45deg;
-            animation-direction: normal;
-        }
-
-        .loader .face:nth-child(2) {
-            width: 70%;
-            height: 70%;
-            color: lime;
-            border-color: currentColor currentColor transparent transparent;
-            border-width: 0.2em 0em 0em 0.2em;
-            --deg: -135deg;
-            animation-direction: reverse;
-        }
-
-        .loader .face .circle {
-            position: absolute;
-            width: 50%;
-            height: 0.1em;
-            top: 50%;
-            left: 50%;
-            background-color: transparent;
-            transform: rotate(var(--deg));
-            transform-origin: left;
-        }
-
-        .loader .face .circle::before {
-            position: absolute;
-            top: -0.5em;
-            right: -0.5em;
-            content: '';
-            width: 1em;
-            height: 1em;
-            background-color: currentColor;
-            border-radius: 50%;
-            box-shadow: 0 0 2em,
-                0 0 4em,
-                0 0 6em,
-                0 0 8em,
-                0 0 10em,
-                0 0 0 0.5em rgba(255, 255, 0, 0.1);
-        }
-
-        @keyframes animate023845 {
-            to {
-                transform: rotate(1turn);
-            }
-        }
-        
-        /* // book animations*/
-        /*        .loader {
-                    --background: linear-gradient(135deg, #23C4F8, #275EFE);
-                    --shadow: rgba(39, 94, 254, 0.28);
-                    --text: #6C7486;
-                    --page: rgba(255, 255, 255, 0.36);
-                    --page-fold: rgba(255, 255, 255, 0.52);
-                    --duration: 3s;
-                    width: 200px;
-                    height: 140px;
-                    position: relative;
-                }
-        
-                .loader:before, .loader:after {
-                    --r: -6deg;
-                    content: "";
-                    position: absolute;
-                    bottom: 8px;
-                    width: 120px;
-                    top: 80%;
-                    box-shadow: 0 16px 12px var(--shadow);
-                    transform: rotate(var(--r));
-                }
-        
-                .loader:before {
-                    left: 4px;
-                }
-        
-                .loader:after {
-                    --r: 6deg;
-                    right: 4px;
-                }
-        
-                .loader div {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 13px;
-                    position: relative;
-                    z-index: 1;
-                    perspective: 600px;
-                    box-shadow: 0 4px 6px var(--shadow);
-                    background-image: var(--background);
-                }
-        
-                .loader div ul {
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                    position: relative;
-                }
-        
-                .loader div ul li {
-                    --r: 180deg;
-                    --o: 0;
-                    --c: var(--page);
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    transform-origin: 100% 50%;
-                    color: var(--c);
-                    opacity: var(--o);
-                    transform: rotateY(var(--r));
-                    -webkit-animation: var(--duration) ease infinite;
-                    animation: var(--duration) ease infinite;
-                }
-        
-                .loader div ul li:nth-child(2) {
-                    --c: var(--page-fold);
-                    -webkit-animation-name: page-2;
-                    animation-name: page-2;
-                }
-        
-                .loader div ul li:nth-child(3) {
-                    --c: var(--page-fold);
-                    -webkit-animation-name: page-3;
-                    animation-name: page-3;
-                }
-        
-                .loader div ul li:nth-child(4) {
-                    --c: var(--page-fold);
-                    -webkit-animation-name: page-4;
-                    animation-name: page-4;
-                }
-        
-                .loader div ul li:nth-child(5) {
-                    --c: var(--page-fold);
-                    -webkit-animation-name: page-5;
-                    animation-name: page-5;
-                }
-        
-                .loader div ul li svg {
-                    width: 90px;
-                    height: 120px;
-                    display: block;
-                }
-        
-                .loader div ul li:first-child {
-                    --r: 0deg;
-                    --o: 1;
-                }
-        
-                .loader div ul li:last-child {
-                    --o: 1;
-                }
-        
-                .loader span {
-                    display: block;
-                    left: 0;
-                    right: 0;
-                    top: 100%;
-                    margin-top: 20px;
-                    text-align: center;
-                    color: var(--text);
-                }
-        
-                @keyframes page-2 {
-                    0% {
-                        transform: rotateY(180deg);
-                        opacity: 0;
-                    }
-        
-                    20% {
-                        opacity: 1;
-                    }
-        
-                    35%, 100% {
-                        opacity: 0;
-                    }
-        
-                    50%, 100% {
-                        transform: rotateY(0deg);
-                    }
-                }
-        
-                @keyframes page-3 {
-                    15% {
-                        transform: rotateY(180deg);
-                        opacity: 0;
-                    }
-        
-                    35% {
-                        opacity: 1;
-                    }
-        
-                    50%, 100% {
-                        opacity: 0;
-                    }
-        
-                    65%, 100% {
-                        transform: rotateY(0deg);
-                    }
-                }
-        
-                @keyframes page-4 {
-                    30% {
-                        transform: rotateY(180deg);
-                        opacity: 0;
-                    }
-        
-                    50% {
-                        opacity: 1;
-                    }
-        
-                    65%, 100% {
-                        opacity: 0;
-                    }
-        
-                    80%, 100% {
-                        transform: rotateY(0deg);
-                    }
-                }
-        
-                @keyframes page-5 {
-                    45% {
-                        transform: rotateY(180deg);
-                        opacity: 0;
-                    }
-        
-                    65% {
-                        opacity: 1;
-                    }
-        
-                    80%, 100% {
-                        opacity: 0;
-                    }
-        
-                    95%, 100% {
-                        transform: rotateY(0deg);
-                    }
-                }*/
-
-        /*      // loation animation*/
-        .newtons-cradle {
-            --uib-size: 50px;
-            --uib-speed: 1.2s;
-            --uib-color: #474554;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: var(--uib-size);
-            height: var(--uib-size);
-        }
-
-        .newtons-cradle__dot {
-            position: relative;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            width: 25%;
-            transform-origin: center top;
-        }
-
-        .newtons-cradle__dot::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 25%;
-            border-radius: 50%;
-            background-color: var(--uib-color);
-        }
-
-        .newtons-cradle__dot:first-child {
-            animation: swing var(--uib-speed) linear infinite;
-        }
-
-        .newtons-cradle__dot:last-child {
-            animation: swing2 var(--uib-speed) linear infinite;
-        }
-
-        @keyframes swing {
-            0% {
-                transform: rotate(0deg);
-                animation-timing-function: ease-out;
-            }
-
-            25% {
-                transform: rotate(70deg);
-                animation-timing-function: ease-in;
-            }
-
-            50% {
-                transform: rotate(0deg);
-                animation-timing-function: linear;
-            }
-        }
-
-        @keyframes swing2 {
-            0% {
-                transform: rotate(0deg);
-                animation-timing-function: linear;
-            }
-
-            50% {
-                transform: rotate(0deg);
-                animation-timing-function: ease-out;
-            }
-
-            75% {
-                transform: rotate(-70deg);
-                animation-timing-function: ease-in;
-            }
-        }
-
-        /*        // butotn css*/
-        .button {
-            padding: 1em 2em;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #2c9caf;
-            transition: all 1000ms;
-            font-size: 15px;
-            position: relative;
-            overflow: hidden;
-            outline: 2px solid #2c9caf;
-        }
-        button:hover {
-            color: #ffffff;
-            transform: scale(1.1);
-            outline: 2px solid #70bdca;
-            box-shadow: 4px 5px 17px -4px #268391;
-        }
-    </style>
 </html>
 
