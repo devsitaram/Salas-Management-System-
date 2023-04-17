@@ -8,9 +8,7 @@ import com.salemamagementsystem.model.CustomerModelBean;
 import com.salemamagementsystem.model.ItemModelBean;
 import com.salemamagementsystem.model.OrderModelBean;
 import com.salemamagementsystem.model.PaymentModelBean;
-import com.salemamagementsystem.model.SupplierModelBean;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,13 +32,6 @@ public class CustomerDatabaseUtil {
     String customerPhone;
     String customerPassword;
     
-    SupplierModelBean supplierModelBean = new SupplierModelBean();
-    int supplierId;
-    String supplierName;
-    String supplierMail;
-    String supplierLocation;
-    String supplierContactNo;
-    
     ItemModelBean itemModelBean = new ItemModelBean();
     int itemNo;
     String itemName;
@@ -62,26 +53,17 @@ public class CustomerDatabaseUtil {
     
     // create an object SaleConstants class
     SaleConstants saleConstants = new SaleConstants();
+    DriverConnection driverConnection = new DriverConnection();
     Connection connection; // create an object of driver connection
 
-    // connect to the databses driver
-    public Connection getDatabaseConnection() throws SQLException, ClassNotFoundException {
-        Class.forName(saleConstants.JDBC_DRIVER);
-        connection = DriverManager.getConnection(saleConstants.DB_URL);
-        return connection;
-    }
 
     // get all the customer detials from data bases
     public ResultSet getCustomerData() {
         try {
-            connection = getDatabaseConnection();
+            connection = driverConnection.getDatabaseConnection();
             Statement statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
-            ResultSet resultSet = statement.executeQuery(saleConstants.GET_ALL_CUSTOMER_DATA);
-           
-            
-//        insertOrderData(440, "05-04-2023", 5, "Foode odrer", 404, 904, 400);     
-                    
+            ResultSet resultSet = statement.executeQuery(saleConstants.GET_ALL_CUSTOMER_DATA);                    
             
             return resultSet;
         } catch (ClassNotFoundException | SQLException ex) {
@@ -103,7 +85,7 @@ public class CustomerDatabaseUtil {
     // get all customer data from databses and check to insert the valid data (customer data are register)
     public void insertCustomerData(int customer_id, String customer_name, String email, String address, String phone_no, String password) {
         try {
-            connection = getDatabaseConnection();
+            connection = driverConnection.getDatabaseConnection();
             Statement statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rsCustomersData = statement.executeQuery(saleConstants.GET_CUSTOMER_DATA);
             // while loop
@@ -176,123 +158,66 @@ public class CustomerDatabaseUtil {
     }
     
     // update the customer data
-    public void updateCustomerData(String name, String email, String address, String phoneNo, String password, int customerId) throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        PreparedStatement updateStatement = connection.prepareStatement(saleConstants.UPDATE_CUSTOMER_DATA);
-        updateStatement.setString(1, name);
-        updateStatement.setString(2, email);
-        updateStatement.setString(3, address);
-        updateStatement.setString(4, phoneNo);
-         updateStatement.setString(4, password);
-        updateStatement.setInt(6, customerId); 
-            
-        updateStatement.executeUpdate(); // return the int data but this methods have return types is void
-    }
-    
-    public void deleteCustomer(int customerId)throws SQLException, ClassNotFoundException{
-        System.out.println("Customer Id: "+customerId);
-        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_CUSTOMER_DATA);
-        deleteStatement.setInt(1, customerId);
-        deleteStatement.executeUpdate();
-    }
-    
-//    
-//    /**
-//     * all the given below methods are delete methods where unnecessary data was delete from database table
-//     * @param name
-//     * @param email
-//     * @param address
-//     * @param phoneNo
-//     * @param password
-//     * @param customerId
-//     * @throws SQLException
-//     * @throws ClassNotFoundException
-//     * deleteCustomerData methods can be delete the customer data,
-//     * deleteSupplierData methods can be delete the supplier data,
-//     * deleteItemDaata methods can be delete the item data,
-//     * deletePaymentData methods can be delete the payment data,
-//     * deleteOrderData methods can be delete the order data
-//     */
-    
-    public void deleteCustomerData(int customerId, String name, String email, String address, String phoneNo, String password)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        if (customerId ==0 && name.isEmpty() && email.isEmpty() && address.isEmpty() && phoneNo.isEmpty() && password.isEmpty()){
-            System.out.println("The fields is empty!");
-        } else {
-            // delete by Id
-            if(customerId !=0  && name.isEmpty() && email.isEmpty() && address.isEmpty() && phoneNo.isEmpty() && password.isEmpty()){
-                System.out.println("Customer Id: "+customerId);
-                PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_CUSTOMER_DATA);
-                deleteStatement.setInt(1, customerId);
-                deleteStatement.executeUpdate();
-            }
-            // delete by name
-            if (!name.isEmpty()){
-                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where customer_name = ?");
-                deleteStatement.setString(1, name);
-                deleteStatement.executeUpdate();
-            }
-            // delete by email
-            if (!email.isEmpty()){
-                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where EMAIL = ?");
-                deleteStatement.setString(1, email);
-                deleteStatement.executeUpdate();
-            } 
-            // delete by address
-            if (!address.isEmpty()){
-                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where ADDRESS = ?");
-                deleteStatement.setString(1, address);
-                deleteStatement.executeUpdate();
-            } 
-            // delete by phone number
-            if (!phoneNo.isEmpty()){
-                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where PHONE_NO = ?");
-                deleteStatement.setString(1, phoneNo);
-                deleteStatement.executeUpdate();
-            } 
-            // delete by password
-            if (!password.isEmpty()){
-                PreparedStatement deleteStatement = connection.prepareStatement("Delete From ADMIN.customers Where PASSWORD = ?");
-                deleteStatement.setString(1, password);
-                deleteStatement.executeUpdate();
-            }
+    public void updateCustomerData(String name, String email, String address, String phoneNo, String password, int customerId) throws ClassNotFoundException{
+        try{
+            connection = driverConnection.getDatabaseConnection();
+            PreparedStatement updateStatement = connection.prepareStatement(saleConstants.UPDATE_CUSTOMER_DATA);
+            updateStatement.setString(1, name);
+            updateStatement.setString(2, email);
+            updateStatement.setString(3, address);
+            updateStatement.setString(4, phoneNo);
+            updateStatement.setString(5, password);
+            updateStatement.setInt(6, customerId); 
+
+            updateStatement.executeUpdate(); // retur
+        } catch(SQLException ex){
+            System.out.println("Failed: "+customerId);
         }
     }
     
-    public void ma(){
-        
+    
+    
+    /**
+     * all the given below methods are delete methods where unnecessary data was delete from database table
+     * deleteCustomerData methods can be delete the customer data,
+    **/
+    public void deleteCustomer(int customerId) {
+        try{
+            PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_CUSTOMER_DATA);
+            deleteStatement.setInt(1, customerId);
+            if(deleteStatement.executeUpdate()>=0){
+                System.out.println("Sucess");
+            }else{
+                System.out.println("Failed");
+            }
+        }catch(SQLException ex){
+            System.out.println("Failed: "+customerId);
+        }  
     }
     
     
-    
-    // delete supplier data from database
-    public void deleteSupplierData(int supplier_id)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_SUPPLIER_DATA);
-        deleteStatement.setInt(1, supplier_id);
-        deleteStatement.executeUpdate();
-    }
+
     
     // delete item data from database
     public void deleteItemDaata(int item_no)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_ITEM_DATA);
+        connection = driverConnection.getDatabaseConnection();
+        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_ITEM_DATA);
         deleteStatement.setInt(1, item_no);
         deleteStatement.executeUpdate();
     }
     
     // delete payment data from database
     public void deletePaymentData(int payment_no)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_PAYMENT_DATA);
+        connection = driverConnection.getDatabaseConnection();
+        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_PAYMENT_DATA);
         deleteStatement.setInt(1, payment_no);
         deleteStatement.executeUpdate();
     }
     
     // delete order data from database
     public void deleteOrderData(int order_no)throws SQLException, ClassNotFoundException{
-        connection = getDatabaseConnection();
-        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELEDE_ORDER_DATA);
+        connection = driverConnection.getDatabaseConnection();
+        PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_ORDER_DATA);
         deleteStatement.setInt(1, order_no);
         deleteStatement.executeUpdate();
     }

@@ -10,18 +10,18 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="customerModelBean")
 @SessionScoped 
 public class CustomerModelBean {
-    private int customerId;
+    private String customerId;
     public String customerName;
     public String email;
     public String address;
     public String phoneNo;
     public String password;
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

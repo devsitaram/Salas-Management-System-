@@ -3,112 +3,328 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>splash Page</title>
-    </h:head>
-    <h:body>
-        <h:dataTable value="#{customerDbBean.customerData}" var="customer"
-                    styleClass="table"
-                    headerClass="header"
-                    rowClasses="oddRows,evenRows"
-                    cellpadding="5" cellspacing="5">
-           <h:column>
-               <f:facet name="header">customer Id</f:facet>
-                   #{customer.customer_id}
-           </h:column>
-           <h:column>
-               <f:facet name="header">Name</f:facet>
-                   #{customer.Customer_name}
-           </h:column>
-           <h:column>
-               <f:facet name="header">Email</f:facet>
-                   #{customer.Email}
-           </h:column>
-           <h:column>
-               <f:facet name="header">Address</f:facet>
-                   #{customer.Address}
-           </h:column>
-           <h:column>
-               <f:facet name="header">Phone No</f:facet>
-                   #{customer.Phone_no}
-           </h:column>
-           <h:column>
-               <f:facet name="header">Password</f:facet>
-                   #{customer.Password}
-           </h:column>
-         </h:dataTable>
-        
-        <h:form>
-            <h3>Edit Customer Details</h3>
-            <div style="width: 50%; float: left">
-                <p>Customer Id: 
-                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: -5px; width: 200px"
-                                requiredMessage="Please enter the valid phone number?"
-                                value="#{customerModelBean.customerId}" maxlength="3"
-                                converterMessage="Invalid your Id!">
-                        <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
-                    </h:inputText>
-                    <h:message for="customerIdInputText" styleClass="error"/>
-                </p>
-                <p>Name:
-                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 40px; width: 200px"
-                            requiredMessage="Please enter the valid name?"
-                            value="#{customerModelBean.customerName}" 
-                            validatorMessage="Invalid your name!">
-                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
-                    </h:inputText>
-                    <h:message for="nameInputText" styleClass="error"/>
-                </p>
-                <p>Email: 
-                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 41px; width: 200px"
-                            requiredMessage="Please enter the valid email?"
-                            value="#{customerModelBean.email}"
-                            validatorMessage="Invalid your email!">
-                       <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
-                    </h:inputText>
-                    <h:message for="emailInputText" styleClass="error"/>
-                </p>
-                <p>Address: 
-                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 21px; width: 200px"
-                            requiredMessage="Please enter the valid name?"
-                            value="#{customerModelBean.address}" 
-                            validatorMessage="Invalid your name!">
-                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
-                    </h:inputText>
-                    <h:message for="addressInputText" styleClass="error"/>
-                </p>
-                <p>Phone No: 
-                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 9px; width: 200px"
-                                requiredMessage="Please enter the valid phone number?"
-                                value="#{customerModelBean.phoneNo}" maxlength="10"
-                                validatorMessage="Invalid phone number!">
-                        <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
-                    </h:inputText>
-                    <h:message for="phoneInputText" styleClass="error"/>
-                </p>
-                <p>Password:                                                
-                    <h:inputText id="passwordInputText" rendered="true" 
-                                 style="margin-left: 10px; width: 200px"
-                            requiredMessage="Please enter the valid p?assword"
-                            value="#{customerModelBean.password}" >
-                    </h:inputText>
-               </p>
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            .navbar {
+                width: 455.5px;
+                overflow: hidden;
+                background-color: #333;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .navbar a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            .dropdown {
+                float: left;
+                overflow: hidden;
+            }
+            .dropdown .dropbtn {
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font: inherit;
+                margin: 0;
+            }
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: whitesmoke;
+                width: auto;
+                height: auto;
+                left: 0;
+                padding: auto;
+                margin-left: 55px;
+            }
+            .dropdown-content .header {
+                padding-left: 15px;
+                height: 30px;
+                color: rgb(33, 33, 33);
+            }
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>
+    </head>
+    <body style="width: 1230px; height: 600px;">
+
+        <!-- this is the header section-->
+        <header style="height: 10%; width: 100%;  padding: 10px; background-color: #f3f3f3;">
+            <div style=" width: 200px; float: left; margin-left: 20px; ">
+                <div style="width: 30%; float: left;">
+                    <div class="loader">
+                        <div class="face">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="face">
+                            <h3 style="color: black;"><a href="pagesses/home.xhtml">SMS</a></h3>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 60%; height: 100%; float: right;">
+                    <h3>BuyToSale</h3>   	 
+                </div>
             </div>
 
-            <!--// update and delete button-->
-            <div style="width: 50%; float: right;  text-align: center">
-                                <h:commandButton value="Update" style="width: 25%; margin: 10px"
-                                 action="#{customerDbBean.updateCustomerData(
-                                        customerModelBean.customerName,
-                                        customerModelBean.address,
-                                        customerModelBean.email,
-                                        customerModelBean.phoneNo,
-                                        customerModelBean.password,
-                                        customerModelBean.customerId)}"/>
+            <!-- menu icon -->
+            <div class="menu">
+                <a href="">
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                </a>
+            </div>
+
+            <!--this is the navication bar-->
+            <div style="height: 70%; width: 475px; margin-top: 6px; margin-right: 10px; float: right; border-radius: 10px;">
+                <ul>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#news">Product</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- this is the main content section-->
+        <main  style="width: 100%; height: 700px;">
+            <div style="width: 100%; height: 70%;">
+                <div style="float: left; height: 85%; width: 40%; padding-left: 50px; margin-top: 30px; background-color: palevioletred">
+                    <h2 style="font-family: plane;">Sale</h2>
+                    <h4 style="font-family: Arial, Helvetica, sans-serif">Sales Management System</h4>
+                    <h3 style="text-align: justify; padding-right: 5px; font-family: plane, Helvetica, sans-serif;">Sales management is the management of activities and processes relating to the effective planning, 
+                        coordination, implementation, control, and evaluation of the organization's sales performance. Sales 
+                        management is a core business process in most organizations. A role in sales management is typically 
+                        a sales manager whose job plays a vital role in a company’s revenue generation and profits.
+                    </h3>
+                </div>
+                <div style="float: right; width: 40%; overflow: hidden">
+                    <h:graphicImage url="images/sales.PNG"/>
+                </div>
+            </div>
+
+            <div style="width: 96%; height: 45px; padding-left: 50px;">
+                <div class="navbar">
+                    
+                    <!--// customer details-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Customers<i class="fa fa-caret-down"></i></button>
+                        
+                        <div class="dropdown-content">
+                            <div class="header">
+                                <h2>Customer Details</h2>
+                            </div>
+                            <div style="padding: 10px">
+                                <!--// show the customer details-->
+                                <h:dataTable value="#{customerDbBean.customerData}" var="customer"
+                                            styleClass="table"
+                                            headerClass="header"
+                                            rowClasses="oddRows,evenRows"
+                                            cellpadding="5" cellspacing="5">
+                                    <h:column>
+                                        <f:facet name="header">customer Id</f:facet>
+                                            #{customer.customer_id}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Name</f:facet>
+                                            #{customer.Customer_name}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Email</f:facet>
+                                            #{customer.Email}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Address</f:facet>
+                                            #{customer.Address}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Phone No</f:facet>
+                                            #{customer.Phone_no}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Password</f:facet>
+                                            #{customer.Password}
+                                    </h:column>
+                                    <h:column>
+                                         <h:form>
+                                             <h:commandButton value="Delete" action="#{customerDbBean.deleteCustomer(customer.customer_id)}"/>
+                                         </h:form>
+                                    </h:column>
+                                </h:dataTable>
+                                <!--customer details update and delete-->
+                                <div>
+                                    <h:form>
+                                        <h3 style="padding-left: 10px">Edit Customer Details</h3>
+                                        <div class="column">
+                                            <div style="width: 55%; float: left; padding: 10px; background-color: red">
+                                                <p>Customer Id: 
+                                                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
+                                                                requiredMessage="Please enter the valid phone number?"
+                                                                value="#{customerModelBean.customerId}" maxlength="3"
+                                                                converterMessage="Invalid your id!">
+                                                    </h:inputText>
+                                                    <h:message for="customerIdInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Name:
+                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 45px; margin-right: 5px; width: 200px"
+                                                            requiredMessage="Please enter the valid name?"
+                                                            value="#{customerModelBean.customerName}" 
+                                                            validatorMessage="Invalid your name!">
+                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                    </h:inputText>
+                                                    <h:message for="nameInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Email: 
+                                                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 46px; margin-right: 5px; width: 200px"
+                                                            requiredMessage="Please enter the valid email?"
+                                                            value="#{customerModelBean.email}"
+                                                            validatorMessage="Invalid your email!">
+                                                       <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
+                                                    </h:inputText>
+                                                    <h:message for="emailInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Address: 
+                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 26px; margin-right: 5px; width: 200px"
+                                                            requiredMessage="Please enter the valid name?"
+                                                            value="#{customerModelBean.address}" 
+                                                            validatorMessage="Invalid your name!">
+                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                    </h:inputText>
+                                                    <h:message for="addressInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Phone No: 
+                                                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 14px; margin-right: 5px; width: 200px"
+                                                                requiredMessage="Please enter the valid phone number?"
+                                                                value="#{customerModelBean.phoneNo}" maxlength="10"
+                                                                validatorMessage="Invalid phone number!">
+                                                        <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
+                                                    </h:inputText>
+                                                    <h:message for="phoneInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Password:                                                
+                                                    <h:inputText id="passwordInputText" rendered="true" 
+                                                                 style="margin-left: 15px; margin-right: 2px; width: 200px"
+                                                            requiredMessage="Please enter the valid p?assword"
+                                                            value="#{customerModelBean.password}" >
+                                                    </h:inputText>
+                                                </p>
+                                                <p>
+                                                    <h:commandButton value="Update" style="width: 25%; margin: 30px" 
+                                                                     action="#{customerDbBean.updateCustomerData(
+                                                                            customerModelBean.customerName,
+                                                                            customerModelBean.address,
+                                                                            customerModelBean.email,
+                                                                            customerModelBean.phoneNo,
+                                                                            customerModelBean.password,
+                                                                            customerModelBean.customerId)}"/>
+
+                                                    <h:commandButton value="Delete" style="width: 25%; margin: 30px"
+                                                                 action="#{customerDbBean.deleteCustomer(
+                                                                        customerModelBean.customerId)}"/>
+                                                </p>
+                                            </div>
+    <!--                                        // update and delete button-->
+                                            <div style="width: 40%; float: right;">
+                                                <h:graphicImage url="images/customer.jpg"/>
+                                            </div>
+                                        </div>
+                                    </h:form>    
+                                </div>
                                 
-                <h:commandButton value="Delete" action="#{customerDbBean.deleteCustomer(customerModelBean.customerId)}"/>
-            </div>
-        </h:form>
-    </h:body>
-</html>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <!--// supplier details-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Suppliers<i class="fa fa-caret-down"></i></button>
+                    </div>
 
+                    <!--// items details-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Items<i class="fa fa-caret-down"></i></button>
+                    </div>
+
+                    <!--// payments details-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Payments<i class="fa fa-caret-down"></i></button>
+                    </div>  
+                    
+                    <!--// orders details-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
+                    </div> 
+                    
+                    
+                </div>
+
+            </div>
+        </main>
+
+        <!-- this is the footer section-->
+        <footer>
+            <div style="height: 100%; width: 100%; margin-top:55px; background: blueviolet">
+            </div>
+        </footer>
+
+    </body>
+    <style>
+        /* Navication bar codepen*/
+        .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .li a {
+            float: left;
+            display: block;
+            color: #666;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 5%;
+        }
+        .li a:hover:not(.active):hover {
+            transition: 0.90s;
+            color: white;
+            background-color: #04AA6D;
+        }
+        .li a.active {
+            margin-right: 5px;
+            color: #2243ff;
+            background-color: #f3f3f3;
+            transition: 0.50s;
+        }
+
+        /* // menu icon */
+        .menu {
+            height: 50%;
+            width: 35px;
+            margin: 12px;
+            float: right;
+            text-align: center;
+        }
+        .iconLine{
+            height: 3px;
+            width: 20px;
+            margin: 5px;
+            background-color: #666;
+        }
+    </style>
+</html>

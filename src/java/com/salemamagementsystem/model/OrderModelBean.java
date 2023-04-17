@@ -11,7 +11,7 @@ package com.salemamagementsystem.model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="orderDbBean")
+@ManagedBean(name="orderModelBean")
 @SessionScoped 
 public class OrderModelBean {
     int order_no;

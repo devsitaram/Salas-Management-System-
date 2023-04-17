@@ -11,7 +11,7 @@ package com.salemamagementsystem.model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="itemDbBean")
+@ManagedBean(name="itemModelBean")
 @SessionScoped 
 public class ItemModelBean {
     int item_no;

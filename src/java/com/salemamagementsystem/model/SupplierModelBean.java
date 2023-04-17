@@ -7,29 +7,29 @@ package com.salemamagementsystem.model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="supplierDbBean")
+@ManagedBean(name="supplierModelBean")
 @SessionScoped 
 public class SupplierModelBean {
-    private int supplier_id;
-    private String supplier_name;
+    private int supplierId;
+    private String supplierName;
     private String mail;
     private String location;
-    private String contract_no;
+    private String contactNo;
 
-    public int getSupplier_id() {
-        return supplier_id;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public String getSupplier_name() {
-        return supplier_name;
+    public String getSupplierName() {
+        return supplierName;
     }
 
-    public void setSupplier_name(String supplier_name) {
-        this.supplier_name = supplier_name;
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
     public String getMail() {
@@ -48,12 +48,12 @@ public class SupplierModelBean {
         this.location = location;
     }
 
-    public String getContract_no() {
-        return contract_no;
+    public String getContactNo() {
+        return contactNo;
     }
 
-    public void setContract_no(String contract_no) {
-        this.contract_no = contract_no;
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
     }
     
 }
