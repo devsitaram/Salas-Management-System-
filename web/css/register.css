@@ -1,36 +1,45 @@
-/* this is the css of register page*/
 .maindiv{
-    height: 1000px;
+    height: 850px;
     width: 50%;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 25%;
-    margin-right: 25%;
-    padding-top: 5px;
-    background-color: buttonface;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
 }
-
 /* input text fileds*/
-#input_textfields {
+.input_textfields {
     width: 55%;
     height: 20px;
     padding: 10px;
     margin-top: 5px;
     border-radius: 12px;
     border: 1.5px solid lightgrey;
-    /*            outline: none;*/
     outline-color: graytext;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0px 0px 20px -20px;
 }
-#input_textfields:hover{
+.input_textfields:hover{
     transform: scale(0.97);
     width: 50%;
 }
 
+/* password*/
+.password_textfields {
+    width: 55%;
+    height: 20px;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline-color: graytext;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -20px;
+}
+
 /* button css*/
-#button {
+.button {
     margin-top: 30px;
     padding-left: 33px;
     padding-right: 33px;
@@ -42,11 +51,11 @@
     font-size: medium;
     text-align: center;
 }
-#button:hover {
+.button:hover {
     box-shadow: 7px 5px 56px -14px #0015ff;
     transform: scale(0.95);
     transition: 0.5s;
 }
-#btnText{
+.btnText{
     text-decoration:none;
 }

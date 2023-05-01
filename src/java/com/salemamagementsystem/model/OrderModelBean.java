@@ -14,36 +14,38 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="orderModelBean")
 @SessionScoped 
 public class OrderModelBean {
-    int order_no;
-    String order_date;
-    int order_qty;
+    int orderNo;
+    String orderDate;
+    int orderQty;
     String descriptions;
-    int item_no;
-    int payment_no;
-    int customer_id;
+    int itemNo;
+    int paymentNo;
+    int customerId;
 
-    public int getOrder_no() {
-        return order_no;
+    // getter and setter methods
+
+    public int getOrderNo() {
+        return orderNo;
     }
 
-    public void setOrder_no(int order_no) {
-        this.order_no = order_no;
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
     }
 
-    public String getOrder_date() {
-        return order_date;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setOrder_date(String order_date) {
-        this.order_date = order_date;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public int getOrder_qty() {
-        return order_qty;
+    public int getOrderQty() {
+        return orderQty;
     }
 
-    public void setOrder_qty(int order_qty) {
-        this.order_qty = order_qty;
+    public void setOrderQty(int orderQty) {
+        this.orderQty = orderQty;
     }
 
     public String getDescriptions() {
@@ -54,27 +56,28 @@ public class OrderModelBean {
         this.descriptions = descriptions;
     }
 
-    public int getItem_no() {
-        return item_no;
+    public int getItemNo() {
+        return itemNo;
     }
 
-    public void setItem_no(int item_no) {
-        this.item_no = item_no;
+    public void setItemNo(int itemNo) {
+        this.itemNo = itemNo;
     }
 
-    public int getPayment_no() {
-        return payment_no;
+    public int getPaymentNo() {
+        return paymentNo;
     }
 
-    public void setPayment_no(int payment_no) {
-        this.payment_no = payment_no;
+    public void setPaymentNo(int paymentNo) {
+        this.paymentNo = paymentNo;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
+    
 }

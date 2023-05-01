@@ -1,0 +1,239 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 20, 2023, 11:30:02 AM
+    Author     : Lenovo
+*/
+/* // logo anomations */
+.loader {
+    width: 6em;
+    height: 6em;
+    font-size: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate023845 3s linear infinite;
+}
+.loader .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color: rgb(22, 255, 22);
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+}
+.loader .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color: rgb(0, 64, 255);
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+}
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+        0 0 4em,
+        0 0 6em,
+        0 0 8em,
+        0 0 10em,
+        0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+@keyframes animate023845 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li a {
+    float: left;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5%;
+}
+li a:hover:not(.active):hover {
+    transition: 0.90s;
+    color: white;
+    background-color: #04AA6D;
+}
+li a.active {
+    margin-right: 5px;
+    color: #2243ff;
+    background-color: #f3f3f3;
+    transition: 0.50s;
+}
+
+/* // menu icon */
+.menu {
+    height: 50%;
+    width: 35px;
+    margin: 12px;
+    float: right;
+    text-align: center;
+}
+.iconLine{
+    height: 3px;
+    width: 20px;
+    margin: 5px;
+    background-color: #666;
+}
+.body{
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f6f6f6;
+    overflow-y: scroll;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    /* background-color: DodgerBlue; */
+}
+.flex-container > div {
+    background-color: #ffffff;
+    width: 210px;
+    height: 285px;
+    margin: 25px;
+}
+.card {
+    width: 220px;
+    height: 254px;
+    padding: .8em;
+    background: #ffffff;
+    overflow: visible;
+    border-radius: 10px;
+    box-shadow: rgb(37, 135, 255) 0px 8px 16px -8px;
+    /* box-shadow: 0 1px 3px rgba(77, 157, 255, 0.12), 0 1px 2px rgba(123, 123, 123, 0.24); */
+}
+.card-img {
+    /* background-color: #ffcaa6; */
+    height: 180px;
+    width: 210px;
+    overflow:visible;
+    border-radius: .5rem;
+    transition: .3s ease;
+}
+/*Hover*/
+.card-img:hover {
+    transform: translateY(-25%);
+    box-shadow: rgba(66, 255, 170, 0.568) 0px 13px 47px -5px, rgb(82, 111, 215) 0px 8px 16px -8px;
+}
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+}
+.footer {
+    height: 420px;
+    width: 100%;
+    background-color: #1d1d1d;
+}
+.footerDiv {
+    display: flex;
+    height: 310px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    /* background-color: #1d1d1d; */
+}
+.footerText {
+    height: 100%;
+    width: 25%;
+    padding-left: 100px;
+    text-align: left;
+}
+.h2 {
+    font-family: Arial, sans-serif;
+    color: #dedede;
+}
+.h3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #9c9c9c;
+}
+
+/*// dropwown*/
+.navbar {
+    width: 455.5px;
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit;
+    margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    width: auto;
+    height: auto;
+    left: 0;
+    padding: auto;
+    margin-left: 55px;
+}
+.dropdown-content .header {
+    padding-left: 15px;
+    height: 30px;
+    color: rgb(33, 33, 33);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}

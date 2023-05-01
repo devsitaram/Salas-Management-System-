@@ -14,58 +14,61 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="itemModelBean")
 @SessionScoped 
 public class ItemModelBean {
-    int item_no;
-    String item_name;
-    Double prices;
-    String item_qty;
-    String supply_date;
-    int supplier_id;
+    int itemNo;
+    String itemName;
+    double prices;
+    String itemQty;
+    String supplyDate;
+    int supplierId;
+    
+    // getter and setter methods
 
-    public int getItem_no() {
-        return item_no;
+    public int getItemNo() {
+        return itemNo;
     }
 
-    public void setItem_no(int item_no) {
-        this.item_no = item_no;
+    public void setItemNo(int itemNo) {
+        this.itemNo = itemNo;
     }
 
-    public String getItem_name() {
-        return item_name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setItem_name(String item_name) {
-        this.item_name = item_name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public Double getPrices() {
+    public double getPrices() {
         return prices;
     }
 
-    public void setPrices(Double prices) {
+    public void setPrices(double prices) {
         this.prices = prices;
     }
 
-    public String getItem_qty() {
-        return item_qty;
+    public String getItemQty() {
+        return itemQty;
     }
 
-    public void setItem_qty(String item_qty) {
-        this.item_qty = item_qty;
+    public void setItemQty(String itemQty) {
+        this.itemQty = itemQty;
     }
 
-    public String getSupply_date() {
-        return supply_date;
+    public String getSupplyDate() {
+        return supplyDate;
     }
 
-    public void setSupply_date(String supply_date) {
-        this.supply_date = supply_date;
+    public void setSupplyDate(String supplyDate) {
+        this.supplyDate = supplyDate;
+    }
+
+    public int getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
     
-    public int getSupplier_id() {
-        return supplier_id;
-    }
-
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
-    }
 }

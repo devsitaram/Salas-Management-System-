@@ -14,17 +14,17 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="paymentModelBean")
 @SessionScoped 
 public class PaymentModelBean {
-    int payment_no;
+    int paymentNo;
     Double amounts;
-    String payment_date;
+    String paymentDate;
     String remarks;
 
-    public int getPayment_no() {
-        return payment_no;
+    public int getPaymentNo() {
+        return paymentNo;
     }
 
-    public void setPayment_no(int payment_no) {
-        this.payment_no = payment_no;
+    public void setPaymentNo(int paymentNo) {
+        this.paymentNo = paymentNo;
     }
 
     public Double getAmounts() {
@@ -35,12 +35,12 @@ public class PaymentModelBean {
         this.amounts = amounts;
     }
 
-    public String getPayment_date() {
-        return payment_date;
+    public String getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setPayment_date(String payment_date) {
-        this.payment_date = payment_date;
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public String getRemarks() {

@@ -22,8 +22,8 @@
 }
 
 .rightdiv{
-    width: 35%;
-    height: 585px;
+    width: 35%; 
+    height: 585px; 
     align-content: center;
     text-align: center;
     background: #3399ff;
@@ -32,12 +32,16 @@
     glyph-orientation-vertical: auto;
     float: right;
 }
-
-/* input text fields css*/
+.form{
+    margin-top: 30px; 
+    text-align: center
+}
+/* // input text fields css*/
 .input_textfields {
+    width: 40%;
     height: 20px;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 15px;
     border-radius: 12px;
     border: 1.5px solid lightgrey;
     outline-color: graytext;
@@ -45,32 +49,30 @@
     box-shadow: 0px 0px 20px -20px;
 }
 .input_textfields:hover{
-    transform: scale(0.97);
-    width: 50%;
+    transform: scale(0.90);
+    width: 40%;
 }
 
 /* button css*/
-#button {
-    height: 45px;
-    margin-top: 30px;
-    padding-left: 33px;
-    padding-right: 33px;
+.button {
+    height: 40px; 
+    margin-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
     border-radius: 9px;
     border: none;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
     text-align: center;
+    color: white;
     text-decoration: none;
     text-decoration:none;
 }
-#button:hover {
+.button:hover {
     box-shadow: 7px 5px 56px -14px #0015ff;
     transform: scale(0.95);
     transition: 0.5s;
-}
-#btnText{
-    text-decoration:none;
 }
 
 /*// logo animations*/
@@ -94,7 +96,7 @@
 .loader .face:nth-child(1) {
     width: 100%;
     height: 100%;
-    color: gold;
+    color: rgb(22, 255, 22);
     border-color: currentColor transparent transparent currentColor;
     border-width: 0.2em 0.2em 0em 0em;
     --deg: -45deg;
@@ -104,7 +106,7 @@
 .loader .face:nth-child(2) {
     width: 70%;
     height: 70%;
-    color: lime;
+    color: rgb(0, 64, 255);
     border-color: currentColor currentColor transparent transparent;
     border-width: 0.2em 0em 0em 0.2em;
     --deg: -135deg;

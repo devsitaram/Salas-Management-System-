@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Product Pages</title>
+        <link rel="stylesheet" href="../css/product.css"/>
+    </head>
+    <body class="body">
+        <!-- this is the header section-->
+        <header style="height: 70px; width: 100%; background-color: #efefef;">
+
+            <div style=" width: 300px; float: left; margin-left: 20px;">
+                <div style="width: 30%; float: left;">
+                    <div class="loader">
+                        <div class="face">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="face">
+                            <h3 style="color: black;">B2S</h3>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 60%; height: 100%; float: right;">
+                    <h3>BuyToSale</h3>   	 
+                </div>
+            </div>
+
+            <!-- menu icon -->
+            <div class="menu">
+                <a href="">
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                </a>
+            </div>
+
+            <!--this is the navication bar-->
+            <div style="height: 70%; width: 475px; margin-top: 6px; margin-right: 10px; float: right; border-radius: 10px;">
+                <ul>
+                    <li><a href="home.xhtml">Home</a></li>
+                    <li><a class="active" href="product.xhtml">Product</a></li>
+                    <li><a href="contact.xhtml">Contact</a></li>
+                    <li><a href="service.xhtml">Services</a></li>
+                    <li><a href="about.xhtml">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- this is the main boty part -->
+        <main style="height: auto; width: 95%; margin: 20px; padding: 10px;">
+
+            <div class="flex-container">
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/pizza.jpeg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 101 </p>
+                        <p class="text-title">Name: Pizza</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.500</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/shirt.jpeg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 202 </p>
+                        <p class="text-title">Name: Shirt</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.500</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/studytable.jpeg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 303 </p>
+                        <p class="text-title">Name: Study Table</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.2500</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(../images/book.png);"></div>
+                    <div>
+                        <p class="text-title">Item No: 404</p>
+                        <p class="text-title">Name: Java Book</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs250</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/bag.jpeg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 505 </p>
+                        <p class="text-title">Name: Bag</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.1200</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/laptop.jpeg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 606</p>
+                        <p class="text-title">Name: Dell Laptop</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.86,500</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/bluebasberry.jpg);"></div>
+                    <div>
+                        <p class="text-title">Item No: 707 </p>
+                        <p class="text-title">Name: Blue Berry</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.100</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-image: url(itemimg/choklate.png);"></div>
+                    <div>
+                        <p class="text-title">Item No: 808 </p>
+                        <p class="text-title">Name: Choklate</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-title">Rs.50</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="height: 500px; width: 100%; background: red">
+                
+                <div style="width: 96%; height: 45px; padding-left: 50px;">
+                    <div class="navbar">
+                        <!--//show the payments details where insert, update and delete if the data is unnecessary-->
+                        
+                                <div class="header">
+                                    <h2 style="margin-top: 20px">Payment Details</h2>
+                                </div>
+                                
+                                <!--payments details update and delete-->
+                                <div>
+                                    <h:form>
+                                        <div>
+                                            <div style="width: 500px; float: left; padding: 10px; background-color: blue">
+                                                <p>Payment No: 
+                                                    <h:inputText id="paymentNoInputText" rendered="true" style="margin-left: 13px; margin-right: 5px; width: 200px"
+                                                                requiredMessage="Enter the valid paymnet no?"
+                                                                value="#{paymentModelBean.paymentNo}" maxlength="3"
+                                                                converterMessage="Invalid Item no!">
+                                                    </h:inputText>
+                                                    <h:message for="paymentNoInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Pay Amounts:
+                                                    <h:inputText id="amountInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
+                                                            requiredMessage="Enter the valid pay amount?"
+                                                            value="#{paymentModelBean.amounts}"
+                                                            validatorMessage="Invalid paymnet's amounts!">
+                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  
+                                                    </h:inputText>
+                                                    <h:message for="amountInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Payment Date: 
+                                                    <h:inputText id="paymentDateInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
+                                                                requiredMessage="Enter the valid payment's date?"
+                                                                value="#{paymentModelBean.paymentDate}" maxlength="10"
+                                                                validatorMessage="Invalid payment date!">
+                                                        <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
+                                                    </h:inputText>
+                                                    <h:message for="paymentDateInputText" styleClass="error"/>
+                                                </p>
+                                                <p>Re-marks:
+                                                    <h:inputText id="remarksInputText" rendered="true" style="margin-left: 28px; margin-right: 5px; width: 200px"
+                                                            requiredMessage="Enter the valid payment's remarks?"
+                                                            value="#{paymentModelBean.remarks}" 
+                                                            validatorMessage="Invalid payment remarks!">
+                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>
+                                                    </h:inputText>
+                                                    <h:message for="remarksInputText" styleClass="error"/>
+                                                </p>
+                                                <p style="text-align: center">
+                                                    <h:commandButton value="Payment" style="width: 25%; margin: 30px"
+                                                                     action="#{paymentDbBean.insertPaymentData(
+                                                                               paymentModelBean.paymentNo, 
+                                                                               paymentModelBean.amounts, 
+                                                                               paymentModelBean.paymentDate, 
+                                                                               paymentModelBean.remarks)}"/>
+                                                </p>
+                                            </div>
+                                            <!--// payment image-->
+                                            <div style="width: 500px; height: 100%; margin-right: 50px; float: right; background: greenyellow">
+                                                <h1>Hjhvdsjvd jsdbhsjdvs hsdsj</h1>
+                                            </div>
+                                        </div>
+                                    </h:form>      
+                                </div>
+                            
+
+                    </div>
+                </div>
+            </div>
+            
+            
+        </main>
+
+        <!-- this is the  fotter section  -->
+        <footer class="footer">
+            <div class="footerDiv">
+                <div class="footerText" style="float: left;">
+                    <h2 class="h2">Product</h2>
+                    <h3 class="h3">Foods</h3>
+                    <h3 class="h3">Stationery</h3>
+                    <h3 class="h3">Clothes</h3>
+                    <h3 class="h3">Furnitures</h3>
+                    <h3 class="h3">Electronics</h3>
+                    <h3 class="h3">Fruites</h3>
+                </div>
+
+                <div class="footerText" style="float: inline-start">
+                    <h2 class="h2">Learn</h2>
+                    <h3 class="h3">Customers</h3>
+                    <h3 class="h3">Resources</h3>
+                    <h3 class="h3">Developers</h3>
+                    <h3 class="h3">Marketing</h3>
+                    <h3 class="h3">Community</h3>
+                </div>
+
+                <div class="footerText" style="float: inline-end">
+                    <h2 class="h2">Get Helps</h2>
+                    <h3 class="h3">Support</h3>
+                    <h3 class="h3">Status</h3>
+                    <h3 class="h3">Pricing</h3>
+                    <h3 class="h3">Marketing</h3>
+                    <h3 class="h3">Community</h3>
+                </div>
+
+                <div class="footerText" style="float: left;">
+                    <h2 class="h2">Socila Media</h2>
+                    <h3 class="h3">Facebook</h3>
+                    <h3 class="h3">Tik Tok</h3>
+                    <h3 class="h3">Instragram</h3>
+                    <h3 class="h3">Twitter</h3>
+                    <h3 class="h3">Google</h3>
+                </div>
+            </div>
+
+            <div style="padding: 20px;">
+                <p style="color: #9c9c9c; font-size: 18px;">@2023 Sale Management System, All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
