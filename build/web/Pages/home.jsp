@@ -92,10 +92,10 @@
                         if (id=="" || name == "" || email == "" || address == "" || phoneno == "") {
                                 alert("Empty fields fund! Please enter the valid personal information.");
                         } else {
-                            if(newPassword == "") {
+                            if(newPassword == "" || confirmPassword == "") {
                                 alert("The password is empty!");
                             } else {
-                                if (confirmPassword == "") {
+                                if (newPassword.equals(onfirmPassword)) {
                                     alert("Please confirm your password!"); <!-- show the message -->
                                 } else {
                                     var xhr = new XMLHttpRequest();

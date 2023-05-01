@@ -67,15 +67,12 @@ public class CustomerDatabaseUtil {
                         connection.close();
                         return true;
                     }
-                    //
-                    System.out.println("UserNmae: " + customerName);
-                    System.out.println("Password: " + customerPassword);
                 }
 
                 // close objects and return false
-//                resultSet.close();
-//                statement.close();
-//                connection.close();
+                resultSet.close();
+                statement.close();
+                connection.close();
                 return false;
 
             } catch(ClassNotFoundException | SQLException ex){
@@ -99,7 +96,7 @@ public class CustomerDatabaseUtil {
     // insert the customer data
     public Boolean insertCustomerData(int customerId, String customerName, String email, String address, String phoneNo, String password){
         try{
-            // data insert in databases 
+             // driver connection error
             connection = driverConnection.getDatabaseConnection();
             PreparedStatement preStatementOrder = connection.prepareStatement(saleConstants.INSERT_CUSTOMER_ALL_DATA);
             // set/insert the  data
@@ -111,16 +108,28 @@ public class CustomerDatabaseUtil {
             preStatementOrder.setString(6,password);
             // exexute to insert data
             preStatementOrder.executeUpdate();
+            
             System.out.println("Customer Id: "+customerId);
             System.out.println("Customer Name: "+customerName);
             System.out.println("Customer email: "+email);
             System.out.println("Customer address: "+address);
             System.out.println("Customer phone No: "+phoneNo);
             System.out.println("Customer password: "+password);
+            
             return true;
-        }catch(ClassNotFoundException | SQLException ex){
-            System.out.println("Order Id valid data:" + ex);
-            return false;
+        } catch (ClassNotFoundException | SQLException ex) {
+                // handle ClassNotFoundException
+                ex.printStackTrace();
+                return false;
+        } finally {
+            // make sure to close connection object in case of any exception
+            try {
+                if(connection != null){
+                    connection.close();
+                }
+            } catch(SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
     
@@ -156,24 +165,6 @@ public class CustomerDatabaseUtil {
             System.out.println("Failed: "+customerId);
         }
     }
-    
-//    public void validation(String name, String password){
-//        try {
-//            connection = driverConnection.getDatabaseConnection();
-//            statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-//                    ResultSet.CONCUR_READ_ONLY);
-//            resultSet = statement.executeQuery(saleConstants.SELCT_CUSTOMER_DNAME_PASSWORD);                    
-//            while (resultSet.next()) {
-//                customerName = resultSet.getString("customer_name");
-//                customerPassword = resultSet.getString("password");
-//                if(name.equals(customerName) && password.equals(customerPassword)){
-//
-//                }
-//            }
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
 }
 
 

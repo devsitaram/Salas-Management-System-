@@ -76,14 +76,21 @@ public class RegisterServlet extends HttpServlet {
         String address = request.getParameter("userAddress");
         String phoneNo = request.getParameter("userPhoneNo");
         String password = request.getParameter("confirmPassword");
+        
+        System.out.println("customerId: "+customerId);
+        System.out.println("name: "+customerName);
+        System.out.println("address: "+address);
+        System.out.println("phone: "+phoneNo);
+        System.out.println("password: "+password);
+        System.out.println("email: "+email);
 
         // create an object 
         CustomerDatabaseUtil customerUtliObj = new CustomerDatabaseUtil();
-        // check the if  condication
         if (customerUtliObj.insertCustomerData(customerId, customerName, email, address, phoneNo, password)){
             response.sendRedirect("login.jsp");
         }else{
             // display the some error message
+//            response.sendRedirect("login.jsp");
             out.println("Invalid your details.");
             out.println("<h1>Hello " + customerId + "</h1>");
             out.println("<p>Your age is " + customerName + "</p>");
