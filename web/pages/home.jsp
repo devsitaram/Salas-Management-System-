@@ -107,7 +107,6 @@
                                         }
                                     };
                                     xhr.send("userId=" + id + "&userName=" + name + "&userEmail=" + email + "&userAddress=" + address + "&userPhoneNo=" + phoneno + "&confirmPassword=" + confirmPassword);
-
 //                                    alert("Register successful. Thank!");
                                 }
                             }

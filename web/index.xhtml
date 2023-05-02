@@ -4,86 +4,48 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="../css/register.css"/>
-        <title>Login page</title>
-        <style>
-	.maindiv{
-            height: 850px;
-            width: 50%;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            margin-left: 20%;
-            margin-right: 20%;
-            background-color: rgb(255, 255, 255);
-            border-radius: 10px;
-	}
-        /* input text fileds*/
-        .input_textfields {
-            width: 55%;
-            height: 20px;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 12px;
-            border: 1.5px solid lightgrey;
-            /*            outline: none;*/
-            outline-color: graytext;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0px 0px 20px -20px;
-        }
-        .input_textfields:hover{
-            transform: scale(0.97);
-            width: 50%;
-        }
-
-        /* button css*/
-        .button {
-            margin-top: 30px;
-            padding-left: 33px;
-            padding-right: 33px;
-            padding-bottom: 16px;
-            padding-top: 16px;
-            border-radius: 9px;
-            border: none;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: medium;
-            text-align: center;
-        }
-        .button:hover {
-            box-shadow: 7px 5px 56px -14px #0015ff;
-            transform: scale(0.95);
-            transition: 0.5s;
-        }
-        .btnText{
-            text-decoration:none;
-        }
-    </style>
+        <title>Product Pages</title>
+        <link rel="stylesheet" href="css/product.css"/>
     </head>
-    <body name="body">
-	<div class="maindiv">
-            <H2 style="color: #232222; text-align: center; margin-top: 10px;">Sign Up</H2>
-            <div style="height: 300px; width: 100%; margin-top: 30px;">
-                <h1 style="font-family:roboto; text-align: center;">Please register details</h1> 
-                <h4 style="text-align: center;">Enter the valid details</h4>
+    <body class="body">
+    <!-- this is the header section-->
+    <header class="header" style="height: 70px; width: 100%; padding-top: 5px; background-color: #efefef;">
 
-                <div style="margin-top: 40px; padding-left: 100px;">
-                    <form>
-                        <p>User Id: <input class="input_textfields" style="margin-left: 20px;" type="text" name="userId"/></p>
-                        <p>Username: <input class="input_textfields" style="margin-left: 1px;" type="text" name="userName"/></p>
-                        <p>Email: <input class="input_textfields" style="margin-left: 30px;" type="text" name="userEmail"/></p>
-                        <p>Address: <input class="input_textfields" style="margin-left: 15px;" type="text" name="userAddress"/></p>
-                        <p>Phone No: <input class="input_textfields" style="margin-left: 5px;" type="text" name="userPhoneNo"/></p>
-                        <p>Gender:
-                                <input style="margin-left: 30px;" type="radio" name="genderDetails" value="male"/> Male
-                                <input style="margin-left: 10px;" type="radio" name="genderDetails" value="female"/> Female
-                        </p><br>
-                        <p>Enter the strong password and confirm again!</p>
-                        <p>Password: <input class="input_textfields" style="margin-left: 1px;" type="password" name="newPassword"/></p>
-                        <p>Confirm: <input class="input_textfields" style="margin-left: 5px;" type="password" name="confirmPassword"/></p>
-                        <p style="margin-left: 120px;"><button class="button" style="width: 50%; background: #525ff4"><a id="btnText" style="color: white" href="pages/register.jsp">Register</a></button></p></br>
-                    </form>
+        <div style=" width: 310px; float: left; margin-left: 30px;">
+            <div style="width: 25%; float: left;">
+                <div class="loader">
+                    <div class="face">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="face">
+                        <h3 style="color: black;">B2S</h3>
+                        <div class="circle"></div>
+                    </div>
                 </div>
             </div>
-	</div>
-    </body> 
+            <div style="width: 45%; height: 100%; float: right; margin-right: 90px;">
+                <h3>BuyToSale</h3>   	 
+            </div>
+        </div>
+
+        <!-- menu icon -->
+        <div class="menu" style="margin-top: 15px; margin-right: 40px;">
+            <a href="">
+                <div class="iconLine"></div>
+                <div class="iconLine"></div>
+                <div class="iconLine"></div>
+            </a>
+        </div>
+
+        <!--this is the navication bar-->
+        <div class="navicationbar">
+            <ul>
+                <li><a class="active" href="pages/login.jsp">Login</a></li>
+                <li><a href="pages/product.xhtml">Register</a></li>
+                <li><a href="pages/register.jsp">Home</a></li>
+            </ul>
+        </div>
+    </header>
+    
+</body>
 </html>

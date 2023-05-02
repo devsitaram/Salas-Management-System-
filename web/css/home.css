@@ -1,3 +1,9 @@
+.body{
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 .navbar {
     width: 455.5px;
     overflow: hidden;
@@ -11,6 +17,7 @@
     padding: 14px 16px;
     text-decoration: none;
 }
+
 .dropdown {
     float: left;
     overflow: hidden;
@@ -28,22 +35,23 @@
     background-color: red;
 }
 .dropdown-content {
+    margin-left: 0px; 
+    padding: 50px; 
+    width: 100%;
     display: none;
     position: absolute;
     background-color: whitesmoke;
-    width: auto;
     height: auto;
-    left: 0;
     padding: auto;
-    margin-left: 55px;
+    /*margin-left: 55px;*/
 }
-.dropdown-content .header {
-    padding-left: 15px;
-    height: 30px;
-    color: rgb(33, 33, 33);
-}
+
 .dropdown:hover .dropdown-content {
     display: block;
+}
+.header{
+    text-align: center; 
+    margin: 10px
 }
 /* Navication bar codepen*/
 ul {
@@ -59,9 +67,9 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    border-radius: 5%;
+    border-radius: 6%;
 }
-li a:hover:not(.active):hover {
+li a:hover {
     transition: 0.90s;
     color: white;
     background-color: #04AA6D;
@@ -70,14 +78,14 @@ li a.active {
     margin-right: 5px;
     color: #2243ff;
     background-color: #f3f3f3;
-    transition: 0.50s;
+    transition: 0.90s;
 }
 
-/* // menu icon */
+/* menu icon */
 .menu {
     height: 50%;
     width: 35px;
-    margin: 12px;
+    margin-right: 40px;
     float: right;
     text-align: center;
 }
@@ -120,7 +128,7 @@ li a.active {
     border-color: currentColor currentColor transparent transparent;
     border-width: 0.2em 0em 0em 0.2em;
     --deg: -135deg;
-    animation-direction: reverse;
+/*    animation-direction: reverse;*/
 }
 .loader .face .circle {
     position: absolute;

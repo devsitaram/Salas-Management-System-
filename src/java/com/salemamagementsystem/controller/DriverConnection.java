@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import resources.SaleConstants;
 
-
 /**
  *
  * @author Lenovo

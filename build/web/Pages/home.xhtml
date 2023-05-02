@@ -7,8 +7,9 @@
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="../css/home.css"/>
+
     </head>
-    <body style="width: 1230px; height: 600px;">
+    <body style="width: 100%; height: 600px; overflow-x: hidden">
 
         <!-- this is the header section-->
         <header style="height: 10%; width: 100%;  padding: 10px; background-color: #f3f3f3;">
@@ -30,7 +31,7 @@
             </div>
 
             <!-- menu icon -->
-            <div class="menu">
+            <div class="menu" style="margin-top: 15px; margin-right: 40px;">
                 <a href="">
                     <div class="iconLine"></div>
                     <div class="iconLine"></div>
@@ -39,7 +40,7 @@
             </div>
 
             <!--this is the navication bar-->
-            <div style="height: 70%; width: 475px; margin-top: 6px; margin-right: 10px; float: right; border-radius: 10px;">
+            <div style="height: 75%; width: 400px; margin-top: 6px; margin-right: 20px; float: right; border-radius: 10px;">
                 <ul>
                     <li><a class="active" href="home.xhtml">Home</a></li>
                     <li><a href="product.xhtml">Product</a></li>
@@ -51,9 +52,10 @@
         </header>
 
         <!-- this is the main content section-->
-        <main  style="width: 100%; height: 700px;">
+        <main  style="width: 100%; height: auto;">
+            
             <div style="width: 100%; height: 70%;">
-                <div style="float: left; height: 85%; width: 40%; padding-left: 50px; margin-top: 30px;">
+                <div style="float: left; height: 365px; width: 50%; padding: 50px; margin-top: 15px;">
                     <h2 style="font-family: plane;">Sale</h2>
                     <h4 style="font-family: Arial, Helvetica, sans-serif">Sales Management System</h4>
                     <h3 style="text-align: justify; padding-right: 5px; font-family: plane, Helvetica, sans-serif;">Sales management is the management of activities and processes relating to the effective planning, 
@@ -62,24 +64,25 @@
                         a sales manager whose job plays a vital role in a company’s revenue generation and profits.
                     </h3>
                 </div>
-                <div style="float: right; width: 40%; overflow: hidden">
-                    <h:graphicImage url="../images/sales.PNG"/>
+                <div style="float: right; width: 40%; margin-top: 50px;">
+                    <h:graphicImage url="../images/img_sales_manage.PNG" style="width: 100%"/>
                 </div>
             </div>
 
-            <div style="width: 96%; height: 45px; padding-left: 50px;">
+            <div style="width: 96%; height: 45px; padding-left: 50px; ">
+                
                 <div class="navbar">
                     <!--//show the customers details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Customers<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <div class="header">
+                        <div class="dropdown-content" style="margin-left: -50px; width: 100%">
+                            <div style="text-align: center; margin: 20px">
                                 <h2>Customer Details</h2>
                             </div>
                             <div style="padding: 10px">
                                 <!--// show the customer details-->
                                 <h:dataTable value="#{customerDbBean.customerData}" var="customer"
-                                            styleClass="table"
+                                             styleClass="table" border="1"
                                             headerClass="header"
                                             rowClasses="oddRows,evenRows"
                                             cellpadding="5" cellspacing="5">
@@ -116,11 +119,11 @@
                                 <!--customer details update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="padding-left: 10px">Edit Customer Details</h3>
+                                        <h3 style="text-align: center; margin-top: 15px">Edit Customer Details</h3>
                                         <div>
-                                            <div style="width: 55%; float: left; padding: 10px;">
+                                            <div style="width: 55%; float: right; padding: 10px;">
                                                 <p>Customer Id: 
-                                                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: 10px; margin-right: 5px; width: 200px"
                                                                 requiredMessage="Enter the valid Id?"
                                                                 value="#{customerModelBean.customerId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -128,7 +131,7 @@
                                                     <h:message for="customerIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
-                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 45px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 55px; margin-right: 5px; width: 200px"
                                                             requiredMessage="Enter the valid name?"
                                                             value="#{customerModelBean.customerName}" 
                                                             validatorMessage="Invalid your name!">
@@ -137,7 +140,7 @@
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Email: 
-                                                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 46px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 57px; margin-right: 5px; width: 200px"
                                                             requiredMessage="Enter the valid email?"
                                                             value="#{customerModelBean.email}"
                                                             validatorMessage="Invalid your email!">
@@ -146,7 +149,7 @@
                                                     <h:message for="emailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Address: 
-                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 26px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 37px; margin-right: 5px; width: 200px"
                                                             requiredMessage="Enter the valid address?"
                                                             value="#{customerModelBean.address}" 
                                                             validatorMessage="Invalid your address!">
@@ -155,7 +158,7 @@
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Phone No: 
-                                                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 14px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 25px; margin-right: 5px; width: 200px"
                                                                 requiredMessage="Please enter the valid phone number?"
                                                                 value="#{customerModelBean.phoneNo}" maxlength="10"
                                                                 validatorMessage="Invalid your phone number!">
@@ -165,7 +168,7 @@
                                                 </p>
                                                 <p>Password:                                                
                                                     <h:inputText id="passwordInputText" rendered="true" 
-                                                                 style="margin-left: 15px; margin-right: 2px; width: 200px"
+                                                                 style="margin-left: 25px; margin-right: 2px; width: 200px"
                                                             requiredMessage="Enter the strong password?"
                                                             value="#{customerModelBean.password}" >
                                                     </h:inputText>
@@ -185,12 +188,12 @@
                                                                         customerModelBean.customerId)}"/>
                                                 </p>
                                             </div>
-    <!--                                        // update and delete button-->
-                                            <div style="width: 40%; float: right;">
-                                                <h:graphicImage url="images/customer.jpg"/>
+                                            
+                                            <div style="width: 35%; float: left;">
+                                                <h:graphicImage url="../images/img_customer.jpg" style="height: 350px"/>
                                             </div>
                                         </div>
-                                    </h:form>      
+                                    </h:form>
                                 </div>
                             </div>
                         </div>
@@ -199,14 +202,14 @@
                     <!--//show the suppliers details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Suppliers<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <div class="header">
+                        <div class="dropdown-content" style="margin-left: -160px; padding: 50px; width: 100%">
+                            <div style="text-align: center; margin: 20px">
                                 <h2>Supplier Details</h2>
                             </div>
                             <div>
                                 <!--// show the customer details-->
                                 <h:dataTable value="#{supplierDbBean.supplierData}" var="supplier"
-                                            styleClass="table"
+                                            styleClass="table" border="1"
                                             headerClass="header"
                                             rowClasses="oddRows,evenRows"
                                             cellpadding="5" cellspacing="5">
@@ -239,11 +242,11 @@
                                 <!--customer details update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="padding-left: 10px">Edit Supplier Details</h3>
+                                        <h3 style="text-align: center; margin-top: 15px">Edit Supplier Details</h3>
                                         <div>
-                                            <div style="width: 500px; float: left; padding: 10px;">
+                                            <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Supplier Id: 
-                                                    <h:inputText id="supplierIdInputText" rendered="true" style="margin-left: 2px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="supplierIdInputText" rendered="true" style="margin-left: 12px; margin-right: 5px; width: 210px"
                                                                 requiredMessage="Enter the valid Id?"
                                                                 value="#{supplierModelBean.supplierId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -251,7 +254,7 @@
                                                     <h:message for="supplierIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
-                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 35px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 45px; margin-right: 5px; width: 210px"
                                                             requiredMessage="Enter the valid name?"
                                                             value="#{supplierModelBean.supplierName}" 
                                                             validatorMessage="Invalid your name!">
@@ -260,7 +263,7 @@
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Mail: 
-                                                    <h:inputText id="mailInputText" rendered="true" style="margin-left: 47px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="mailInputText" rendered="true" style="margin-left: 57px; margin-right: 5px; width: 210px"
                                                             requiredMessage="Enter the valid mail?"
                                                             value="#{supplierModelBean.mail}"
                                                             validatorMessage="Invalid your mail!">
@@ -269,7 +272,7 @@
                                                     <h:message for="mailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Location: 
-                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 17px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 210px"
                                                             requiredMessage="Please enter the valid name?"
                                                             value="#{supplierModelBean.location}" 
                                                             validatorMessage="Invalid your location!">
@@ -278,7 +281,7 @@
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Contact No: 
-                                                    <h:inputText id="contactNoInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
+                                                    <h:inputText id="contactNoInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 210px"
                                                                 requiredMessage="Enter the valid contact number?"
                                                                 value="#{supplierModelBean.contactNo}" maxlength="10"
                                                                 validatorMessage="Invalid your contact number!">
@@ -305,11 +308,11 @@
                                                 </p>
                                             </div>
     <!--                                        // update and delete button-->
-                                            <div style="width: 360px; float: right;">
-                                                <h:graphicImage url="images/customer.jpg"/>
+                                            <div style="width: 60%; float: right;">
+                                                <h:graphicImage url="../images/img_supplier.jpeg" style="height: 320px; width: 500px"/>
                                             </div>
                                         </div>
-                                    </h:form>      
+                                    </h:form>
                                 </div>
                             </div>
                         </div>
@@ -318,14 +321,14 @@
                     <!--//show the items details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Items<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <div class="header">
+                        <div class="dropdown-content" style="margin-left: -260px; width: 100%">
+                            <div style="text-align: center; margin: 20px">
                                 <h2>Item Details</h2>
                             </div>
                             <div>
                                 <!--// show the items details-->
                                 <h:dataTable value="#{itemDbBean.itemsData}" var="item"
-                                            styleClass="table"
+                                            styleClass="table" border="1"
                                             headerClass="header"
                                             rowClasses="oddRows,evenRows"
                                             cellpadding="5" cellspacing="5">
@@ -362,9 +365,9 @@
                                 <!--items details update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="padding-left: 10px">Edit Items Details</h3>
+                                        <h3 style="margin-top: 15px">Edit Items Details</h3>
                                         <div>
-                                            <div style="width: 500px; float: left; padding: 10px;">
+                                            <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Item No: 
                                                     <h:inputText id="itemNoInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 200px"
                                                                 requiredMessage="Enter the valid item no?"
@@ -438,8 +441,8 @@
                                                 </p>
                                             </div>
     <!--                                        // item  image-->
-                                            <div style="width: 360px; float: right;">
-                                                <h:graphicImage url="images/customer.jpg"/>
+                                            <div style="width: 60%; float: right;">
+                                                <h:graphicImage url="../images/img_items.jpg" style="height: 350px; width: 500px"/>
                                             </div>
                                         </div>
                                     </h:form>      
@@ -451,14 +454,14 @@
                     <!--//show the payments details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Payments<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <div class="header">
+                        <div class="dropdown-content" style="margin-left: -330px; padding: 50px; width: 100%">
+                            <div style="text-align: center; margin: 20px">
                                 <h2>Payment Details</h2>
                             </div>
                             <div>
                                 <!--// show the payments details-->
                                 <h:dataTable value="#{paymentDbBean.paymentData}" var="payment"
-                                            styleClass="table"
+                                            styleClass="table" border="1"
                                             headerClass="header"
                                             rowClasses="oddRows,evenRows"
                                             cellpadding="5" cellspacing="5">
@@ -487,9 +490,9 @@
                                 <!--payments details update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="padding-left: 10px">Edit Payment Details</h3>
+                                        <h3 style="margin-top: 15px">Edit Payment Details</h3>
                                         <div>
-                                            <div style="width: 500px; float: left; padding: 10px;">
+                                            <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Payment No: 
                                                     <h:inputText id="paymentNoInputText" rendered="true" style="margin-left: 13px; margin-right: 5px; width: 200px"
                                                                 requiredMessage="Enter the valid paymnet no?"
@@ -542,8 +545,8 @@
                                                 </p>
                                             </div>
     <!--                                        // payment image-->
-                                            <div style="width: 360px; float: right;">
-                                                <h:graphicImage url="images/customer.jpg"/>
+                                            <div style="width: 63%; float: right;">
+                                                <h:graphicImage url="../images/img_payment.jpeg" style="width: 500px"/>
                                             </div>
                                         </div>
                                     </h:form>      
@@ -555,14 +558,14 @@
                     <!--//show the orders details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <div class="header">
+                        <div class="dropdown-content" style="margin-left: -430px; padding: 50px; width: 100%">
+                            <div style="text-align: center; margin: 20px">
                                 <h2>Order Details</h2>
                             </div>
                             <div>
                                 <!--// show the order details-->
                                 <h:dataTable value="#{orderDbBean.orderData}" var="order"
-                                            styleClass="table"
+                                            styleClass="table" border="1"
                                             headerClass="header"
                                             rowClasses="oddRows,evenRows"
                                             cellpadding="5" cellspacing="5">
@@ -599,9 +602,9 @@
                                 <!--order details insert, update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="padding-left: 10px">Edit Order Details</h3>
+                                        <h3 style="margin-top: 15px">Edit Order Details</h3>
                                         <div>
-                                            <div style="width: 500px; float: left; padding: 10px;">
+                                            <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Order No: 
                                                     <h:inputText id="orderNoInputText" rendered="true" style="margin-left: 20px; margin-right: 5px; width: 200px"
                                                                 requiredMessage="Enter the valid order no?"
@@ -684,25 +687,24 @@
                                                 </p>
                                             </div>
     <!--                                        // order image-->
-                                            <div style="width: 360px; float: right;">
-                                                <h:graphicImage url="images/customer.jpg"/>
+                                            <div style="width: 62%; height: 350px; float: right;">
+                                                <h:graphicImage url="../images/img_order.jpeg" style="height: 350px; width: 650px"/>
                                             </div>
                                         </div>
                                     </h:form>      
                                 </div>
                             </div>
                         </div>
-                        
                     </div> 
                 </div>
-
             </div>
+            
         </main>
 
         <!-- this is the footer section-->
         <footer>
-            <div style="height: 100%; width: 100%; margin-top:55px; background: blueviolet">
-                
+            <div style="margin-top:500px;">
+                <image src="../images/img_footer_bar.png" style="width: 110%; height: 150px; margin-left: 0px"/>
             </div>
         </footer>
 

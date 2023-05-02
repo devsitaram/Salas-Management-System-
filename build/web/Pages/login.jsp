@@ -66,7 +66,7 @@
                 <li style="display: inline">Register and discover a great</li><br></br>
                 <li style="display: inline">amount of new opportunities!</li><br></br>
                 <button class="button" style="width: 45%; background-color: #d2e74a;" >
-                    <a class="btnText" href="../pages/register.xhtml">Register</a>
+                    <a style="text-decoration: none; color: blue;" href="../pages/register.jsp">Register</a>
                 </button>
             </div>
         </div>

@@ -109,14 +109,17 @@ public class CustomerDatabaseUtil {
             // exexute to insert data
             preStatementOrder.executeUpdate();
             
-            System.out.println("Customer Id: "+customerId);
-            System.out.println("Customer Name: "+customerName);
-            System.out.println("Customer email: "+email);
-            System.out.println("Customer address: "+address);
-            System.out.println("Customer phone No: "+phoneNo);
-            System.out.println("Customer password: "+password);
-            
+            statement.close();
+            connection.close();
             return true;
+            
+//            System.out.println("Customer Id: "+customerId);
+//            System.out.println("Customer Name: "+customerName);
+//            System.out.println("Customer email: "+email);
+//            System.out.println("Customer address: "+address);
+//            System.out.println("Customer phone No: "+phoneNo);
+//            System.out.println("Customer password: "+password);
+            
         } catch (ClassNotFoundException | SQLException ex) {
                 // handle ClassNotFoundException
                 ex.printStackTrace();

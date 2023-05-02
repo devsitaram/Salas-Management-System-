@@ -87,13 +87,13 @@ public class RegisterServlet extends HttpServlet {
         // create an object 
         CustomerDatabaseUtil customerUtliObj = new CustomerDatabaseUtil();
         if (customerUtliObj.insertCustomerData(customerId, customerName, email, address, phoneNo, password)){
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("pages/login.jsp");
         }else{
             // display the some error message
-//            response.sendRedirect("login.jsp");
-            out.println("Invalid your details.");
-            out.println("<h1>Hello " + customerId + "</h1>");
-            out.println("<p>Your age is " + customerName + "</p>");
+            response.sendRedirect("pages/login.jsp");
+//            out.println("Invalid your details.");
+//            out.println("<h1>Hello " + customerId + "</h1>");
+//            out.println("<p>Your age is " + customerName + "</p>");
         }
     }
 
