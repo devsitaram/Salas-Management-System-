@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 /*this is the css of login pages*/
 .body{
     height: auto;
@@ -24,8 +28,8 @@
 }
 
 .rightdiv{
-    width: 35%; 
-    height: 585px; 
+    width: 35%;
+    height: 585px;
     align-content: center;
     text-align: center;
     background-image: url(../images/img_register_background.png);
@@ -35,7 +39,7 @@
     float: right;
 }
 .form{
-    margin-top: 30px; 
+    margin-top: 30px;
     text-align: center
 }
 /* // input text fields css*/
@@ -57,7 +61,7 @@
 
 /* button css*/
 .button{
-    height: 40px; 
+    height: 40px;
     margin-top: 25px;
     padding-left: 30px;
     padding-right: 30px;
@@ -87,7 +91,7 @@
     justify-content: center;
 }
 .btnText{
-    
+
 }
 
 .loader .face {

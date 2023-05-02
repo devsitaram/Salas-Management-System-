@@ -52,7 +52,7 @@ public class OrderDatabaseUtil {
             insertStatement.setInt(5, itemNo);
             insertStatement.setInt(6, paymentNo); 
             insertStatement.setInt(7, customerId);
-            
+            // insert data in the databse
             insertStatement.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Supplier data cannot insert.");
@@ -71,7 +71,7 @@ public class OrderDatabaseUtil {
             updateStatement.setInt(5, paymentNo); 
             updateStatement.setInt(6, customerId);
             updateStatement.setInt(7, orderNo);
-
+             
             updateStatement.executeUpdate(); 
         } catch(SQLException ex){
             System.out.println("Failed: "+orderNo);

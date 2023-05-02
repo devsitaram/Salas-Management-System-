@@ -17,8 +17,7 @@
                             <div class="circle"></div>
                         </div>
                         <div class="face">
-                            <h3 style="color: black;">B2S</h3>
-                            <div class="circle"></div>
+                            <div class="circle"/>
                         </div>
                     </div>
                 </div>
@@ -190,19 +189,19 @@
                                         <h:message for="remarksInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Insert" style="width: 25%; margin: 30px"
+                                        <h:commandButton value="Payment" style="width: 25%; margin: 30px"
                                                          action="#{paymentDbBean.insertPaymentData(
                                                                    paymentModelBean.paymentNo, 
                                                                    paymentModelBean.amounts, 
                                                                    paymentModelBean.paymentDate, 
                                                                    paymentModelBean.remarks)}"/>
 
-                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
+<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                          action="#{paymentDbBean.updatePaymentData(
                                                                    paymentModelBean.amounts, 
                                                                    paymentModelBean.paymentDate, 
                                                                    paymentModelBean.remarks,
-                                                                   paymentModelBean.paymentNo)}"/>
+                                                                   paymentModelBean.paymentNo)}"/>-->
                                     </p>
                                 </div>
 <!--                                        // payment image-->
@@ -283,7 +282,7 @@
                                         <h:message for="orderCustomerIdInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Insert" style="width: 25%; margin: 30px"
+                                        <h:commandButton value="Order" style="width: 25%; margin: 30px"
                                                          action="#{orderDbBean.insertOrderData(
                                                                    orderModelBean.orderNo, 
                                                                    orderModelBean.orderDate, 
@@ -293,7 +292,7 @@
                                                                    orderModelBean.paymentNo, 
                                                                    orderModelBean.customerId)}"/>
 
-                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
+<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                          action="#{orderDbBean.updateOrderData(
                                                                    orderModelBean.orderDate, 
                                                                    orderModelBean.orderQty, 
@@ -301,7 +300,7 @@
                                                                    orderModelBean.itemNo, 
                                                                    orderModelBean.paymentNo, 
                                                                    orderModelBean.customerId, 
-                                                                   orderModelBean.orderNo)}"/>
+                                                                   orderModelBean.orderNo)}"/>-->
                                     </p>
                                 </div>
                                 <!--// order image-->
@@ -374,7 +373,7 @@
                                         <h:message for="supplierIdInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Insert" style="width: 25%; margin: 30px"
+                                        <h:commandButton value="Supply" style="width: 25%; height: 20px; margin: 30px"
                                                          action="#{itemDbBean.insertItemData(
                                                                    itemModelBean.itemNo,
                                                                    itemModelBean.itemName,
@@ -383,14 +382,14 @@
                                                                    itemModelBean.supplyDate,
                                                                    itemModelBean.supplierId)}"/>
 
-                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
+<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                          action="#{itemDbBean.updateItemData(
                                                                    itemModelBean.itemName,
                                                                    itemModelBean.prices,
                                                                    itemModelBean.itemQty,
                                                                    itemModelBean.supplyDate,
                                                                    itemModelBean.supplierId,
-                                                                   itemModelBean.itemNo)}"/>
+                                                                   itemModelBean.itemNo)}"/>-->
                                     </p>
                                 </div>
                                 <!--// item  image-->
