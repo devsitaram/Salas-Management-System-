@@ -101,7 +101,7 @@ li a.active {
     background-color: #666;
 }
 
-/*// logo anomations*/
+/*logo anomations*/
 .loader {
     width: 6em;
     height: 6em;
@@ -133,7 +133,7 @@ li a.active {
     border-color: currentColor currentColor transparent transparent;
     border-width: 0.2em 0em 0em 0.2em;
     --deg: -135deg;
-    /*    animation-direction: reverse;*/
+    animation-direction: reverse;
 }
 .loader .face .circle {
     position: absolute;
@@ -166,7 +166,6 @@ li a.active {
         transform: rotate(1turn);
     }
 }
-
 .input_textfields{
     margin-left: 25px;
     width: 200px;

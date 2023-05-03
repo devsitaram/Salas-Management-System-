@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="width: 60%; height: 100%; float: right;">
+                <div style="width: 60%; height: 100%; margin-top: 20px; float: right;">
                     <h3>BuyToSale</h3>   	 
                 </div>
             </div>
@@ -52,7 +52,7 @@
 
             <div class="flex-container">
                 <div class="card">
-                    <div class="card-img" style="background-image: url(../images/img_pizza_item.jpeg); height: 150px; width: 100%"></div>
+                    <div class="card-img" style="background-image: url(../images/img_pizza_item.jpeg);"></div>
                     <div>
                         <p class="text-title">Item No: 101 </p>
                         <p class="text-title">Name: Pizza</p>
@@ -139,83 +139,76 @@
                     </div>
                 </div>
             </div>
-            
+
             <div style="height: auto; width: 100%; margin: 20px;">
-                
+
                 <div class="navbar">
                     <!--//show the Payment details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn" style="margin-left: 50px">Payment<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content" style="margin-left: -25px">
+                        <div class="dropdown-content" style="margin-left: -30px">
                             <div style="margin: 20px">
                                 <h2>Payment Details</h2>
                             </div>
                             <!--payment form-->
                             <h:form>
-                                <div style="width: 35%; float: left; padding: 10px;">
+                                <div style="width: 40%; float: left; padding: 10px;">
                                     <p>Payment No: 
-                                        <h:inputText id="paymentNoInputText" rendered="true" style="margin-left: 13px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid paymnet no?"
-                                                    value="#{paymentModelBean.paymentNo}" maxlength="3"
-                                                    converterMessage="Invalid Item no!">
+                                        <h:inputText class="inputText" id="paymentNoInputText" rendered="true" style="margin-left: 13px;"
+                                                     requiredMessage="Enter the valid paymnet no?"
+                                                     value="#{paymentModelBean.paymentNo}" maxlength="3"
+                                                     converterMessage="Invalid Item no!">
                                         </h:inputText>
                                         <h:message for="paymentNoInputText" styleClass="error"/>
                                     </p>
                                     <p>Pay Amounts:
-                                        <h:inputText id="amountInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid pay amount?"
-                                                value="#{paymentModelBean.amounts}"
-                                                validatorMessage="Invalid paymnet's amounts!">
-<!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
+                                        <h:inputText class="inputText" id="amountInputText" rendered="true" style="margin-left: 5px;"
+                                                     requiredMessage="Enter the valid pay amount?"
+                                                     value="#{paymentModelBean.amounts}"
+                                                     validatorMessage="Invalid paymnet's amounts!">
                                         </h:inputText>
                                         <h:message for="amountInputText" styleClass="error"/>
                                     </p>
                                     <p>Payment Date: 
-                                        <h:inputText id="paymentDateInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid payment's date?"
-                                                    value="#{paymentModelBean.paymentDate}" maxlength="10"
-                                                    validatorMessage="Invalid payment date!">
+                                        <h:inputText class="inputText" id="paymentDateInputText" rendered="true" style="margin-left: -3px;"
+                                                     requiredMessage="Enter the valid payment's date?"
+                                                     value="#{paymentModelBean.paymentDate}" maxlength="10"
+                                                     validatorMessage="Invalid payment date!">
                                             <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                         </h:inputText>
                                         <h:message for="paymentDateInputText" styleClass="error"/>
                                     </p>
                                     <p>Re-marks:
-                                        <h:inputText id="remarksInputText" rendered="true" style="margin-left: 28px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid payment's remarks?"
-                                                value="#{paymentModelBean.remarks}" 
-                                                validatorMessage="Invalid payment remarks!">
-                                           <f:validateRegex pattern="^[A-Za-z\s]*"/>
+                                        <h:inputText class="inputText" id="remarksInputText" rendered="true" style="margin-left: 28px;"
+                                                     requiredMessage="Enter the valid payment's remarks?"
+                                                     value="#{paymentModelBean.remarks}" 
+                                                     validatorMessage="Invalid payment remarks!">
+                                            <f:validateRegex pattern="^[A-Za-z\s]*"/>
                                         </h:inputText>
                                         <h:message for="remarksInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Payment" style="width: 25%; margin: 30px"
+                                        <h:commandButton class="button" value="Payment"
                                                          action="#{paymentDbBean.insertPaymentData(
                                                                    paymentModelBean.paymentNo, 
                                                                    paymentModelBean.amounts, 
                                                                    paymentModelBean.paymentDate, 
                                                                    paymentModelBean.remarks)}"/>
 
-<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
-                                                         action="#{paymentDbBean.updatePaymentData(
-                                                                   paymentModelBean.amounts, 
-                                                                   paymentModelBean.paymentDate, 
-                                                                   paymentModelBean.remarks,
-                                                                   paymentModelBean.paymentNo)}"/>-->
                                     </p>
                                 </div>
-<!--                                        // payment image-->
-                                <div style="width: 63%; float: right;">
+                                <!--                                        // payment image-->
+                                <div style="width: 55%; float: right;">
                                     <h:graphicImage url="../images/img_payment.jpeg" style="width: 500px"/>
                                 </div>
                             </h:form>
                         </div>
                     </div>
-                    
+
                     <!--//show the payments details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn" style="margin-left: 30px">Purchase<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content"  style="margin-left: -165px">
+                        <div class="dropdown-content"  style="margin-left: -175px">
                             <div style="margin: 20px;">
                                 <h2>Order Details</h2>
                             </div>
@@ -223,66 +216,66 @@
                             <h:form>
                                 <div style="width: 35%; float: left; padding: 10px;">
                                     <p>Order No: 
-                                        <h:inputText id="orderNoInputText" rendered="true" style="margin-left: 20px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid order no?"
-                                                    value="#{orderModelBean.orderNo}" maxlength="3"
-                                                    converterMessage="Invalid order no!">
+                                        <h:inputText class="inputText" id="orderNoInputText" rendered="true" style="margin-left: 20px;"
+                                                     requiredMessage="Enter the valid order no?"
+                                                     value="#{orderModelBean.orderNo}" maxlength="3"
+                                                     converterMessage="Invalid order no!">
                                         </h:inputText>
                                         <h:message for="orderNoInputText" styleClass="error"/>
                                     </p>
                                     <p>Order Date: 
-                                        <h:inputText id="orderDateInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid order's date?"
-                                                    value="#{orderModelBean.orderDate}" maxlength="10"
-                                                    validatorMessage="Invalid order date!">
+                                        <h:inputText class="inputText" id="orderDateInputText" rendered="true" style="margin-left: 7px;"
+                                                     requiredMessage="Enter the valid order's date?"
+                                                     value="#{orderModelBean.orderDate}" maxlength="10"
+                                                     validatorMessage="Invalid order date!">
                                             <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                         </h:inputText>
                                         <h:message for="orderDateInputText" styleClass="error"/>
                                     </p>
                                     <p>Quantity:
-                                        <h:inputText id="orderQtyInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid quantity?"
-                                                value="#{orderModelBean.orderQty}" 
-                                                validatorMessage="Invalid order quantity!">
-                                           <f:validateRegex pattern="^[0-9]+$"/>
+                                        <h:inputText  class="inputText" id="orderQtyInputText" rendered="true" style="margin-left: 27px;"
+                                                      requiredMessage="Enter the valid quantity?"
+                                                      value="#{orderModelBean.orderQty}" 
+                                                      validatorMessage="Invalid order quantity!">
+                                            <f:validateRegex pattern="^[0-9]+$"/>
                                         </h:inputText>
                                         <h:message for="orderQtyInputText" styleClass="error"/>
                                     </p>
                                     <p>Descriptions:
-                                        <h:inputText id="descriptionInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid order's descriptions?"
-                                                value="#{orderModelBean.descriptions}" 
-                                                validatorMessage="Invalid order descriptions!">
-                                           <f:validateRegex pattern="^[A-Za-z\s]*"/>
+                                        <h:inputText class="inputText" id="descriptionInputText" rendered="true" style="margin-left: 0px;"
+                                                     requiredMessage="Enter the valid order's descriptions?"
+                                                     value="#{orderModelBean.descriptions}" 
+                                                     validatorMessage="Invalid order descriptions!">
+                                            <f:validateRegex pattern="^[A-Za-z\s]*"/>
                                         </h:inputText>
                                         <h:message for="descriptionInputText" styleClass="error"/>
                                     </p>
                                     <p>Item No: 
-                                        <h:inputText id="orderItemNoInputText" rendered="true" style="margin-left: 33px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid item no?"
-                                                    value="#{orderModelBean.itemNo}" maxlength="3"
-                                                    converterMessage="Invalid Item no!">
+                                        <h:inputText class="inputText" id="orderItemNoInputText" rendered="true" style="margin-left: 33px;"
+                                                     requiredMessage="Enter the valid item no?"
+                                                     value="#{orderModelBean.itemNo}" maxlength="3"
+                                                     converterMessage="Invalid Item no!">
                                         </h:inputText>
                                         <h:message for="orderItemNoInputText" styleClass="error"/>
                                     </p>
                                     <p>Payment No: 
-                                        <h:inputText id="orderPaymentNoInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid paymnet no?"
-                                                    value="#{orderModelBean.paymentNo}" maxlength="3"
-                                                    converterMessage="Invalid Item no!">
+                                        <h:inputText class="inputText" id="orderPaymentNoInputText" rendered="true" style="margin-left: 0px;"
+                                                     requiredMessage="Enter the valid paymnet no?"
+                                                     value="#{orderModelBean.paymentNo}" maxlength="3"
+                                                     converterMessage="Invalid Item no!">
                                         </h:inputText>
                                         <h:message for="orderPaymentNoInputText" styleClass="error"/>
                                     </p>
                                     <p>Customer Id: 
-                                        <h:inputText id="orderCustomerIdInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid Id?"
-                                                    value="#{orderModelBean.customerId}" maxlength="3"
-                                                    converterMessage="Invalid your Id!">
+                                        <h:inputText class="inputText" id="orderCustomerIdInputText" rendered="true" style="margin-left: 2px;"
+                                                     requiredMessage="Enter the valid Id?"
+                                                     value="#{orderModelBean.customerId}" maxlength="3"
+                                                     converterMessage="Invalid your Id!">
                                         </h:inputText>
                                         <h:message for="orderCustomerIdInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Order" style="width: 25%; margin: 30px"
+                                        <h:commandButton class="button" value="Order"
                                                          action="#{orderDbBean.insertOrderData(
                                                                    orderModelBean.orderNo, 
                                                                    orderModelBean.orderDate, 
@@ -291,16 +284,6 @@
                                                                    orderModelBean.itemNo, 
                                                                    orderModelBean.paymentNo, 
                                                                    orderModelBean.customerId)}"/>
-
-<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
-                                                         action="#{orderDbBean.updateOrderData(
-                                                                   orderModelBean.orderDate, 
-                                                                   orderModelBean.orderQty, 
-                                                                   orderModelBean.descriptions, 
-                                                                   orderModelBean.itemNo, 
-                                                                   orderModelBean.paymentNo, 
-                                                                   orderModelBean.customerId, 
-                                                                   orderModelBean.orderNo)}"/>-->
                                     </p>
                                 </div>
                                 <!--// order image-->
@@ -310,70 +293,70 @@
                             </h:form>
                         </div>
                     </div> 
-                    
+
                     <!--//show the payments details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn" style="margin-left: 50px">Supply<i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content" style="margin-left: -300px">
+                        <div class="dropdown-content" style="margin-left: -305px">
                             <div style="margin: 20px">
                                 <h2>Items Details</h2>
                             </div>
                             <h:form>
                                 <div style="width: 35%; float: left; padding: 10px;">
                                     <p>Item No: 
-                                        <h:inputText id="itemNoInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid item no?"
-                                                    value="#{itemModelBean.itemNo}" maxlength="3"
-                                                    converterMessage="Invalid Item no!">
+                                        <h:inputText class="inputText" id="itemNoInputText" rendered="true" style="margin-left: 33px;"
+                                                     requiredMessage="Enter the valid item no?"
+                                                     value="#{itemModelBean.itemNo}" maxlength="3"
+                                                     converterMessage="Invalid Item no!">
                                         </h:inputText>
                                         <h:message for="itemNoInputText" styleClass="error"/>
                                     </p>
                                     <p>Item Name:
-                                        <h:inputText id="nameInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid Item's name?"
-                                                value="#{itemModelBean.itemName}" 
-                                                validatorMessage="Invalid Item's name!">
-                                           <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                        <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 10px;"
+                                                     requiredMessage="Enter the valid Item's name?"
+                                                     value="#{itemModelBean.itemName}" 
+                                                     validatorMessage="Invalid Item's name!">
+                                            <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                         </h:inputText>
                                         <h:message for="nameInputText" styleClass="error"/>
                                     </p>
                                     <p>Quantity:
-                                        <h:inputText id="itemQtyInputText" rendered="true" style="margin-left: 24px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid quantity?"
-                                                value="#{itemModelBean.itemQty}" 
-                                                validatorMessage="Invalid item quantity!">
-                                           <f:validateRegex pattern="^[0-9]+$"/>
+                                        <h:inputText class="inputText" id="itemQtyInputText" rendered="true" style="margin-left: 27px;"
+                                                     requiredMessage="Enter the valid quantity?"
+                                                     value="#{itemModelBean.itemQty}" 
+                                                     validatorMessage="Invalid item quantity!">
+                                            <f:validateRegex pattern="^[0-9]+$"/>
                                         </h:inputText>
                                         <h:message for="itemQtyInputText" styleClass="error"/>
                                     </p>
                                     <p>Item Prices: 
-                                        <h:inputText id="pricesInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
-                                                requiredMessage="Enter the valid prices?"
-                                                value="#{itemModelBean.prices}"
-                                                validatorMessage="Invalid item's prices!">
-<!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
+                                        <h:inputText class="inputText" id="pricesInputText" rendered="true" style="margin-left: 8px;"
+                                                     requiredMessage="Enter the valid prices?"
+                                                     value="#{itemModelBean.prices}"
+                                                     validatorMessage="Invalid item's prices!">
+                                            <!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
                                         </h:inputText>
                                         <h:message for="pricesInputText" styleClass="error"/>
                                     </p>
                                     <p>Supply Date: 
-                                        <h:inputText id="supplyDateInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid supply date?"
-                                                    value="#{itemModelBean.supplyDate}" maxlength="10"
-                                                    validatorMessage="Invalid supply date!">
+                                        <h:inputText class="inputText" id="supplyDateInputText" rendered="true" style="margin-left: 0px;"
+                                                     requiredMessage="Enter the valid supply date?"
+                                                     value="#{itemModelBean.supplyDate}" maxlength="10"
+                                                     validatorMessage="Invalid supply date!">
                                             <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                         </h:inputText>
                                         <h:message for="supplyDateInputText" styleClass="error"/>
                                     </p>
                                     <p>Supplier Id: 
-                                        <h:inputText id="supplierIdInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 200px"
-                                                    requiredMessage="Enter the valid supplier Id?"
-                                                    value="#{itemModelBean.supplierId}" maxlength="3"
-                                                    converterMessage="Invalid your Id!">
+                                        <h:inputText class="inputText" id="supplierIdInputText" rendered="true" style="margin-left: 10px;"
+                                                     requiredMessage="Enter the valid supplier Id?"
+                                                     value="#{itemModelBean.supplierId}" maxlength="3"
+                                                     converterMessage="Invalid your Id!">
                                         </h:inputText>
                                         <h:message for="supplierIdInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton value="Supply" style="width: 25%; height: 20px; margin: 30px"
+                                        <h:commandButton class="button" value="Supply" 
                                                          action="#{itemDbBean.insertItemData(
                                                                    itemModelBean.itemNo,
                                                                    itemModelBean.itemName,
@@ -381,31 +364,21 @@
                                                                    itemModelBean.itemQty,
                                                                    itemModelBean.supplyDate,
                                                                    itemModelBean.supplierId)}"/>
-
-<!--                                        <h:commandButton value="Update" style="width: 25%; margin: 30px" 
-                                                         action="#{itemDbBean.updateItemData(
-                                                                   itemModelBean.itemName,
-                                                                   itemModelBean.prices,
-                                                                   itemModelBean.itemQty,
-                                                                   itemModelBean.supplyDate,
-                                                                   itemModelBean.supplierId,
-                                                                   itemModelBean.itemNo)}"/>-->
                                     </p>
                                 </div>
-                                <!--// item  image-->
+                                <!--item image-->
                                 <div style="width: 60%; float: right;">
                                     <h:graphicImage url="../images/img_items.jpg" style="height: 350px; width: 500px"/>
                                 </div>
                             </h:form>
                         </div>
                     </div> 
-                    
                 </div>
             </div>
-            
+
         </main>
 
-        <!-- this is the  fotter section  -->
+        <!-- this is the  footer section  -->
         <footer class="footer" style="height: auto; width: 100%;">
             <div class="footerDiv">
                 <div class="footerText" style="float: left;">
@@ -451,4 +424,45 @@
             </div>
         </footer>
     </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .text-title{
+            margin-top: 15px;
+        }
+        .button{
+            height: 40px;
+            width: 200px;
+            margin-top: 35px;
+            margin-left: 100px;
+            border-radius: 9px;
+            border: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            background-color: blue
+        }
+        .button:hover {
+            box-shadow: 7px 5px 56px 5px #0015ff;
+            transform: scale(0.95);
+            transition: 0.5s;
+            color: black;
+            background-color: whitesmoke;
+        }
+        .inputText {
+            margin-top: 10px;
+            height: 30px;
+            width: 300px;
+            alignment-adjust: central;
+            padding-left: 10px
+        }
+        .h3{
+            margin-top: 20px;
+        }
+    </style>
 </html>

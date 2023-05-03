@@ -20,7 +20,6 @@
                             <div class="circle"></div>
                         </div>
                         <div class="face">
-                            <h3 style="color: black;">B2S</h3>
                             <div class="circle"></div>
                         </div>
                     </div>
@@ -123,7 +122,7 @@
                                         <div>
                                             <div style="width: 55%; float: right; padding: 10px;">
                                                 <p>Customer Id: 
-                                                    <h:inputText id="customerIdInputText" rendered="true" style="margin-left: 10px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="customerIdInputText" rendered="true" style="margin-left: 10px;"
                                                                 requiredMessage="Enter the valid Id?"
                                                                 value="#{customerModelBean.customerId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -131,7 +130,7 @@
                                                     <h:message for="customerIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
-                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 55px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 55px;"
                                                             requiredMessage="Enter the valid name?"
                                                             value="#{customerModelBean.customerName}" 
                                                             validatorMessage="Invalid your name!">
@@ -140,7 +139,7 @@
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Email: 
-                                                    <h:inputText id="emailInputText" rendered="true" style="margin-left: 57px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="emailInputText" rendered="true" style="margin-left: 57px;"
                                                             requiredMessage="Enter the valid email?"
                                                             value="#{customerModelBean.email}"
                                                             validatorMessage="Invalid your email!">
@@ -149,7 +148,7 @@
                                                     <h:message for="emailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Address: 
-                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 37px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="addressInputText" rendered="true" style="margin-left: 37px;"
                                                             requiredMessage="Enter the valid address?"
                                                             value="#{customerModelBean.address}" 
                                                             validatorMessage="Invalid your address!">
@@ -158,7 +157,7 @@
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Phone No: 
-                                                    <h:inputText id="phoneInputText" rendered="true" style="margin-left: 25px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="phoneInputText" rendered="true" style="margin-left: 25px;"
                                                                 requiredMessage="Please enter the valid phone number?"
                                                                 value="#{customerModelBean.phoneNo}" maxlength="10"
                                                                 validatorMessage="Invalid your phone number!">
@@ -167,8 +166,7 @@
                                                     <h:message for="phoneInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Password:                                                
-                                                    <h:inputText id="passwordInputText" rendered="true" 
-                                                                 style="margin-left: 25px; margin-right: 2px; width: 200px"
+                                                    <h:inputText class="inputText" id="passwordInputText" rendered="true" style="margin-left: 25px;"
                                                             requiredMessage="Enter the strong password?"
                                                             value="#{customerModelBean.password}" >
                                                     </h:inputText>
@@ -242,11 +240,11 @@
                                 <!--customer details update and delete-->
                                 <div>
                                     <h:form>
-                                        <h3 style="text-align: center; margin-top: 15px">Edit Supplier Details</h3>
+                                        <h3 style="margin-top: 15px">Edit Supplier Details</h3>
                                         <div>
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Supplier Id: 
-                                                    <h:inputText id="supplierIdInputText" rendered="true" style="margin-left: 12px; margin-right: 5px; width: 210px"
+                                                    <h:inputText class="inputText" id="supplierIdInputText" rendered="true" style="margin-left: 12px;"
                                                                 requiredMessage="Enter the valid Id?"
                                                                 value="#{supplierModelBean.supplierId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -254,7 +252,7 @@
                                                     <h:message for="supplierIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
-                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 45px; margin-right: 5px; width: 210px"
+                                                    <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 45px;"
                                                             requiredMessage="Enter the valid name?"
                                                             value="#{supplierModelBean.supplierName}" 
                                                             validatorMessage="Invalid your name!">
@@ -263,7 +261,7 @@
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Mail: 
-                                                    <h:inputText id="mailInputText" rendered="true" style="margin-left: 57px; margin-right: 5px; width: 210px"
+                                                    <h:inputText class="inputText" id="mailInputText" rendered="true" style="margin-left: 57px;"
                                                             requiredMessage="Enter the valid mail?"
                                                             value="#{supplierModelBean.mail}"
                                                             validatorMessage="Invalid your mail!">
@@ -272,7 +270,7 @@
                                                     <h:message for="mailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Location: 
-                                                    <h:inputText id="addressInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 210px"
+                                                    <h:inputText class="inputText" id="addressInputText" rendered="true" style="margin-left: 27px;"
                                                             requiredMessage="Please enter the valid name?"
                                                             value="#{supplierModelBean.location}" 
                                                             validatorMessage="Invalid your location!">
@@ -281,7 +279,7 @@
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Contact No: 
-                                                    <h:inputText id="contactNoInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 210px"
+                                                    <h:inputText class="inputText" id="contactNoInputText" rendered="true" style="margin-left: 7px;"
                                                                 requiredMessage="Enter the valid contact number?"
                                                                 value="#{supplierModelBean.contactNo}" maxlength="10"
                                                                 validatorMessage="Invalid your contact number!">
@@ -369,7 +367,7 @@
                                         <div>
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Item No: 
-                                                    <h:inputText id="itemNoInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="itemNoInputText" rendered="true" style="margin-left: 27px;"
                                                                 requiredMessage="Enter the valid item no?"
                                                                 value="#{itemModelBean.itemNo}" maxlength="3"
                                                                 converterMessage="Invalid Item no!">
@@ -377,7 +375,7 @@
                                                     <h:message for="itemNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item Name:
-                                                    <h:inputText id="nameInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 5px;"
                                                             requiredMessage="Enter the valid Item's name?"
                                                             value="#{itemModelBean.itemName}" 
                                                             validatorMessage="Invalid Item's name!">
@@ -386,7 +384,7 @@
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Quantity:
-                                                    <h:inputText id="itemQtyInputText" rendered="true" style="margin-left: 24px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="itemQtyInputText" rendered="true" style="margin-left: 24px;"
                                                             requiredMessage="Enter the valid quantity?"
                                                             value="#{itemModelBean.itemQty}" 
                                                             validatorMessage="Invalid item quantity!">
@@ -395,7 +393,7 @@
                                                     <h:message for="itemQtyInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item Prices: 
-                                                    <h:inputText id="pricesInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="pricesInputText" rendered="true" style="margin-left: 5px;"
                                                             requiredMessage="Enter the valid prices?"
                                                             value="#{itemModelBean.prices}"
                                                             validatorMessage="Invalid item's prices!">
@@ -404,7 +402,7 @@
                                                     <h:message for="pricesInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Supply Date: 
-                                                    <h:inputText id="supplyDateInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="supplyDateInputText" rendered="true" style="margin-left: -3px;"
                                                                 requiredMessage="Enter the valid supply date?"
                                                                 value="#{itemModelBean.supplyDate}" maxlength="10"
                                                                 validatorMessage="Invalid supply date!">
@@ -413,7 +411,7 @@
                                                     <h:message for="supplyDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Supplier Id: 
-                                                    <h:inputText id="supplierIdInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="supplierIdInputText" rendered="true" style="margin-left: 7px;"
                                                                 requiredMessage="Enter the valid supplier Id?"
                                                                 value="#{itemModelBean.supplierId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -492,9 +490,9 @@
                                     <h:form>
                                         <h3 style="margin-top: 15px">Edit Payment Details</h3>
                                         <div>
-                                            <div style="width: 35%; float: left; padding: 10px;">
+                                            <div style="width: 40%; float: left; padding: 10px;">
                                                 <p>Payment No: 
-                                                    <h:inputText id="paymentNoInputText" rendered="true" style="margin-left: 13px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="paymentNoInputText" rendered="true" style="margin-left: 15px;"
                                                                 requiredMessage="Enter the valid paymnet no?"
                                                                 value="#{paymentModelBean.paymentNo}" maxlength="3"
                                                                 converterMessage="Invalid Item no!">
@@ -502,7 +500,7 @@
                                                     <h:message for="paymentNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Pay Amounts:
-                                                    <h:inputText id="amountInputText" rendered="true" style="margin-left: 5px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="amountInputText" rendered="true" style="margin-left: 8px;"
                                                             requiredMessage="Enter the valid pay amount?"
                                                             value="#{paymentModelBean.amounts}"
                                                             validatorMessage="Invalid paymnet's amounts!">
@@ -511,7 +509,7 @@
                                                     <h:message for="amountInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Payment Date: 
-                                                    <h:inputText id="paymentDateInputText" rendered="true" style="margin-left: -3px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="paymentDateInputText" rendered="true" style="margin-left: 1px;"
                                                                 requiredMessage="Enter the valid payment's date?"
                                                                 value="#{paymentModelBean.paymentDate}" maxlength="10"
                                                                 validatorMessage="Invalid payment date!">
@@ -520,7 +518,7 @@
                                                     <h:message for="paymentDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Re-marks:
-                                                    <h:inputText id="remarksInputText" rendered="true" style="margin-left: 28px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="remarksInputText" rendered="true" style="margin-left: 33px;"
                                                             requiredMessage="Enter the valid payment's remarks?"
                                                             value="#{paymentModelBean.remarks}" 
                                                             validatorMessage="Invalid payment remarks!">
@@ -545,7 +543,7 @@
                                                 </p>
                                             </div>
     <!--                                        // payment image-->
-                                            <div style="width: 63%; float: right;">
+                                            <div style="width: 55%; float: right;">
                                                 <h:graphicImage url="../images/img_payment.jpeg" style="width: 500px"/>
                                             </div>
                                         </div>
@@ -606,7 +604,7 @@
                                         <div>
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Order No: 
-                                                    <h:inputText id="orderNoInputText" rendered="true" style="margin-left: 20px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderNoInputText" rendered="true" style="margin-left: 20px;"
                                                                 requiredMessage="Enter the valid order no?"
                                                                 value="#{orderModelBean.orderNo}" maxlength="3"
                                                                 converterMessage="Invalid order no!">
@@ -614,7 +612,7 @@
                                                     <h:message for="orderNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Order Date: 
-                                                    <h:inputText id="orderDateInputText" rendered="true" style="margin-left: 7px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderDateInputText" rendered="true" style="margin-left: 7px;"
                                                                 requiredMessage="Enter the valid order's date?"
                                                                 value="#{orderModelBean.orderDate}" maxlength="10"
                                                                 validatorMessage="Invalid order date!">
@@ -623,7 +621,7 @@
                                                     <h:message for="orderDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Quantity:
-                                                    <h:inputText id="orderQtyInputText" rendered="true" style="margin-left: 27px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderQtyInputText" rendered="true" style="margin-left: 27px;"
                                                             requiredMessage="Enter the valid quantity?"
                                                             value="#{orderModelBean.orderQty}" 
                                                             validatorMessage="Invalid order quantity!">
@@ -632,7 +630,7 @@
                                                     <h:message for="orderQtyInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Descriptions:
-                                                    <h:inputText id="descriptionInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="descriptionInputText" rendered="true" style="margin-left: 0px;"
                                                             requiredMessage="Enter the valid order's descriptions?"
                                                             value="#{orderModelBean.descriptions}" 
                                                             validatorMessage="Invalid order descriptions!">
@@ -641,7 +639,7 @@
                                                     <h:message for="descriptionInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item No: 
-                                                    <h:inputText id="orderItemNoInputText" rendered="true" style="margin-left: 33px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderItemNoInputText" rendered="true" style="margin-left: 33px;"
                                                                 requiredMessage="Enter the valid item no?"
                                                                 value="#{orderModelBean.itemNo}" maxlength="3"
                                                                 converterMessage="Invalid Item no!">
@@ -649,7 +647,7 @@
                                                     <h:message for="orderItemNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Payment No: 
-                                                    <h:inputText id="orderPaymentNoInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderPaymentNoInputText" rendered="true" style="margin-left: 0px;"
                                                                 requiredMessage="Enter the valid paymnet no?"
                                                                 value="#{orderModelBean.paymentNo}" maxlength="3"
                                                                 converterMessage="Invalid Item no!">
@@ -657,7 +655,7 @@
                                                     <h:message for="orderPaymentNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Customer Id: 
-                                                    <h:inputText id="orderCustomerIdInputText" rendered="true" style="margin-left: 0px; margin-right: 5px; width: 200px"
+                                                    <h:inputText class="inputText" id="orderCustomerIdInputText" rendered="true" style="margin-left: 0px;"
                                                                 requiredMessage="Enter the valid Id?"
                                                                 value="#{orderModelBean.customerId}" maxlength="3"
                                                                 converterMessage="Invalid your Id!">
@@ -707,6 +705,36 @@
                 <image src="../images/img_footer_bar.png" style="width: 110%; height: 150px; margin-left: 0px"/>
             </div>
         </footer>
-
     </body>
+    <style>
+        .button{
+            height: 40px;
+            width: 200px;
+            margin-top: 35px;
+            margin-left: 100px;
+            border-radius: 9px;
+            border: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            background-color: blue
+        }
+        .button:hover {
+            box-shadow: 7px 5px 56px 5px #0015ff;
+            transform: scale(0.95);
+            transition: 0.5s;
+            color: black;
+            background-color: whitesmoke;
+        }
+        .inputText {
+            margin-top: 10px;
+            height: 30px;
+            width: 300px;
+            alignment-adjust: central;
+            padding-left: 10px
+        }
+    </style>
 </html>

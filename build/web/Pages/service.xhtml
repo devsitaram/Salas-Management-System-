@@ -4,7 +4,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -162,69 +164,219 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div style="height: 75%; width: 450px; margin-top: 6px; margin-right: 20px; float: right; border-radius: 10px;">
                     <ul>
                         <li><a href="home.xhtml">Home</a></li>
-                        <li><a class="active" href="product.xhtml">Product</a></li>
+                        <li><a href="product.xhtml">Product</a></li>
                         <li><a href="contact.xhtml">Contact</a></li>
-                        <li><a href="service.xhtml">Services</a></li>
+                        <li><a class="active" href="service.xhtml">Services</a></li>
                         <li><a href="about.xhtml">About</a></li>
                     </ul>
                 </div>
             </header>
         </div>
-        
+
         <div class="about-section">
             <h1>About Us Page</h1>
             <p>Some text about who we are and what we do.</p>
             <p>Resize the browser window to see that this page is responsive by the way.</p>
         </div>
 
-        <h2 style="text-align:center">Our Team</h2>
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="../images/img_sitaram.jpg" alt="Jane" style="width:100%"/>
-                    <div class="container">
-                        <h2>Mr. Sitaram Thing</h2>
-                        <p class="title">Student</p>
-                        <p>Islington College Nepal, London Metropolitan University.</p>
-                        <p>np01ma4s220003@islingtoncollege.edu.np</p>
-                        <p><button class="button">Contact</button></p>
-                    </div>
-                </div>
-            </div>
+        <!--<h2 style="text-align:center">Our Team</h2>-->
+        <div class="dataShow">
 
-            <div class="column">
-                <div class="card">
-                    <img src="/w3images/team2.jpg" alt="Mike" style="width:100%"/>
-                    <div class="container">
-                        <h2>Mike Ross</h2>
-                        <p class="title">Art Director</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>mike@example.com</p>
-                        <p><button class="button">Contact</button></p>
+            <div class="navbar">
+                <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                <div class="dropdown">
+                    <button class="dropbtn">Customers<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" style="margin-left: -50px; width: 100%">
+                        <div style="text-align: center; margin: 20px">
+                            <h2>Customer Details</h2>
+                        </div>
+                        <div style="padding: 10px">
+                            <!--// show the customer details-->
+                            <h:dataTable value="#{customerDbBean.customerData}" var="customer"
+                                         styleClass="table" border="1"
+                                         headerClass="header"
+                                         rowClasses="oddRows,evenRows"
+                                         cellpadding="5" cellspacing="5">
+                                <h:column>
+                                    <f:facet name="header">customer Id</f:facet>
+                                        #{customer.customer_id}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                        #{customer.Customer_name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Email</f:facet>
+                                        #{customer.Email}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Address</f:facet>
+                                        #{customer.Address}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Phone No</f:facet>
+                                        #{customer.Phone_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Password</f:facet>
+                                        #{customer.Password}
+                                </h:column>
+                            </h:dataTable>
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="column">
-                <div class="card">
-                    <img src="/w3images/team3.jpg" alt="John" style="width:100%"/>
-                    <div class="container">
-                        <h2>John Doe</h2>
-                        <p class="title">Designer</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>john@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                <!--//show the suppliers details where insert, update and delete if the data is unnecessary-->
+                <div class="dropdown">
+                    <button class="dropbtn">Suppliers<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" style="margin-left: -160px; padding: 50px; width: 100%">
+                        <div style="text-align: center; margin: 20px">
+                            <h2>Supplier Details</h2>
+                        </div>
+                        <div>
+                            <!--// show the customer details-->
+                            <h:dataTable value="#{supplierDbBean.supplierData}" var="supplier"
+                                         styleClass="table" border="1"
+                                         headerClass="header"
+                                         rowClasses="oddRows,evenRows"
+                                         cellpadding="5" cellspacing="5">
+                                <h:column>
+                                    <f:facet name="header">Supplier Id</f:facet>
+                                        #{supplier.Supplier_id}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                        #{supplier.Supplier_name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Mail</f:facet>
+                                        #{supplier.Mail}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Location</f:facet>
+                                        #{supplier.Location}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Contact No</f:facet>
+                                        #{supplier.Contact_no}
+                                </h:column>
+                            </h:dataTable>
+                            
+                        </div>
                     </div>
                 </div>
+
+                <!--//show the items details where insert, update and delete if the data is unnecessary-->
+                <div class="dropdown">
+                    <button class="dropbtn">Items<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" style="margin-left: -260px; width: 100%">
+                        <div style="text-align: center; margin: 20px">
+                            <h2>Item Details</h2>
+                        </div>
+                        <div>
+                            <!--// show the items details-->
+                            <h:dataTable value="#{itemDbBean.itemsData}" var="item"
+                                         styleClass="table" border="1"
+                                         headerClass="header"
+                                         rowClasses="oddRows,evenRows"
+                                         cellpadding="5" cellspacing="5">
+                                <h:column>
+                                    <f:facet name="header">Item No</f:facet>
+                                        #{item.item_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Item Name</f:facet>
+                                        #{item.item_name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Quantity</f:facet>
+                                        #{item.item_qty}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Item Prices</f:facet>
+                                        #{item.prices}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Supply Date</f:facet>
+                                        #{item.supply_date}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Supplier Id</f:facet>
+                                        #{item.supplier_id}
+                                </h:column>
+                            </h:dataTable>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!--//show the payments details where insert, update and delete if the data is unnecessary-->
+                <div class="dropdown">
+                    <button class="dropbtn">Payments<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" style="margin-left: -330px; padding: 50px; width: 100%">
+                        <div style="text-align: center; margin: 20px">
+                            <h2>Payment Details</h2>
+                        </div>
+                        <div>
+                            <!--// show the payments details-->
+                            <h:dataTable value="#{paymentDbBean.paymentData}" var="payment"
+                                         styleClass="table" border="1"
+                                         headerClass="header"
+                                         rowClasses="oddRows,evenRows"
+                                         cellpadding="5" cellspacing="5">
+                                <h:column>
+                                    <f:facet name="header">Item No</f:facet>
+                                        #{payment.payment_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Pay Amount</f:facet>
+                                        #{payment.amounts}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Payment Date</f:facet>
+                                        #{payment.payment_date}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Remarks</f:facet>
+                                        #{payment.remarks}
+                                </h:column>
+                            </h:dataTable>
+                            
+                        </div>
+                    </div>
+                </div>  
+
+                <!--//show the orders details where insert, update and delete if the data is unnecessary-->
+                <div class="dropdown">
+                    <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" style="margin-left: -430px; padding: 50px; width: 100%">
+                        <div style="text-align: center; margin: 20px">
+                            <h2>Order Details</h2>
+                        </div>
+                        
+                    </div>
+                </div> 
             </div>
+            <!--            <div class="column">
+                            <div class="card">
+                                <img src="../images/img_sitaram.jpg" alt="Jane" style="width:100%"/>
+                                <div class="container">
+                                    <h2>Mr. Sitaram Thing</h2>
+                                    <p class="title">Student</p>
+                                    <p>Islington College Nepal, London Metropolitan University.</p>
+                                    <p>np01ma4s220003@islingtoncollege.edu.np</p>
+                                    <p><button class="button">Contact</button></p>
+                                </div>
+                            </div>
+                        </div>-->
         </div>
-
     </body>
     <style>
-/*        *{
-            padding: 0;
-            margin: 0;
-        }*/
+        /*        *{
+                    padding: 0;
+                    margin: 0;
+                }*/
         body {
             overflow-x: hidden;
             overflow-y: scroll;
@@ -263,7 +415,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             padding: 0 16px;
         }
 
-        .container::after, .row::after {
+        .container::after, .dataShow::after {
             content: "";
             clear: both;
             display: table;
