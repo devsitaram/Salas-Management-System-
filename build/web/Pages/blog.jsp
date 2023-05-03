@@ -1,22 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%-- 
+    Document   : blog
+    Created on : May 4, 2023, 12:25:11 AM
+    Author     : Lenovo
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<html>
     <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <sql:setDataSource var="dbConnection" driver="org.apache.derby.client.ClientAutoloadedDriver"
+                           url ="jdbc:derby://localhost:1527/saledb" user="admin" password="admin"/>
+        <title>Blog Page</title>
+        <link rel="stylesheet" href="../css/blog.css"/>
     </head>
     <style>
-        .navicationbar{
-            height: 75%;
-            width: 450px;
-            margin-top: 6px;
-            margin-right: -50px;
-            float: right;
-            border-radius: 10px;
+        .header{
+            height: 90px; 
+            width: 100%;  
+            padding: 15px; 
+            overflow: visible;
+            background-color: whitesmoke
         }
         /*// logo anomations*/
         .loader {
@@ -94,6 +99,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             width: 200px;
         }
         /* Navication bar codepen*/
+        .navicationbar{
+            height: 85%;
+            width: 450px;
+            margin-top: 6px;
+            margin-right: -20px;
+            float: right;
+            overflow: visible;
+            border-radius: 10px;
+        }
         ul {
             list-style-type: none;
             margin: 0;
@@ -119,11 +133,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             margin-right: 5px;
             color: #2243ff;
             background-color: #f3f3f3;
-            transition: 0.90s;
+            transition: 0.70s;
         }
         li a.active:hover{
             box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
+
         }
+
         /* menu icon */
         .menu {
             height: 50%;
@@ -140,47 +156,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             background-color: #666;
         }
     </style> 
-    <body style="text-align: center">
-        <div style="width: 100%; height: 90px; padding-top: 5px;">
-            <!-- this is the header section-->
-            <header style="height: 100%; width: 100%;  padding: 10px; background-color: whitesmoke">
-                <div style=" width: 230px; float: left; margin-left: 20px; ">
-                    <div style="width: 35%; float: left;">
-                        <div class="loader">
-                            <div class="face">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="face">
-                                <div class="circle"/>
-                            </div>
+    <body style="width: 100%; height: auto; text-align: center">
+        <!-- this is the header section-->
+        <header class="header">
+
+            <div style=" width: 300px; height: 100%; float: left; margin-left: 20px;">
+                <div style="width: 25%; float: left;">
+                    <div class="loader">
+                        <div class="face">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="face">
+                            <div class="circle"></div>
                         </div>
                     </div>
-                    <div style="width: 60%; height: 100%; margin-top: 5px; float: right;">
-                        <h3>BuyToSale</h3>   	 
-                    </div>
                 </div>
 
-                <!-- menu icon -->
-                <div class="menu" style="margin-right: 25px;">
-                    <a href="">
-                        <div class="iconLine"></div>
-                        <div class="iconLine"></div>
-                        <div class="iconLine"></div>
-                    </a>
+                <div style="width: 50%; height: 100%; padding-top: 15px; float: right; margin-right: 70px;">
+                    <h3>BuyToSale</h3>   	 
                 </div>
+            </div>
 
-                <!--this is the navication bar-->
-                <div class="navicationbar">
-                    <ul>
-                        <li><a href="home.xhtml">Home</a></li>
-                        <li><a href="product.xhtml">Product</a></li>
-                        <li><a href="contact.xhtml">Contact</a></li>
-                        <li><a href="blog.jsp">Blog</a></li>
-                        <li><a class="active" href="about.xhtml">About</a></li>
-                    </ul>
-                </div>
-            </header>
-        </div>
+            <!-- menu icon -->
+            <div class="menu" style="margin-right: 15px;">
+                <a href="">
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                    <div class="iconLine"></div>
+                </a>
+            </div>
+            
+            <!--this is the navication bar-->
+            <div class="navicationbar">
+                <ul>
+                    <li><a href="home.xhtml">Home</a></li>
+                    <li><a href="product.xhtml">Product</a></li>
+                    <li><a href="contact.xhtml">Contact</a></li>
+                    <li><a class="active" href="blog.jsp">Blog</a></li>
+                    <li><a href="about.xhtml">About</a></li>
+                </ul>
+            </div>
+        </header>
 
         <div class="about-section">
             <h1>About Us Page</h1>
@@ -188,21 +204,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <p>Resize the browser window to see that this page is responsive by the way.</p>
         </div>
 
-        <h2 style="text-align:center">Leadership</h2>
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="../images/img_sitaram.jpg" alt="Jane" style="width:100%"/>
-                    <div class="container">
-                        <h2>Mr. Sitaram Thing</h2>
-                        <p class="title">Student</p>
-                        <p>Islington College Nepal, London Metropolitan University.</p>
-                        <p>np01ma4s220003@islingtoncollege.edu.np</p>
-                        <p><button class="button">Contact</button></p>
-                    </div>
-                </div>
-            </div>
+        <div style="height: auto; width: 100%; text-align: center">
+            <!--// show the customer details-->
+            <h1>Information about Sales management</h1>
+
+            <sql:query var="customers" dataSource="${dbConnection}">
+                SELECT * From ADMIN.customers
+            </sql:query>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th> Customer Id</th>
+                        <th> Customer Name </th>
+                        <th> Customer Email</th>
+                        <th> Customer Address </th>
+                        <th> Phone Number</th>
+                        <th> Password</th>
+                    </tr>
+                </thead>
+                <c:forEach var="customer" items="${customers.rows}">
+                    <tr>
+                        <td><c:out value="${customer.customer_id}"/></td>
+                        <td><c:out value="${customer.customer_name}"/></td>
+                        <td><c:out value="${customer.email}"/></td>
+                        <td><c:out value="${customer.address}"/></td>            
+                        <td><c:out value="${customer.phone_no}"/></td>
+                        <td><c:out value="${customer.password}"/></td>
+                    </tr>
+                </c:forEach>
+            </table>
+
         </div>
+
 
 
         <div class="footer">
@@ -214,7 +247,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             padding: 0;
             margin: 0;
         }
-        .body {
+        body {
             overflow-x: hidden;
             overflow-y: scroll;
             font-family: Arial, Helvetica, sans-serif;
@@ -228,7 +261,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         *, *:before, *:after {
             box-sizing: inherit;
         }
-
+        
         .column {
             width: 33.3%;
             margin-bottom: 16px;
@@ -295,4 +328,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             width: 100%;
         }
     </style>
-</html>
+</html>    

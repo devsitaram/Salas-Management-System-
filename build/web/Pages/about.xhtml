@@ -10,6 +10,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <style>
+        .navicationbar{
+            height: 75%;
+            width: 450px;
+            margin-top: 6px;
+            margin-right: -50px;
+            float: right;
+            border-radius: 10px;
+        }
         /*// logo anomations*/
         .loader {
             width: 6em;
@@ -90,7 +98,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: visible;
         }
         li a {
             float: left;
@@ -102,9 +110,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             border-radius: 6%;
         }
         li a:hover {
-            transition: 0.90s;
-            color: white;
-            background-color: #04AA6D;
+            overflow: visible;
+            transform: translateY(15%);
+            transition: 0.50s;
+            box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
         }
         li a.active {
             margin-right: 5px;
@@ -112,7 +121,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             background-color: #f3f3f3;
             transition: 0.90s;
         }
-
+        li a.active:hover{
+            box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
+        }
         /* menu icon */
         .menu {
             height: 50%;
@@ -159,18 +170,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </div>
 
                 <!--this is the navication bar-->
-                <div style="height: 75%; width: 450px; margin-top: 6px; margin-right: 20px; float: right; border-radius: 10px;">
+                <div class="navicationbar">
                     <ul>
                         <li><a href="home.xhtml">Home</a></li>
                         <li><a href="product.xhtml">Product</a></li>
                         <li><a href="contact.xhtml">Contact</a></li>
-                        <li><a href="service.xhtml">Services</a></li>
+                        <li><a href="blog.jsp">Blog</a></li>
                         <li><a class="active" href="about.xhtml">About</a></li>
                     </ul>
                 </div>
             </header>
         </div>
-        
+
         <div class="about-section">
             <h1>About Us Page</h1>
             <p>Some text about who we are and what we do.</p>
@@ -193,17 +204,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             </div>
         </div>
 
-        
+
         <div class="footer">
             <img src="../images/img_footer_bar.png" alt="alt" style="width: 100%"/>
         </div>
     </body>
     <style>
-/*        *{
+        *{
             padding: 0;
             margin: 0;
-        }*/
-        body {
+        }
+        .body {
             overflow-x: hidden;
             overflow-y: scroll;
             font-family: Arial, Helvetica, sans-serif;
@@ -225,7 +236,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             background-color: white;
             margin-left: 400px;
             margin-top: 50px;
-            margin-bottom: 50px;        
+            margin-bottom: 50px;
         }
 
         .card {

@@ -130,6 +130,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             margin: 5px;
             background-color: #666;
         }
+        .dropdown {
+            text-align: center;
+            background-color: black;
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            transform: scale(0.95);
+            transition: 0.5s;
+            background-color: red;
+            
+        }
+        .dropdown-content {
+            margin-left: 0px;
+            padding: 50px;
+            width: 100%;
+            display: none;
+            position: absolute;
+            background-color: whitesmoke;
+            height: auto;
+            padding: auto;
+            /*margin-left: 55px;*/
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style> 
     <body style="text-align: center">
         <div style="width: 100%; height: 90px; padding-top: 5px;">
@@ -177,6 +213,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <h1>About Us Page</h1>
             <p>Some text about who we are and what we do.</p>
             <p>Resize the browser window to see that this page is responsive by the way.</p>
+            <form class="form" name="dataMessage">
+                <input class="input_textfields" placeholder="What do you need?" type="text" name="searchData"/><br></br>
+                <button class="button" style="width: 50%; color: white; background: #525ff4" onclick="validateForm()">Search</button>
+                <!--<input class="button" type="submit" value="Login" style="width: 15%; background-color: #525ff4;" />-->
+            </form>
+            <script>
+                function (){
+                    var sText = document.forms["dataMessage"]["searchData"].value;
+//                    var text = document.getElementById("searchData").value;
+                    if(!sText==""){
+                        alert("Thank you!");
+                    } else {
+                        alert("Sorry");
+                    }
+                }
+            </script>
         </div>
 
         <!--<h2 style="text-align:center">Our Team</h2>-->
@@ -186,8 +238,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <!--//show the customers details where insert, update and delete if the data is unnecessary-->
                 <div class="dropdown">
                     <button class="dropbtn">Customers<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" style="margin-left: -50px; width: 100%">
-                        <div style="text-align: center; margin: 20px">
+                    <div class="dropdown-content" style="margin-left: 0px; width: 100%">
+                        <div style="margin: 20px">
                             <h2>Customer Details</h2>
                         </div>
                         <div style="padding: 10px">
@@ -222,7 +274,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                         #{customer.Password}
                                 </h:column>
                             </h:dataTable>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -230,8 +282,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <!--//show the suppliers details where insert, update and delete if the data is unnecessary-->
                 <div class="dropdown">
                     <button class="dropbtn">Suppliers<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" style="margin-left: -160px; padding: 50px; width: 100%">
-                        <div style="text-align: center; margin: 20px">
+                    <div class="dropdown-content" style="margin-left: -110px; padding: 50px; width: 100%">
+                        <div style="margin: 20px">
                             <h2>Supplier Details</h2>
                         </div>
                         <div>
@@ -262,7 +314,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                         #{supplier.Contact_no}
                                 </h:column>
                             </h:dataTable>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -270,8 +322,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <!--//show the items details where insert, update and delete if the data is unnecessary-->
                 <div class="dropdown">
                     <button class="dropbtn">Items<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" style="margin-left: -260px; width: 100%">
-                        <div style="text-align: center; margin: 20px">
+                    <div class="dropdown-content" style="margin-left: -205px; width: 100%">
+                        <div style="margin: 20px">
                             <h2>Item Details</h2>
                         </div>
                         <div>
@@ -306,7 +358,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                         #{item.supplier_id}
                                 </h:column>
                             </h:dataTable>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -314,8 +366,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <!--//show the payments details where insert, update and delete if the data is unnecessary-->
                 <div class="dropdown">
                     <button class="dropbtn">Payments<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" style="margin-left: -330px; padding: 50px; width: 100%">
-                        <div style="text-align: center; margin: 20px">
+                    <div class="dropdown-content" style="margin-left: -280px; padding: 50px; width: 100%">
+                        <div style="margin: 20px">
                             <h2>Payment Details</h2>
                         </div>
                         <div>
@@ -342,7 +394,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                         #{payment.remarks}
                                 </h:column>
                             </h:dataTable>
-                            
+
                         </div>
                     </div>
                 </div>  
@@ -350,15 +402,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <!--//show the orders details where insert, update and delete if the data is unnecessary-->
                 <div class="dropdown">
                     <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content" style="margin-left: -430px; padding: 50px; width: 100%">
-                        <div style="text-align: center; margin: 20px">
+                    <div class="dropdown-content" style="margin-left: -380px; padding: 50px; width: 100%">
+                        <div style="margin: 20px">
                             <h2>Order Details</h2>
                         </div>
-                        
+                        <div>
+                            <!--// show the order details-->
+                            <h:dataTable value="#{orderDbBean.orderData}" var="order"
+                                         styleClass="table" border="1"
+                                         headerClass="header"
+                                         rowClasses="oddRows,evenRows"
+                                         cellpadding="5" cellspacing="5">
+                                <h:column>
+                                    <f:facet name="header">Item No</f:facet>
+                                        #{order.order_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Payment Date</f:facet>
+                                        #{order.order_date}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Order Qty</f:facet>
+                                        #{order.order_qty}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Item No</f:facet>
+                                        #{order.item_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Payment No</f:facet>
+                                        #{order.payment_no}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Customer Id</f:facet>
+                                        #{order.customer_id}
+                                </h:column>
+                            </h:dataTable>
+                        </div>
                     </div>
                 </div> 
             </div>
-            <!--            <div class="column">
+<!--                        <div class="column">
                             <div class="card">
                                 <img src="../images/img_sitaram.jpg" alt="Jane" style="width:100%"/>
                                 <div class="container">
@@ -416,6 +500,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         }
 
         .container::after, .dataShow::after {
+            text-align: center;
             content: "";
             clear: both;
             display: table;
@@ -446,6 +531,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 width: 100%;
                 display: block;
             }
+        }
+        .navbar{
+            height: auto;
+            width: 100%;
         }
     </style>
 </html>

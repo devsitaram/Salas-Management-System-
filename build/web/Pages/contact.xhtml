@@ -41,12 +41,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </div>
 
                 <!--this is the navication bar-->
-                <div style="height: 75%; width: 400px; margin-top: 6px; margin-right: 20px; float: right; border-radius: 10px;">
+                <div class="navicationbar" style="height: 75%; width: 400px; margin-top: 6px; margin-right: 20px; float: right; border-radius: 10px;">
                     <ul>
                         <li><a href="home.xhtml">Home</a></li>
                         <li><a href="product.xhtml">Product</a></li>
                         <li><a class="active" href="contact.xhtml">Contact</a></li>
-                        <li><a href="service.xhtml">Services</a></li>
+                        <li><a href="blog.jsp">Blog</a></li>
                         <li><a href="about.xhtml">About</a></li>
                     </ul>
                 </div>
@@ -80,7 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <form>
                         <input class="input_textfields" placeholder="Search" type="text" name="search"/>
                         <a id="searchButton" href="https://www.google.com/" target="_blank">
-                           <button class="btn btn-sm" onclick="buttonClick()"> Search </button>
+                            <button class="btn btn-sm" onclick="buttonClick()"> Search </button>
                         </a>
                     </form>
                 </div>
@@ -142,7 +142,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         function buttonClick() {
             var search = document.getElementById("searchText").value;
             if (!search.equals("")) {
-                document.getElementById("searchButton").href = "https://www.google.com/"+search;
+                document.getElementById("searchButton").href = "https://www.google.com/" + search;
             } else {
                 alert("The text fields is empty.");
             }

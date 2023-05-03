@@ -106,7 +106,6 @@
                             var confirmPassword = document.forms["messageForm"]["confirmPassword"].value;
                             var message = document.forms["messageForm"]["feedback"].value;
 
-
                             /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
                             if (id == "" || name == "" || email == "" || address == "" || phoneNo == "") {
                                     alert("Empty fields fund! Please enter the valid personal information.");

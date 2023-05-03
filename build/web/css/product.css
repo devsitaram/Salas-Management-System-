@@ -36,6 +36,9 @@
     padding: 14px 16px;
     text-decoration: none;
 }
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
 .flex-container{
     /*background-color: greenyellow;*/
 }
@@ -52,9 +55,7 @@
     background-color: inherit;
     font: inherit;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
+
 .dropdown-content {
     margin-left: 0px;
     padding: 50px;
@@ -98,14 +99,17 @@ li a:hover {
     overflow: visible;
     transform: translateY(15%);
     transition: 0.50s;
-    color: white;
-    background-color: #04AA6D;
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
 }
 li a.active {
     margin-right: 5px;
     color: #2243ff;
     background-color: #f3f3f3;
     transition: 0.90s;
+}
+li a.active:hover{
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
+
 }
 
 /*menu icon*/

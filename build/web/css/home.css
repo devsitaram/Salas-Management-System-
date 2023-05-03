@@ -8,6 +8,14 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+.navicationbar{
+    height: 75%;
+    width: 400px;
+    margin-top: 6px;
+    margin-right: 20px;
+    float: right;
+    border-radius: 10px;
+}
 .navbar {
     width: 455.5px;
     overflow: hidden;
@@ -54,6 +62,7 @@
     display: block;
 }
 .header{
+    overflow: visible;
     text-align: center;
     margin: 10px
 }
@@ -63,7 +72,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 li a {
     float: left;
@@ -75,9 +84,10 @@ li a {
     border-radius: 6%;
 }
 li a:hover {
-    transition: 0.90s;
-    color: white;
-    background-color: #04AA6D;
+    overflow: visible;
+    transform: translateY(15%);
+    transition: 0.50s;
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
 }
 li a.active {
     margin-right: 5px;
@@ -85,7 +95,10 @@ li a.active {
     background-color: #f3f3f3;
     transition: 0.90s;
 }
+li a.active:hover{
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
 
+}
 /* menu icon */
 .menu {
     height: 50%;
