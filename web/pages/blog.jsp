@@ -17,9 +17,9 @@
     </head>
     <style>
         .header{
-            height: 90px; 
-            width: 100%;  
-            padding: 15px; 
+            height: 90px;
+            width: 100%;
+            padding: 15px;
             overflow: visible;
             background-color: whitesmoke
         }
@@ -185,7 +185,7 @@
                     <div class="iconLine"></div>
                 </a>
             </div>
-            
+
             <!--this is the navication bar-->
             <div class="navicationbar">
                 <ul>
@@ -199,44 +199,324 @@
         </header>
 
         <div class="about-section">
-            <h1>About Us Page</h1>
+            <h1>Blog Page</h1><br>
             <p>Some text about who we are and what we do.</p>
-            <p>Resize the browser window to see that this page is responsive by the way.</p>
-        </div>
-
-        <div style="height: auto; width: 100%; text-align: center">
-            <!--// show the customer details-->
+            <p>Resize the browser window to see that this page is responsive by the way.</p><br>
             <h1>Information about Sales management</h1>
-
-            <sql:query var="customers" dataSource="${dbConnection}">
-                SELECT * From ADMIN.customers
-            </sql:query>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th> Customer Id</th>
-                        <th> Customer Name </th>
-                        <th> Customer Email</th>
-                        <th> Customer Address </th>
-                        <th> Phone Number</th>
-                        <th> Password</th>
-                    </tr>
-                </thead>
-                <c:forEach var="customer" items="${customers.rows}">
-                    <tr>
-                        <td><c:out value="${customer.customer_id}"/></td>
-                        <td><c:out value="${customer.customer_name}"/></td>
-                        <td><c:out value="${customer.email}"/></td>
-                        <td><c:out value="${customer.address}"/></td>            
-                        <td><c:out value="${customer.phone_no}"/></td>
-                        <td><c:out value="${customer.password}"/></td>
-                    </tr>
-                </c:forEach>
-            </table>
-
         </div>
 
+        <div style="height: auto; width: 100%;">
 
+            <!--// show the customer details-->
+            <center>
+                <div class="display_data">
+
+                    <div style=" width: 65%;">
+                        <h1>Customer details</h1>
+                        <h4 style="margin: 10px">UPDATED ON APRIL 30, 2023 BY SITA RAM TAMANG</h4>
+                    </div>
+
+                    <div style="width: 65%; margin-top: 20px; font-size: 18px; text-align: justify;">
+                        <p>
+                            In a sales management system, customers play a crucial role as they are 
+                            the primary source of revenue for the organization. Managing customers 
+                            effectively involves maintaining a comprehensive database of customer 
+                            information, including their contact details, purchase history, preferences, 
+                            and feedback. This data can be used to create targeted marketing campaigns, 
+                            personalized offers, and improve customer service. In addition, analyzing 
+                            customer behavior and trends can provide valuable insights that can be used 
+                            to optimize sales strategies and enhance customer satisfaction.
+                        </p>
+                    </div>
+
+                    <div class="navbar">
+                        <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Customers<i class="fa fa-caret-down"></i></button>
+
+                            <div class="dropdown-content">
+                                <center>
+                                    <sql:query var="customers" dataSource="${dbConnection}">
+                                        SELECT * From ADMIN.customers
+                                    </sql:query>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th> Customer Id</th>
+                                                <th> Customer Name </th>
+                                                <th> Customer Email</th>
+                                                <th> Customer Address </th>
+                                                <th> Phone Number</th>
+                                                <th> Password</th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="customer" items="${customers.rows}">
+                                            <tr>
+                                                <td><c:out value="${customer.customer_id}"/></td>
+                                                <td><c:out value="${customer.customer_name}"/></td>
+                                                <td><c:out value="${customer.email}"/></td>
+                                                <td><c:out value="${customer.address}"/></td>            
+                                                <td><c:out value="${customer.phone_no}"/></td>
+                                                <td><c:out value="${customer.password}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+            </center>
+
+            <!--// show the customer details-->
+            <center>
+                <div class="display_data">
+
+                    <div style=" width: 65%;">
+                        <h1>Supplier details</h1>
+                        <h4 style="margin: 10px">UPDATED ON APRIL 30, 2023 BY SITA RAM TAMANG</h4>
+                    </div>
+
+                    <div style="width: 65%; margin-top: 20px; font-size: 18px; text-align: justify;">
+                        <p>
+                            In a sales management system, suppliers are key players in ensuring the availability 
+                            and quality of products or services offered by an organization. Managing suppliers 
+                            effectively involves maintaining a database of supplier information, including their 
+                            contact details, product offerings, pricing, and delivery schedules. By monitoring 
+                            supplier performance, organizations can ensure that they are receiving the best value 
+                            for their money and that products are delivered on time and to the expected standard. 
+                            This data can also be used to negotiate better deals, optimize inventory management, 
+                            and streamline procurement processes. 
+                        </p>
+                    </div>
+
+                    <div class="navbar">
+                        <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Supplier<i class="fa fa-caret-down"></i></button>
+
+                            <div class="dropdown-content">
+                                <center>
+                                    <sql:query var="suppliers" dataSource="${dbConnection}">
+                                        SELECT * From ADMIN.suppliers
+                                    </sql:query>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th> Supplier Id</th>
+                                                <th> Supplier Name </th>
+                                                <th> Supplier Mail</th>
+                                                <th> Location</th>
+                                                <th> Contact No</th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="supplier" items="${suppliers.rows}">
+                                            <tr>
+                                                <td><c:out value="${supplier.supplier_id}"/></td>
+                                                <td><c:out value="${supplier.supplier_name}"/></td>
+                                                <td><c:out value="${supplier.mail}"/></td>
+                                                <td><c:out value="${supplier.location}"/></td>            
+                                                <td><c:out value="${supplier.contact_no}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+
+            <!--// show the customer details-->
+            <center>
+                <div class="display_data">
+
+                    <div style=" width: 65%;">
+                        <h1>Item details</h1>
+                        <h4 style="margin: 10px">UPDATED ON APRIL 30, 2023 BY SITA RAM TAMANG</h4>
+                    </div>
+
+                    <div style="width: 65%; margin-top: 20px; font-size: 18px; text-align: justify;">
+                        <p>
+                            In a sales management system, items refer to the products or services that 
+                            are sold by an organization. Managing items effectively involves maintaining 
+                            a comprehensive database of item information, including their names, descriptions, 
+                            prices, availability, and other relevant details. This data can be used to create 
+                            accurate and up-to-date catalogues, track inventory levels, and analyze sales trends. 
+                            By monitoring item performance, organizations can identify which items are popular 
+                            and which ones are not.
+                        </p>
+                    </div>
+
+                    <div class="navbar">
+                        <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Items<i class="fa fa-caret-down"></i></button>
+
+                            <div class="dropdown-content">
+                                <center>
+                                    <sql:query var="items" dataSource="${dbConnection}">
+                                        SELECT * From ADMIN.items
+                                    </sql:query>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th> Item No</th>
+                                                <th> Item Name </th>
+                                                <th> Prices </th>
+                                                <th> Item Qty </th>
+                                                <th> Supply Date</th>
+                                                <th> Supplier Id</th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="item" items="${items.rows}">
+                                            <tr>
+                                                <td><c:out value="${item.item_no}"/></td>
+                                                <td><c:out value="${item.item_name}"/></td>
+                                                <td><c:out value="${item.prices}"/></td>
+                                                <td><c:out value="${item.item_qty}"/></td>            
+                                                <td><c:out value="${item.supply_date}"/></td>
+                                                <td><c:out value="${item.supplier_id}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+            </center>
+
+
+            <!--// show the customer details-->
+            <center>
+                <div class="display_data">
+
+                    <div style=" width: 65%;">
+                        <h1>Payment details</h1>
+                        <h4 style="margin: 10px">UPDATED ON APRIL 30, 2023 BY SITA RAM TAMANG</h4>
+                    </div>
+
+                    <div style="width: 65%; margin-top: 20px; font-size: 18px; text-align: justify;">
+                        <p>
+                            In a sales management system, payment refers to the process of receiving 
+                            and processing payments from customers for products or services sold. 
+                            Managing payments effectively involves providing customers with a variety 
+                            of payment options, such as credit cards, debit cards, PayPal, and other 
+                            electronic payment methods. Payment information must be collected securely 
+                            and stored in compliance with relevant regulations and standards. A successful 
+                            sales management system should also include features that allow for easy payment
+                            processing, such as automated invoicing, payment reminders, and payment tracking. 
+                            By managing payments effectively, organizations can ensure that they receive timely 
+                            and accurate payments, reduce the risk of fraud, and improve customer satisfaction.
+                        </p>
+                    </div>
+
+                    <div class="navbar">
+                        <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Payment<i class="fa fa-caret-down"></i></button>
+
+                            <div class="dropdown-content">
+                                <center>
+                                    <sql:query var="payments" dataSource="${dbConnection}">
+                                        SELECT * From ADMIN.payments
+                                    </sql:query>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th> Payment No</th>
+                                                <th> Amounts </th>
+                                                <th> Payment Date</th>
+                                                <th> Remarks </th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="payment" items="${payments.rows}">
+                                            <tr>
+                                                <td><c:out value="${payment.payment_no}"/></td>
+                                                <td><c:out value="${payment.amounts}"/></td>
+                                                <td><c:out value="${payment.payment_date}"/></td>
+                                                <td><c:out value="${payment.remarks}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+            </center>
+
+
+            <!--// show the customer details-->
+            <center>
+                <div class="display_data">
+
+                    <div style=" width: 65%;">
+                        <h1>Order details</h1>
+                        <h4 style="margin: 10px">UPDATED ON APRIL 30, 2023 BY SITA RAM TAMANG</h4>
+                    </div>
+
+                    <div style="width: 65%; margin-top: 20px; font-size: 18px; text-align: justify;">
+                        <p>
+                            In a sales management system, order refers to the process of receiving and 
+                            fulfilling customer requests for products or services. Managing orders 
+                            effectively involves maintaining a streamlined and efficient process for 
+                            receiving and processing orders, including online orders, phone orders, or 
+                            in-store orders. Orders must be processed accurately, and the system should 
+                            provide real-time inventory management, allowing the organization to ensure 
+                            that the ordered items are available for delivery or pickup. The system should 
+                            also provide features that allow for easy order tracking and updates, such as 
+                            automated order confirmation and shipment notifications. By managing orders 
+                            effectively, organizations can ensure that customers receive their requested 
+                            products or services promptly and accurately, improving customer satisfaction 
+                            and loyalty.
+                        </p>
+                    </div>
+
+                    <div class="navbar">
+                        <!--//show the customers details where insert, update and delete if the data is unnecessary-->
+                        <div class="dropdown">
+                            <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
+
+                            <div class="dropdown-content">
+                                <center>
+                                    <sql:query var="orders" dataSource="${dbConnection}">
+                                        SELECT * From ADMIN.orders
+                                    </sql:query>
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th> Order No</th>
+                                                <th> Order Date </th>
+                                                <th> Order Qty</th>
+                                                <th> Descriptions </th>
+                                                <th> Item No</th>
+                                                <th> Payment No</th>
+                                                <th> Customer Id</th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="order" items="${orders.rows}">
+                                            <tr>
+                                                <td><c:out value="${order.order_no}"/></td>
+                                                <td><c:out value="${order.order_date}"/></td>
+                                                <td><c:out value="${order.order_qty}"/></td>
+                                                <td><c:out value="${order.descriptions}"/></td>            
+                                                <td><c:out value="${order.item_no}"/></td>
+                                                <td><c:out value="${order.payment_no}"/></td>
+                                                <td><c:out value="${order.customer_id}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+            </center>
+
+        </div>
 
         <div class="footer">
             <img src="../images/img_footer_bar.png" alt="alt" style="width: 100%"/>
@@ -261,7 +541,7 @@
         *, *:before, *:after {
             box-sizing: inherit;
         }
-        
+
         .column {
             width: 33.3%;
             margin-bottom: 16px;
@@ -326,6 +606,65 @@
         .footer {
             height: 150px;
             width: 100%;
+        }
+
+        .navbar {
+            width: 130px;
+            overflow: visible;
+            float: left;
+            border-radius: 9px;
+            margin: 30px;
+            text-align: center;
+            margin-left: 205px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .dropdown {
+            width: 130px;
+            float: left;
+            overflow: visible;
+        }
+        .dropdown .dropbtn {
+            border-radius: 9px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: grey;
+            font: inherit;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            overflow: visible;
+            transform: translateY(-15%);
+            transition: 0.50s;
+            box-shadow: rgba(66, 255, 170, 0.468) 0px 13px 47px 5px, rgb(82, 111, 215) 0px 8px 16px 5px;
+        }
+        .dropdown-content {
+            padding: 20px;
+            width: 100%;
+            margin-left: -230px;
+            margin-bottom: 20px;
+            display: none;
+            position: absolute;
+            background-color: white;
+            height: auto;
+            padding: auto;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .display_data{
+            height: auto;
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 80px;
         }
     </style>
 </html>    

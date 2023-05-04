@@ -9,6 +9,7 @@ package resources;
  * @author Lenovo
  */
 public class SaleConstants {
+    
     // connection to driver and localhost derby databases
     public final String JDBC_DRIVER = "org.apache.derby.client.ClientAutoloadedDriver";
     public final String DB_URL = "jdbc:derby://localhost:1527/saledb";
