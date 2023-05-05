@@ -242,11 +242,13 @@ body{
     font-family: "Sansita Swashed", cursive;
     font-size: 18px;
     text-align: center;
+    margin-top: 10px;
 }
 
 #service {
-    margin: 34px;
+    margin-top: 30px;
     display: flex;
+    padding-top: 5px;
 }
 
 #service .box {

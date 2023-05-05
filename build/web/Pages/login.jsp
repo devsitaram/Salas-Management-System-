@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ page session="true" %>
+<!--session tracking-->
 
 <!DOCTYPE html>
 <html>
@@ -16,81 +18,81 @@
         <script src="Slider.JS" type="text/javascript"></script>
         <title>Login Page</title>
     </head>
+    <%-- display error message if it exists --%>
+    <c:if test="${not empty errorMessage}">
+        <!--<p style="color: red; text-align: center">${errorMessage}</p>-->
+        <style>
+            .form{
+                text-align: center;
+                height: auto;
+                width: 100%
+            }
+            /* // input text fields css*/
+            .input_textfields {
+                width: 30%;
+                height: 20px;
+                padding: 10px;
+                margin-top: 15px;
+                border-radius: 12px;
+                border: 1.5px solid lightgrey;
+                outline-color: graytext;
+                transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+                box-shadow: 0px 0px 20px -20px;
+            }
+            /*            .input_textfields:hover{
+                            transform: scale(0.90);
+                            width: 40%;
+                        }*/
+
+            /* button css*/
+            .button{
+                width: 15%;
+                background-color: #525ff4;
+                height: 40px;
+                margin-top: 25px;
+                padding-left: 30px;
+                padding-right: 30px;
+                border-radius: 9px;
+                border: none;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: medium;
+                color: white;
+                text-decoration: none;
+            }
+            .button:hover {
+                box-shadow: 7px 5px 56px -14px #0015ff;
+                transform: scale(1.05);
+                transition: 0.5s;
+            }
+            .body{
+                background-image: url(../pages/register.jsp);
+            }
+        </style>
+    </c:if>
     <body name="body">
-        <div class="maindiv">
 
-            <!-- this is the left side or login page content -->
-            <div class="leftdiv">
-                <!-- this is the logo and title of the company -->
-                <div style="height: auto; width: 100%; margin: 20px;">
-                    <div style="width: 6%; height: 100%; margin: 10px; text-align: center; float: left">
-                        <div class="loader">
-                            <div class="face">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="face">
-                                <h3 style="color: black;">B2S</h3>
-                                <div class="circle"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 90%; height: 100%; float: right; margin-top: 10px; padding-left: 2px">
-                        <h3>Buy To Sale</h3>   	 
-                    </div>
-                </div>
+        <!-- this is the input text fields and button field -->
+        <div style="height: 300px; width: 100%; margin-top: 50px; background-image: url(../pages/register.jsp)">
+            <h1 style="font-family:roboto; text-align: center">Login to Your Account</h1>
+            <h4 style="text-align: center">Enter the valid Username and password</h4>
+            <form action="../LoginServlet" method="post" class="form" name="loginform">
 
-                <!-- this is the input text fields and button field -->
-                <div style="height: 300px; width: 100%; margin-top: 130px">
-                    <h1 style="font-family:roboto; text-align: center">Login to Your Account</h1> 
-                    <h4 style="text-align: center">Enter the valid Username and password</h4>
-                    <form action="../LoginServlet" method="post" class="form" name="loginform">
-                        <input class="input_textfields" placeholder="UsernameEmail" type="email||text" name="userName"><br>
-                        <input class="input_textfields" placeholder="Password" type="password" name="userPassword"><br>
-                        <input class="button" type="submit" value="Login" style="width: 35%; background-color: #525ff4;" />
-                    </form>
-                </div>
+                <input class="input_textfields" placeholder="UsernameEmail" type="email||text" name="userName"><br>
+                <input class="input_textfields" placeholder="Password" type="password" name="userPassword"><br>
 
-                <!-- this is the second options login the system with social media -->
-                <div style="height: 100px; width: 100%; text-align: center;">
-                    <h4><u>Or</u></h4>
-                    <h3>If you have no any account please go to register your details!</h3>
-                    <ul style="font-family: Arial, Helvetica, sans-serif;">
-                        <i>2023@BuyToSale</i>                  
-                    </ul>
-                </div>
-            </div>
+                <%-- display error message if it exists --%>
+                <p style="color: red; margin-top: 20px;  text-align: center">${errorMessage}</p>
 
-            <!-- this is the sign up content or right side div #d2e74a -->
-            <div class="rightdiv">
-                <h1 style="margin-top: 170px; margin-bottom: 30px;">New Here?</h1>
-                <li style="display: inline">Register and discover a great</li><br></br>
-                <li style="display: inline">amount of new opportunities!</li><br></br>
-                <button class="button" style="width: 45%; background-color: #d2e74a;" >
-                    <a style="text-decoration: none; color: blue;" href="../pages/register.jsp">Register</a>
-                </button>
-            </div>
+                <input class="button" type="submit" value="Login" style="width: 20%; background-color: #525ff4"/>
+            </form>
+        </div><br></br>
+
+        <!-- this is the second options login the system with social media -->
+        <div style="height: 100px; width: 100%; text-align: center;">
+            <h4><u>Or</u></h4>
+            <h3>If you have no any account please go to register your details!</h3>
+            <p>2023@BuyToSale</p>
         </div>
     </body>
-    
-<!--    <script  type="text/javascript">
-        function validateForm() {
-            var username = document.forms["loginform"]["UsernameEmail"].value;
-            var password = document.forms["loginform"]["Password"].value;
-            if ((un === username) && (pw === password)) {
-                window.location = "home.xhtml";
-                return false;
-            } else {
-                alert ("Login was unsuccessful, please check your username and password");
-            }
-            
-            if(username === password) {
-            alert("Welcome");
-                window.location="sec.html";
-                return false;
-            } else {
-                alert("Please Try again!");
-                return false;
-            }
-        }
-    <!--</script>-->
 </html>

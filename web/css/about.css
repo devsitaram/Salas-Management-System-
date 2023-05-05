@@ -1,0 +1,223 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 5, 2023, 6:50:55 AM
+    Author     : Lenovo
+*/
+*{
+    padding: 0;
+    margin: 0;
+}
+.body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.navicationbar{
+    height: 75%;
+    width: 450px;
+    margin-top: 6px;
+    margin-right: -50px;
+    float: right;
+    border-radius: 10px;
+}
+/*// logo anomations*/
+.loader {
+    width: 6em;
+    height: 6em;
+    font-size: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate023845 3s linear infinite;
+}
+.loader .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color: rgb(22, 255, 22);
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+}
+.loader .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color: rgb(0, 64, 255);
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+}
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+        0 0 4em,
+        0 0 6em,
+        0 0 8em,
+        0 0 10em,
+        0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+@keyframes animate023845 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.input_textfields{
+    margin-left: 25px;
+    width: 200px;
+}
+/* Navication bar codepen*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+li a {
+    float: left;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 6%;
+}
+li a:hover {
+    overflow: visible;
+    transform: translateY(15%);
+    transition: 0.50s;
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
+}
+li a.active {
+    margin-right: 5px;
+    color: #2243ff;
+    background-color: #f3f3f3;
+    transition: 0.90s;
+}
+li a.active:hover{
+    box-shadow: rgba(66, 255, 170, 0.368) 0px 13px 47px 5px, rgb(82, 111, 115) 0px 8px 16px 1px;
+}
+/* menu icon */
+.menu {
+    height: 50%;
+    width: 45px;
+    margin-right: 40px;
+    float: right;
+    text-align: center;
+    margin-top: 15px;
+}
+.iconLine{
+    height: 3px;
+    width: 20px;
+    margin: 5px;
+    background-color: #666;
+}
+
+.column {
+    height: auto;
+    width: 60%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card {
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 20px;
+}
+
+.about-section {
+    height: 300px;
+    padding: 100px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+
+.row {
+    height: auto;
+    width: 100%;
+    /*background-color: red;*/
+    text-align: center;
+}
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+.footer {
+    height: 150px;
+    width: 100%;
+}

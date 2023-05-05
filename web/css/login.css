@@ -6,8 +6,9 @@
 .body{
     height: auto;
     width: 100%;
-    background-color: rgb(248, 243, 243);
+    background-image: url(../pages/register.jsp);
     overflow: hidden;
+    overflow-y: scroll;
 }
 
 .maindiv{
@@ -44,7 +45,7 @@
 }
 /* // input text fields css*/
 .input_textfields {
-    width: 40%;
+    width: 30%;
     height: 20px;
     padding: 10px;
     margin-top: 15px;
@@ -54,103 +55,29 @@
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0px 0px 20px -20px;
 }
-.input_textfields:hover{
+/*.input_textfields:hover{
     transform: scale(0.90);
     width: 40%;
-}
+}*/
 
 /* button css*/
 .button{
+    width: 25%;
+    background-color: #525ff4;
     height: 40px;
     margin-top: 25px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
     border-radius: 9px;
     border: none;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
-    text-align: center;
     color: white;
     text-decoration: none;
 }
 .button:hover {
     box-shadow: 7px 5px 56px -14px #0015ff;
-    transform: scale(0.95);
+    transform: scale(1.05);
     transition: 0.5s;
-}
-
-/*// logo animations*/
-.loader {
-    width: 6em;
-    height: 6em;
-    font-size: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.btnText{
-
-}
-
-.loader .face {
-    position: absolute;
-    border-radius: 50%;
-    border-style: solid;
-    animation: animate023845 3s linear infinite;
-}
-
-.loader .face:nth-child(1) {
-    width: 100%;
-    height: 100%;
-    color: rgb(22, 255, 22);
-    border-color: currentColor transparent transparent currentColor;
-    border-width: 0.2em 0.2em 0em 0em;
-    --deg: -45deg;
-    animation-direction: normal;
-}
-
-.loader .face:nth-child(2) {
-    width: 70%;
-    height: 70%;
-    color: rgb(0, 64, 255);
-    border-color: currentColor currentColor transparent transparent;
-    border-width: 0.2em 0em 0em 0.2em;
-    --deg: -135deg;
-    animation-direction: reverse;
-}
-
-.loader .face .circle {
-    position: absolute;
-    width: 50%;
-    height: 0.1em;
-    top: 50%;
-    left: 50%;
-    background-color: transparent;
-    transform: rotate(var(--deg));
-    transform-origin: left;
-}
-
-.loader .face .circle::before {
-    position: absolute;
-    top: -0.5em;
-    right: -0.5em;
-    content: '';
-    width: 1em;
-    height: 1em;
-    background-color: currentColor;
-    border-radius: 50%;
-    box-shadow: 0 0 2em,
-        0 0 4em,
-        0 0 6em,
-        0 0 8em,
-        0 0 10em,
-        0 0 0 0.5em rgba(255, 255, 0, 0.1);
-}
-
-@keyframes animate023845 {
-    to {
-        transform: rotate(1turn);
-    }
 }

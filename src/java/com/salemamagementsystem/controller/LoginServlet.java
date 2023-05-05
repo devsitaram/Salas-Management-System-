@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 /**
  *
  * @author Lenovo
@@ -21,6 +23,7 @@ public class LoginServlet extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -34,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
@@ -68,21 +71,21 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        
+        HttpSession session = request.getSession();
+
         // initialize the  variable
         String userName = request.getParameter("userName");
         String password = request.getParameter("userPassword");
 
         // create an object 
         CustomerDatabaseUtil customerUtliObj = new CustomerDatabaseUtil();
-
-        if (customerUtliObj.loginUser(userName, password)){
+        // check the username and password is empty or not
+        if (customerUtliObj.loginUser(userName, password)) {
             response.sendRedirect("pages/home.xhtml");
-        }else{
-//            Ext.MessageBox.alert('Database Drivers', 'Could not Submit. Make sure all fields are valid.');
-            out.println("Invalid User Name and password");
+        } else {
+            request.setAttribute("errorMessage", "Enter the valid username and password!");
+            request.getRequestDispatcher("pages/login.jsp").forward(request, response);
         }
-        
     }
 
     /**

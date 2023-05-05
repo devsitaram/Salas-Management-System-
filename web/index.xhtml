@@ -1,57 +1,329 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
-        <title>Product Pages</title>
-        <link rel="stylesheet" href="css/product.css"/>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content=  "width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="css/index.css"/>
+        <title>Landing Page</title>
     </head>
-    <body class="body">
-        <!-- this is the header section-->
-        <header class="header" style="height: 70px; width: 100%; padding-top: 5px; background-color: #efefef;">
 
-            <div style=" width: 310px; float: left; margin-left: 30px;">
-                <div style="width: 25%; float: left;">
-                    <div class="loader">
-                        <div class="face">
-                            <div class="circle"></div>
+    <body>
+        <nav>
+            <div class="heading">Sale Management System</div>
+            <span class="sideMenuButton" 
+                  onclick="openNavbar()">
+                ☰
+            </span>
+
+            <div class="navbar">
+                <ul>
+                    <li><a href="pages/login.jsp">Login</a></li>
+                    <li><a href="pages/register.jsp">Sign Up</a></li>
+                    <li><a href="">Helps</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="line" id="Home">
+            <div class="side1">
+                <h1>Sale Management System</h1>
+            </div>
+            <div class="side2">
+                <img src="images/img_sale_manage.jpg" width="500"/>
+            </div>
+        </div>
+
+        <section class="about"  style="background-color: greenyellow">
+            <div class="content">
+                <div class="boxes">
+                    <div class="box">
+                        <div class="topic"> 
+                            <a>Customer and supplier</a>
+                        </div><br></br>
+                        <p>
+                            This system is mainly focuse on customer and supplier 
+                            where they will be easily goods purchase and sell.
+                            Customers are important because they drive revenues; 
+                            without them, businesses cannot continue to exist.
+                        </p>
+                    </div>
+                    <div class="box">
+
+                        <div class="topic">
+                            <a href="" target="_blank">
+                                Demand and Supply
+                            </a>
+                        </div><br></br>
+                        <p>
+                            Demand management a planning methodology. 
+                            Companies use it to forecast and plan how 
+                            to meet demand for services and products. 
+                            Demand management improves connections 
+                            between operations and marketing.
+                        </p>
+                    </div>
+
+                    <div class="box">
+                        <div class="topic">
+                            <a href="" target="_blank">
+                                Financial
+                            </a>
+                        </div><br></br>
+                        <p>
+                            Payment is the transfer of money, goods, 
+                            or services in exchange for goods and 
+                            services in acceptable proportions that 
+                            have been previously agreed upon by all 
+                            parties involved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="content">
+                <div class="title"><span>Sign Up</span></div>
+                <div class="contactMenu">
+                    <h:form style="margin-left: 60px; width: 50%;">
+                        <div>
+                            <p><h4>Personal information</h4></p><br></br>
+                            <p>Customer Id: 
+                                <h:inputText class="input_textfields" id="customerIdInputText" rendered="true" style="margin-left: 10px;"
+                                             requiredMessage="Enter the valid Id?"
+                                             value="#{customerModelBean.customerId}" maxlength="3"
+                                             converterMessage="Invalid your Id!">
+                                </h:inputText>
+                                <h:message for="customerIdInputText" styleClass="error"/>
+                            </p>
+                            <p>Name:
+                                <h:inputText class="input_textfields" id="nameInputText" rendered="true" style="margin-left: 55px;"
+                                             requiredMessage="Enter the valid name?"
+                                             value="#{customerModelBean.customerName}" 
+                                             validatorMessage="Invalid your name!">
+                                    <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                </h:inputText>
+                                <h:message for="nameInputText" styleClass="error"/>
+                            </p>
+                            <p>Email: 
+                                <h:inputText class="input_textfields" id="emailInputText" rendered="true" style="margin-left: 57px;"
+                                             requiredMessage="Enter the valid email?"
+                                             value="#{customerModelBean.email}"
+                                             validatorMessage="Invalid your email!">
+                                    <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
+                                </h:inputText>
+                                <h:message for="emailInputText" styleClass="error"/>
+                            </p>
+                            <p>Address: 
+                                <h:inputText class="input_textfields" id="addressInputText" rendered="true" style="margin-left: 37px;"
+                                             requiredMessage="Enter the valid address?"
+                                             value="#{customerModelBean.address}" 
+                                             validatorMessage="Invalid your address!">
+                                    <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                </h:inputText>
+                                <h:message for="addressInputText" styleClass="error"/>
+                            </p>
+                            <p>Phone No: 
+                                <h:inputText class="input_textfields" id="phoneInputText" rendered="true" style="margin-left: 25px;"
+                                             requiredMessage="Please enter the valid phone number?"
+                                             value="#{customerModelBean.phoneNo}" maxlength="10"
+                                             validatorMessage="Invalid your phone number!">
+                                    <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
+                                </h:inputText>
+                                <h:message for="phoneInputText" styleClass="error"/>
+                            </p><br></br>
+                            <p><h4>Enter the strong password</h4></p><br></br>
+                            <p>Password:                                                
+                                <h:inputText class="input_textfields" id="passwordInputText" rendered="true" style="margin-left: 25px;"
+                                             requiredMessage="Enter the strong password?"
+                                             value="#{customerModelBean.password}" >
+                                </h:inputText>
+                            </p><br></br>
+                            <p><h4>Optional information</h4></p><br></br>
+                            <p style="margin-bottom: 5px">Gender:
+                                <input style="margin-left: 35px;" type="radio" name="genderDetails" value="male"/> Male
+                                <input style="margin-left: 15px;" type="radio" name="genderDetails" value="female"/> Female
+                                <input style="margin-left: 15px;" type="radio" name="genderDetails" value="Others"/> Others
+                            </p>
+                            <p style="margin-bottom: 5px">Feedback: <input class="input_textfields" placeholder="Enter your any feedback" style="margin-left: 15px; margin-bottom: 5px" type="text" name="feedback"/></p>
+                            <p>Remember: <input style="margin-left: 10px;" type="checkbox" name="checkbox"/></p><br></br>
+                            <p><br></br>
+                                <h:commandButton class="button" value="Register" style="width: 50%; color: white; margin-left: 50px; background: #525ff4" 
+                                                 action="#{customerDbBean.insertCustomer(
+                                                           customerModelBean.customerId,
+                                                           customerModelBean.customerName,
+                                                           customerModelBean.address,
+                                                           customerModelBean.email,
+                                                           customerModelBean.phoneNo,
+                                                           customerModelBean.password)}"/>
+                            </p>
                         </div>
-                        <div class="face">
-                            <h3 style="color: black;">B2S</h3>
-                            <div class="circle"></div>
+                    </h:form>
+
+
+                    <div>
+                        <div class="rightside1">
+                            <div class="title1">
+                                <span>
+                                    Contact Us
+                                </span>
+                            </div>
+                            <div class="content1">
+                                A-143, 9th Floor, Sovereign 
+                                Corporate Tower, Sector-136, 
+                                Noida, Uttar Pradesh - 201305                                                                                                                                                                                                                                                                                                                                                                                                           
+                            </div><br></br>
+                            <div class="title1">
+                                <span>More Information</span>
+                            </div>
+                            <div class="content1">
+                                <p>
+                                    Sales management is the management of activities
+                                    and processes relating to the effective planning, 
+                                    coordination, implementation, control, and evaluation 
+                                    of an organization's sales performance. Sales management 
+                                    is a core business process in most organizations. A role 
+                                    in sales management is typically a sales manager whose 
+                                    job plays a vital role in a company’s revenue generation 
+                                    and profits. 
+                                </p><br></br>
+                                <p>
+                                    Effective sales management requires a thorough understanding 
+                                    of the sales process and how different techniques can be used 
+                                    to drive sales. By carefully analyzing key performance indicators, 
+                                    optimizing your selling approach, and enhancing your team with the 
+                                    right competencies and tools to succeed, you can turn your sales 
+                                    department into a profit-generating department.
+                                </p>
+                            </div><br></br>
+                            <span> Created By 
+                                <a href="https://www.salesforce.com/resources/articles/sales-management/" target="_blank" style="color: blue">
+                                    Sale Management System Ltd
+                                </a>
+                            </span>
+                            <p>Sitaram Theeng</p>
+                            <p>05 May, 2023</p>
                         </div>
                     </div>
                 </div>
-                <div style="width: 45%; height: 100%; float: right; margin-right: 90px;">
-                    <h3>BuyToSale</h3>   	 
-                </div>
             </div>
-
-            <!-- menu icon -->
-            <div class="menu" style="margin-top: 15px; margin-right: 40px;">
-                <a href="">
-                    <div class="iconLine"></div>
-                    <div class="iconLine"></div>
-                    <div class="iconLine"></div>
-                </a>
+        </section>
+        <!-- Footer section -->
+        <footer>
+            <div class="footer">
+                <span> Created By 
+                    <a href="https://www.salesforce.com/resources/articles/sales-management/" target="_blank" style="color: blue">
+                        Sale Management System
+                    </a>
+                </span>
             </div>
-
-            <!--this is the navication bar-->
-            <div class="navicationbar">
-                <ul>
-                    <li><a class="active" href="pages/login.jsp">Login</a></li>
-                    <li><a href="pages/product.xhtml">Register</a></li>
-                    <li><a href="pages/register.jsp">Home</a></li>
-                </ul>
-            </div>
-        </header>
-
+        </footer>
     </body>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
+    <script type="text/javascript">
+        function validateForm() {
+            var id = document.forms["messageForm"]["userId"].value;
+            var name = document.forms["messageForm"]["userName"].value;
+            var email = document.forms["messageForm"]["userEmail"].value;
+            var address = document.forms["messageForm"]["userAddress"].value;
+            var phoneNo = document.forms["messageForm"]["userPhoneNo"].value;
+            var newPassword = document.forms["messageForm"]["newPassword"].value;
+            var confirmPassword = document.forms["messageForm"]["confirmPassword"].value;
+            var message = document.forms["messageForm"]["feedback"].value;
+
+            /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
+            if (id == "" || name == "" || email == "" || address == "" || phoneNo == "") {
+                alert("Empty fields fund! Please enter the valid personal information.");
+            } else {
+                if (newPassword == "" || confirmPassword == "") {
+                    alert("The password is empty!");
+                } else {
+                    // id validation
+                    if (idValidation(id)) {
+                        // name validation
+                        if (nameValidation(name)) {
+                            // email validation
+                            if (emailValidatio(email)) {
+                                // address validation
+                                if (addressVlidation(address)) {
+                                    // phone number validation
+                                    if (phoneNoValidation(phoneNo)) {
+                                        if (!(newPassword == confirmPassword)) {
+                                            alert("Please confirm your password!");
+                                        } else {
+                                            alert("Register Successful.");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-    </style>
+
+        // validation for email, name, id, password, address, phone number etc.
+        // email vallidation
+        function idValidation(id) {
+            var idPattern = /^\d{3}$/;
+            // check the id
+            if (!id.match(idPattern) || !(id.length == 3)) {
+                alert("ID is not valid. must be three digit.: " + id);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // email vallidation
+        function nameValidation(name) {
+            var namePattern = /^[A-Za-z]+(\s[A-Za-z-]+)?$/;
+            // check the name
+            if (!name.match(namePattern)) {
+                alert("Name is not valid: " + name);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // email vallidation
+        function emailValidatio(email) {
+            var emaliPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            // chcek the email
+            if (!email.match(emaliPattern)) {
+                alert("Email is not valid: " + email);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // address vallidation
+        function addressVlidation(address) {
+            var addressPattern = /^[A-Za-z]/;
+            // chcek the address
+            if (!address.match(addressPattern)) {
+                alert("Address is not valid: " + address);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // phone number vallidation
+        function phoneNoValidation(phoneNo) {
+            var numberPattern = /^(97|98)\d{8}$/;
+            // chcek the phone number
+            if (!phoneNo.match(numberPattern) || !(phoneNo.length == 10)) {
+                alert("Phone number is not valid. must be 10 digit: " + phoneNo);
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 </html>

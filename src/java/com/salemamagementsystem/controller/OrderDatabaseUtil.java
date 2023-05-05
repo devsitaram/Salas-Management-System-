@@ -22,7 +22,6 @@ import resources.SaleConstants;
 @ManagedBean(name = "orderDbBean")
 @SessionScoped
 public class OrderDatabaseUtil {
-    
     SaleConstants saleConstants = new SaleConstants();
     DriverConnection driverConnection = new DriverConnection();
     Connection connection; // create an object of driver connection

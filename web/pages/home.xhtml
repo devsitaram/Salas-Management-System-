@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../css/home.css"/>
 
     </head>
-    <body style="width: 100%; height: 600px; overflow-x: hidden">
+    <body class="body">
 
         <!-- this is the header section-->
         <header style="height: 10%; width: 100%;  padding: 10px; background-color: #f3f3f3;">
@@ -22,16 +22,17 @@
                         <div class="face">
                             <div class="circle"></div>
                         </div>
+                        <h3 style="color: black;">BTS</h3>
                     </div>
                 </div>
-                <div style="width: 60%; height: 100%; float: right;">
+                <div style="width: 60%; height: 100%; margin-top: 15px; float: right;">
                     <h3>BuyToSale</h3>   	 
                 </div>
             </div>
 
             <!-- menu icon -->
             <div class="menu" style="margin-top: 15px; margin-right: 40px;">
-                <a href="../pages/blog.jsp">
+                <a href="../pages/service.xhtml">
                     <div class="iconLine"></div>
                     <div class="iconLine"></div>
                     <div class="iconLine"></div>
@@ -52,24 +53,27 @@
 
         <!-- this is the main content section-->
         <main  style="width: 100%; height: auto;">
-            
+
             <div style="width: 100%; height: 70%;">
-                <div style="float: left; height: 365px; width: 50%; padding: 50px; margin-top: 15px;">
-                    <h2 style="font-family: plane;">Sale</h2>
-                    <h4 style="font-family: Arial, Helvetica, sans-serif">Sales Management System</h4>
-                    <h3 style="text-align: justify; padding-right: 5px; font-family: plane, Helvetica, sans-serif;">Sales management is the management of activities and processes relating to the effective planning, 
+                <div style="float: left; height: 365px; width: 50%; padding: 50px; margin-top: 15px;"><br></br>
+                    <h1 style="font-family: plane;">Sale</h1><br></br>
+                    <h2 style="font-family: initial">Sales Management System</h2><br></br>
+                    <p style="text-align: justify; padding-right: 5px; font-size: 20px; font-family: initial;">Sales management is the management of activities and processes relating to the effective planning, 
                         coordination, implementation, control, and evaluation of the organization's sales performance. Sales 
                         management is a core business process in most organizations. A role in sales management is typically 
                         a sales manager whose job plays a vital role in a company’s revenue generation and profits.
-                    </h3>
+                    </p><br></br>
+                    <p>World Trade Services Ltd.</p>
+                    <p>www.sale.managing.com</p>
+                    <p>04 March, 2023</p>
                 </div>
-                <div style="float: right; width: 40%; margin-top: 50px;">
+                <div style="float: right; width: 40%; margin-top: 45px; margin-bottom: 5px">
                     <h:graphicImage url="../images/img_sales_manage.PNG" style="width: 100%"/>
                 </div>
             </div>
 
             <div style="width: 96%; height: 45px; padding-left: 50px; ">
-                
+
                 <div class="navbar">
                     <!--//show the customers details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
@@ -82,9 +86,9 @@
                                 <!--// show the customer details-->
                                 <h:dataTable value="#{customerDbBean.customerData}" var="customer"
                                              styleClass="table" border="1"
-                                            headerClass="header"
-                                            rowClasses="oddRows,evenRows"
-                                            cellpadding="5" cellspacing="5">
+                                             headerClass="header"
+                                             rowClasses="oddRows,evenRows"
+                                             cellpadding="5" cellspacing="5">
                                     <h:column>
                                         <f:facet name="header">customer Id</f:facet>
                                             #{customer.customer_id}
@@ -110,9 +114,9 @@
                                             #{customer.Password}
                                     </h:column>
                                     <h:column>
-                                         <h:form style="margin-left: 25px">
-                                             <h:commandButton value="Delete" action="#{customerDbBean.deleteCustomer(customer.customer_id)}"/>
-                                         </h:form>
+                                        <h:form style="margin-left: 25px">
+                                            <h:commandButton value="Delete" action="#{customerDbBean.deleteCustomer(customer.customer_id)}"/>
+                                        </h:form>
                                     </h:column>
                                 </h:dataTable>
                                 <!--customer details update and delete-->
@@ -123,70 +127,70 @@
                                             <div style="width: 55%; float: right; padding: 10px;">
                                                 <p>Customer Id: 
                                                     <h:inputText class="inputText" id="customerIdInputText" rendered="true" style="margin-left: 10px;"
-                                                                requiredMessage="Enter the valid Id?"
-                                                                value="#{customerModelBean.customerId}" maxlength="3"
-                                                                converterMessage="Invalid your Id!">
+                                                                 requiredMessage="Enter the valid Id?"
+                                                                 value="#{customerModelBean.customerId}" maxlength="3"
+                                                                 converterMessage="Invalid your Id!">
                                                     </h:inputText>
                                                     <h:message for="customerIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
                                                     <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 55px;"
-                                                            requiredMessage="Enter the valid name?"
-                                                            value="#{customerModelBean.customerName}" 
-                                                            validatorMessage="Invalid your name!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                                 requiredMessage="Enter the valid name?"
+                                                                 value="#{customerModelBean.customerName}" 
+                                                                 validatorMessage="Invalid your name!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                                     </h:inputText>
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Email: 
                                                     <h:inputText class="inputText" id="emailInputText" rendered="true" style="margin-left: 57px;"
-                                                            requiredMessage="Enter the valid email?"
-                                                            value="#{customerModelBean.email}"
-                                                            validatorMessage="Invalid your email!">
-                                                       <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
+                                                                 requiredMessage="Enter the valid email?"
+                                                                 value="#{customerModelBean.email}"
+                                                                 validatorMessage="Invalid your email!">
+                                                        <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
                                                     </h:inputText>
                                                     <h:message for="emailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Address: 
                                                     <h:inputText class="inputText" id="addressInputText" rendered="true" style="margin-left: 37px;"
-                                                            requiredMessage="Enter the valid address?"
-                                                            value="#{customerModelBean.address}" 
-                                                            validatorMessage="Invalid your address!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                                 requiredMessage="Enter the valid address?"
+                                                                 value="#{customerModelBean.address}" 
+                                                                 validatorMessage="Invalid your address!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                                     </h:inputText>
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Phone No: 
                                                     <h:inputText class="inputText" id="phoneInputText" rendered="true" style="margin-left: 25px;"
-                                                                requiredMessage="Please enter the valid phone number?"
-                                                                value="#{customerModelBean.phoneNo}" maxlength="10"
-                                                                validatorMessage="Invalid your phone number!">
+                                                                 requiredMessage="Please enter the valid phone number?"
+                                                                 value="#{customerModelBean.phoneNo}" maxlength="10"
+                                                                 validatorMessage="Invalid your phone number!">
                                                         <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
                                                     </h:inputText>
                                                     <h:message for="phoneInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Password:                                                
                                                     <h:inputText class="inputText" id="passwordInputText" rendered="true" style="margin-left: 25px;"
-                                                            requiredMessage="Enter the strong password?"
-                                                            value="#{customerModelBean.password}" >
+                                                                 requiredMessage="Enter the strong password?"
+                                                                 value="#{customerModelBean.password}" >
                                                     </h:inputText>
                                                 </p>
                                                 <p>
                                                     <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                                      action="#{customerDbBean.updateCustomerData(
-                                                                            customerModelBean.customerName,
-                                                                            customerModelBean.address,
-                                                                            customerModelBean.email,
-                                                                            customerModelBean.phoneNo,
-                                                                            customerModelBean.password,
-                                                                            customerModelBean.customerId)}"/>
+                                                                               customerModelBean.customerName,
+                                                                               customerModelBean.email,
+                                                                               customerModelBean.address,
+                                                                               customerModelBean.phoneNo,
+                                                                               customerModelBean.password,
+                                                                               customerModelBean.customerId)}"/>
 
                                                     <h:commandButton value="Delete" style="width: 25%; margin: 30px"
-                                                                 action="#{customerDbBean.deleteCustomer(
-                                                                        customerModelBean.customerId)}"/>
+                                                                     action="#{customerDbBean.deleteCustomer(
+                                                                               customerModelBean.customerId)}"/>
                                                 </p>
                                             </div>
-                                            
+
                                             <div style="width: 35%; float: left;">
                                                 <h:graphicImage url="../images/img_customer.jpg" style="height: 350px"/>
                                             </div>
@@ -207,10 +211,10 @@
                             <div>
                                 <!--// show the customer details-->
                                 <h:dataTable value="#{supplierDbBean.supplierData}" var="supplier"
-                                            styleClass="table" border="1"
-                                            headerClass="header"
-                                            rowClasses="oddRows,evenRows"
-                                            cellpadding="5" cellspacing="5">
+                                             styleClass="table" border="1"
+                                             headerClass="header"
+                                             rowClasses="oddRows,evenRows"
+                                             cellpadding="5" cellspacing="5">
                                     <h:column>
                                         <f:facet name="header">Supplier Id</f:facet>
                                             #{supplier.Supplier_id}
@@ -233,8 +237,8 @@
                                     </h:column>
                                     <h:column>
                                         <h:form style="margin-left: 20px">
-                                             <h:commandButton value="Delete" action="#{supplierDbBean.deleteSupplier(supplier.supplier_id)}"/>
-                                         </h:form>
+                                            <h:commandButton value="Delete" action="#{supplierDbBean.deleteSupplier(supplier.supplier_id)}"/>
+                                        </h:form>
                                     </h:column>
                                 </h:dataTable>
                                 <!--customer details update and delete-->
@@ -245,44 +249,44 @@
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Supplier Id: 
                                                     <h:inputText class="inputText" id="supplierIdInputText" rendered="true" style="margin-left: 12px;"
-                                                                requiredMessage="Enter the valid Id?"
-                                                                value="#{supplierModelBean.supplierId}" maxlength="3"
-                                                                converterMessage="Invalid your Id!">
+                                                                 requiredMessage="Enter the valid Id?"
+                                                                 value="#{supplierModelBean.supplierId}" maxlength="3"
+                                                                 converterMessage="Invalid your Id!">
                                                     </h:inputText>
                                                     <h:message for="supplierIdInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Name:
                                                     <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 45px;"
-                                                            requiredMessage="Enter the valid name?"
-                                                            value="#{supplierModelBean.supplierName}" 
-                                                            validatorMessage="Invalid your name!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                                 requiredMessage="Enter the valid name?"
+                                                                 value="#{supplierModelBean.supplierName}" 
+                                                                 validatorMessage="Invalid your name!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                                     </h:inputText>
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Mail: 
                                                     <h:inputText class="inputText" id="mailInputText" rendered="true" style="margin-left: 57px;"
-                                                            requiredMessage="Enter the valid mail?"
-                                                            value="#{supplierModelBean.mail}"
-                                                            validatorMessage="Invalid your mail!">
-                                                       <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
+                                                                 requiredMessage="Enter the valid mail?"
+                                                                 value="#{supplierModelBean.mail}"
+                                                                 validatorMessage="Invalid your mail!">
+                                                        <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>  
                                                     </h:inputText>
                                                     <h:message for="mailInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Location: 
                                                     <h:inputText class="inputText" id="addressInputText" rendered="true" style="margin-left: 27px;"
-                                                            requiredMessage="Please enter the valid name?"
-                                                            value="#{supplierModelBean.location}" 
-                                                            validatorMessage="Invalid your location!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                                 requiredMessage="Please enter the valid name?"
+                                                                 value="#{supplierModelBean.location}" 
+                                                                 validatorMessage="Invalid your location!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                                     </h:inputText>
                                                     <h:message for="addressInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Contact No: 
                                                     <h:inputText class="inputText" id="contactNoInputText" rendered="true" style="margin-left: 7px;"
-                                                                requiredMessage="Enter the valid contact number?"
-                                                                value="#{supplierModelBean.contactNo}" maxlength="10"
-                                                                validatorMessage="Invalid your contact number!">
+                                                                 requiredMessage="Enter the valid contact number?"
+                                                                 value="#{supplierModelBean.contactNo}" maxlength="10"
+                                                                 validatorMessage="Invalid your contact number!">
                                                         <f:validateRegex pattern="^[98][0-9]\d{8}$"/> 
                                                     </h:inputText>
                                                     <h:message for="contactNoInputText" styleClass="error"/>
@@ -295,7 +299,7 @@
                                                                                supplierModelBean.mail,
                                                                                supplierModelBean.location,
                                                                                supplierModelBean.contactNo)}"/>
-                                                    
+
                                                     <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                                      action="#{supplierDbBean.updateSupplierData(
                                                                                supplierModelBean.supplierName,
@@ -305,7 +309,7 @@
                                                                                supplierModelBean.supplierId)}"/>
                                                 </p>
                                             </div>
-    <!--                                        // update and delete button-->
+                                            <!--                                        // update and delete button-->
                                             <div style="width: 60%; float: right;">
                                                 <h:graphicImage url="../images/img_supplier.jpeg" style="height: 320px; width: 500px"/>
                                             </div>
@@ -326,10 +330,10 @@
                             <div>
                                 <!--// show the items details-->
                                 <h:dataTable value="#{itemDbBean.itemsData}" var="item"
-                                            styleClass="table" border="1"
-                                            headerClass="header"
-                                            rowClasses="oddRows,evenRows"
-                                            cellpadding="5" cellspacing="5">
+                                             styleClass="table" border="1"
+                                             headerClass="header"
+                                             rowClasses="oddRows,evenRows"
+                                             cellpadding="5" cellspacing="5">
                                     <h:column>
                                         <f:facet name="header">Item No</f:facet>
                                             #{item.item_no}
@@ -356,8 +360,8 @@
                                     </h:column>
                                     <h:column>
                                         <h:form style="margin-left: 20px">
-                                             <h:commandButton value="Delete" action="#{itemDbBean.deleteItem(item.item_no)}"/>
-                                         </h:form>
+                                            <h:commandButton value="Delete" action="#{itemDbBean.deleteItem(item.item_no)}"/>
+                                        </h:form>
                                     </h:column>
                                 </h:dataTable>
                                 <!--items details update and delete-->
@@ -368,53 +372,53 @@
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Item No: 
                                                     <h:inputText class="inputText" id="itemNoInputText" rendered="true" style="margin-left: 27px;"
-                                                                requiredMessage="Enter the valid item no?"
-                                                                value="#{itemModelBean.itemNo}" maxlength="3"
-                                                                converterMessage="Invalid Item no!">
+                                                                 requiredMessage="Enter the valid item no?"
+                                                                 value="#{itemModelBean.itemNo}" maxlength="3"
+                                                                 converterMessage="Invalid Item no!">
                                                     </h:inputText>
                                                     <h:message for="itemNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item Name:
                                                     <h:inputText class="inputText" id="nameInputText" rendered="true" style="margin-left: 5px;"
-                                                            requiredMessage="Enter the valid Item's name?"
-                                                            value="#{itemModelBean.itemName}" 
-                                                            validatorMessage="Invalid Item's name!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>  
+                                                                 requiredMessage="Enter the valid Item's name?"
+                                                                 value="#{itemModelBean.itemName}" 
+                                                                 validatorMessage="Invalid Item's name!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>  
                                                     </h:inputText>
                                                     <h:message for="nameInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Quantity:
                                                     <h:inputText class="inputText" id="itemQtyInputText" rendered="true" style="margin-left: 24px;"
-                                                            requiredMessage="Enter the valid quantity?"
-                                                            value="#{itemModelBean.itemQty}" 
-                                                            validatorMessage="Invalid item quantity!">
-                                                       <f:validateRegex pattern="^[0-9]+$"/>
+                                                                 requiredMessage="Enter the valid quantity?"
+                                                                 value="#{itemModelBean.itemQty}" 
+                                                                 validatorMessage="Invalid item quantity!">
+                                                        <f:validateRegex pattern="^[0-9]+$"/>
                                                     </h:inputText>
                                                     <h:message for="itemQtyInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item Prices: 
                                                     <h:inputText class="inputText" id="pricesInputText" rendered="true" style="margin-left: 5px;"
-                                                            requiredMessage="Enter the valid prices?"
-                                                            value="#{itemModelBean.prices}"
-                                                            validatorMessage="Invalid item's prices!">
-<!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
+                                                                 requiredMessage="Enter the valid prices?"
+                                                                 value="#{itemModelBean.prices}"
+                                                                 validatorMessage="Invalid item's prices!">
+                                                        <!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
                                                     </h:inputText>
                                                     <h:message for="pricesInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Supply Date: 
                                                     <h:inputText class="inputText" id="supplyDateInputText" rendered="true" style="margin-left: -3px;"
-                                                                requiredMessage="Enter the valid supply date?"
-                                                                value="#{itemModelBean.supplyDate}" maxlength="10"
-                                                                validatorMessage="Invalid supply date!">
+                                                                 requiredMessage="Enter the valid supply date?"
+                                                                 value="#{itemModelBean.supplyDate}" maxlength="10"
+                                                                 validatorMessage="Invalid supply date!">
                                                         <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                                     </h:inputText>
                                                     <h:message for="supplyDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Supplier Id: 
                                                     <h:inputText class="inputText" id="supplierIdInputText" rendered="true" style="margin-left: 7px;"
-                                                                requiredMessage="Enter the valid supplier Id?"
-                                                                value="#{itemModelBean.supplierId}" maxlength="3"
-                                                                converterMessage="Invalid your Id!">
+                                                                 requiredMessage="Enter the valid supplier Id?"
+                                                                 value="#{itemModelBean.supplierId}" maxlength="3"
+                                                                 converterMessage="Invalid your Id!">
                                                     </h:inputText>
                                                     <h:message for="supplierIdInputText" styleClass="error"/>
                                                 </p>
@@ -427,7 +431,7 @@
                                                                                itemModelBean.itemQty,
                                                                                itemModelBean.supplyDate,
                                                                                itemModelBean.supplierId)}"/>
-                                                    
+
                                                     <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                                      action="#{itemDbBean.updateItemData(
                                                                                itemModelBean.itemName,
@@ -438,7 +442,7 @@
                                                                                itemModelBean.itemNo)}"/>
                                                 </p>
                                             </div>
-    <!--                                        // item  image-->
+                                            <!--                                        // item  image-->
                                             <div style="width: 60%; float: right;">
                                                 <h:graphicImage url="../images/img_items.jpg" style="height: 350px; width: 500px"/>
                                             </div>
@@ -459,10 +463,10 @@
                             <div>
                                 <!--// show the payments details-->
                                 <h:dataTable value="#{paymentDbBean.paymentData}" var="payment"
-                                            styleClass="table" border="1"
-                                            headerClass="header"
-                                            rowClasses="oddRows,evenRows"
-                                            cellpadding="5" cellspacing="5">
+                                             styleClass="table" border="1"
+                                             headerClass="header"
+                                             rowClasses="oddRows,evenRows"
+                                             cellpadding="5" cellspacing="5">
                                     <h:column>
                                         <f:facet name="header">Item No</f:facet>
                                             #{payment.payment_no}
@@ -481,8 +485,8 @@
                                     </h:column>
                                     <h:column>
                                         <h:form style="margin-left: 20px">
-                                             <h:commandButton value="Delete" action="#{paymentDbBean.deletePayment(payment.payment_no)}"/>
-                                         </h:form>
+                                            <h:commandButton value="Delete" action="#{paymentDbBean.deletePayment(payment.payment_no)}"/>
+                                        </h:form>
                                     </h:column>
                                 </h:dataTable>
                                 <!--payments details update and delete-->
@@ -493,36 +497,36 @@
                                             <div style="width: 40%; float: left; padding: 10px;">
                                                 <p>Payment No: 
                                                     <h:inputText class="inputText" id="paymentNoInputText" rendered="true" style="margin-left: 15px;"
-                                                                requiredMessage="Enter the valid paymnet no?"
-                                                                value="#{paymentModelBean.paymentNo}" maxlength="3"
-                                                                converterMessage="Invalid Item no!">
+                                                                 requiredMessage="Enter the valid paymnet no?"
+                                                                 value="#{paymentModelBean.paymentNo}" maxlength="3"
+                                                                 converterMessage="Invalid Item no!">
                                                     </h:inputText>
                                                     <h:message for="paymentNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Pay Amounts:
                                                     <h:inputText class="inputText" id="amountInputText" rendered="true" style="margin-left: 8px;"
-                                                            requiredMessage="Enter the valid pay amount?"
-                                                            value="#{paymentModelBean.amounts}"
-                                                            validatorMessage="Invalid paymnet's amounts!">
-<!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
+                                                                 requiredMessage="Enter the valid pay amount?"
+                                                                 value="#{paymentModelBean.amounts}"
+                                                                 validatorMessage="Invalid paymnet's amounts!">
+                                                        <!--                                                       <f:validateRegex pattern="^[0-9]*\.?[0-9]+$"/>  -->
                                                     </h:inputText>
                                                     <h:message for="amountInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Payment Date: 
                                                     <h:inputText class="inputText" id="paymentDateInputText" rendered="true" style="margin-left: 1px;"
-                                                                requiredMessage="Enter the valid payment's date?"
-                                                                value="#{paymentModelBean.paymentDate}" maxlength="10"
-                                                                validatorMessage="Invalid payment date!">
+                                                                 requiredMessage="Enter the valid payment's date?"
+                                                                 value="#{paymentModelBean.paymentDate}" maxlength="10"
+                                                                 validatorMessage="Invalid payment date!">
                                                         <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                                     </h:inputText>
                                                     <h:message for="paymentDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Re-marks:
                                                     <h:inputText class="inputText" id="remarksInputText" rendered="true" style="margin-left: 33px;"
-                                                            requiredMessage="Enter the valid payment's remarks?"
-                                                            value="#{paymentModelBean.remarks}" 
-                                                            validatorMessage="Invalid payment remarks!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>
+                                                                 requiredMessage="Enter the valid payment's remarks?"
+                                                                 value="#{paymentModelBean.remarks}" 
+                                                                 validatorMessage="Invalid payment remarks!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>
                                                     </h:inputText>
                                                     <h:message for="remarksInputText" styleClass="error"/>
                                                 </p>
@@ -533,7 +537,7 @@
                                                                                paymentModelBean.amounts, 
                                                                                paymentModelBean.paymentDate, 
                                                                                paymentModelBean.remarks)}"/>
-                                                    
+
                                                     <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                                      action="#{paymentDbBean.updatePaymentData(
                                                                                paymentModelBean.amounts, 
@@ -542,7 +546,7 @@
                                                                                paymentModelBean.paymentNo)}"/>
                                                 </p>
                                             </div>
-    <!--                                        // payment image-->
+                                            <!--                                        // payment image-->
                                             <div style="width: 55%; float: right;">
                                                 <h:graphicImage url="../images/img_payment.jpeg" style="width: 500px"/>
                                             </div>
@@ -552,7 +556,7 @@
                             </div>
                         </div>
                     </div>  
-                    
+
                     <!--//show the orders details where insert, update and delete if the data is unnecessary-->
                     <div class="dropdown">
                         <button class="dropbtn">Order<i class="fa fa-caret-down"></i></button>
@@ -563,10 +567,10 @@
                             <div>
                                 <!--// show the order details-->
                                 <h:dataTable value="#{orderDbBean.orderData}" var="order"
-                                            styleClass="table" border="1"
-                                            headerClass="header"
-                                            rowClasses="oddRows,evenRows"
-                                            cellpadding="5" cellspacing="5">
+                                             styleClass="table" border="1"
+                                             headerClass="header"
+                                             rowClasses="oddRows,evenRows"
+                                             cellpadding="5" cellspacing="5">
                                     <h:column>
                                         <f:facet name="header">Item No</f:facet>
                                             #{order.order_no}
@@ -578,6 +582,10 @@
                                     <h:column>
                                         <f:facet name="header">Order Qty</f:facet>
                                             #{order.order_qty}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Descriptions</f:facet>
+                                            #{order.descriptions}
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Item No</f:facet>
@@ -594,7 +602,7 @@
                                     <h:column>
                                         <h:form style="margin-left: 20px">
                                             <h:commandButton value="Delete" action="#{orderDbBean.deleteOrder(order.order_no)}"/>
-                                         </h:form>
+                                        </h:form>
                                     </h:column>
                                 </h:dataTable>
                                 <!--order details insert, update and delete-->
@@ -605,60 +613,60 @@
                                             <div style="width: 35%; float: left; padding: 10px;">
                                                 <p>Order No: 
                                                     <h:inputText class="inputText" id="orderNoInputText" rendered="true" style="margin-left: 20px;"
-                                                                requiredMessage="Enter the valid order no?"
-                                                                value="#{orderModelBean.orderNo}" maxlength="3"
-                                                                converterMessage="Invalid order no!">
+                                                                 requiredMessage="Enter the valid order no?"
+                                                                 value="#{orderModelBean.orderNo}" maxlength="3"
+                                                                 converterMessage="Invalid order no!">
                                                     </h:inputText>
                                                     <h:message for="orderNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Order Date: 
                                                     <h:inputText class="inputText" id="orderDateInputText" rendered="true" style="margin-left: 7px;"
-                                                                requiredMessage="Enter the valid order's date?"
-                                                                value="#{orderModelBean.orderDate}" maxlength="10"
-                                                                validatorMessage="Invalid order date!">
+                                                                 requiredMessage="Enter the valid order's date?"
+                                                                 value="#{orderModelBean.orderDate}" maxlength="10"
+                                                                 validatorMessage="Invalid order date!">
                                                         <f:validateRegex pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"/> 
                                                     </h:inputText>
                                                     <h:message for="orderDateInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Quantity:
                                                     <h:inputText class="inputText" id="orderQtyInputText" rendered="true" style="margin-left: 27px;"
-                                                            requiredMessage="Enter the valid quantity?"
-                                                            value="#{orderModelBean.orderQty}" 
-                                                            validatorMessage="Invalid order quantity!">
-                                                       <f:validateRegex pattern="^[0-9]+$"/>
+                                                                 requiredMessage="Enter the valid quantity?"
+                                                                 value="#{orderModelBean.orderQty}" 
+                                                                 validatorMessage="Invalid order quantity!">
+                                                        <f:validateRegex pattern="^[0-9]+$"/>
                                                     </h:inputText>
                                                     <h:message for="orderQtyInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Descriptions:
                                                     <h:inputText class="inputText" id="descriptionInputText" rendered="true" style="margin-left: 0px;"
-                                                            requiredMessage="Enter the valid order's descriptions?"
-                                                            value="#{orderModelBean.descriptions}" 
-                                                            validatorMessage="Invalid order descriptions!">
-                                                       <f:validateRegex pattern="^[A-Za-z\s]*"/>
+                                                                 requiredMessage="Enter the valid order's descriptions?"
+                                                                 value="#{orderModelBean.descriptions}" 
+                                                                 validatorMessage="Invalid order descriptions!">
+                                                        <f:validateRegex pattern="^[A-Za-z\s]*"/>
                                                     </h:inputText>
                                                     <h:message for="descriptionInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Item No: 
                                                     <h:inputText class="inputText" id="orderItemNoInputText" rendered="true" style="margin-left: 33px;"
-                                                                requiredMessage="Enter the valid item no?"
-                                                                value="#{orderModelBean.itemNo}" maxlength="3"
-                                                                converterMessage="Invalid Item no!">
+                                                                 requiredMessage="Enter the valid item no?"
+                                                                 value="#{orderModelBean.itemNo}" maxlength="3"
+                                                                 converterMessage="Invalid Item no!">
                                                     </h:inputText>
                                                     <h:message for="orderItemNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Payment No: 
                                                     <h:inputText class="inputText" id="orderPaymentNoInputText" rendered="true" style="margin-left: 0px;"
-                                                                requiredMessage="Enter the valid paymnet no?"
-                                                                value="#{orderModelBean.paymentNo}" maxlength="3"
-                                                                converterMessage="Invalid Item no!">
+                                                                 requiredMessage="Enter the valid paymnet no?"
+                                                                 value="#{orderModelBean.paymentNo}" maxlength="3"
+                                                                 converterMessage="Invalid Item no!">
                                                     </h:inputText>
                                                     <h:message for="orderPaymentNoInputText" styleClass="error"/>
                                                 </p>
                                                 <p>Customer Id: 
                                                     <h:inputText class="inputText" id="orderCustomerIdInputText" rendered="true" style="margin-left: 0px;"
-                                                                requiredMessage="Enter the valid Id?"
-                                                                value="#{orderModelBean.customerId}" maxlength="3"
-                                                                converterMessage="Invalid your Id!">
+                                                                 requiredMessage="Enter the valid Id?"
+                                                                 value="#{orderModelBean.customerId}" maxlength="3"
+                                                                 converterMessage="Invalid your Id!">
                                                     </h:inputText>
                                                     <h:message for="orderCustomerIdInputText" styleClass="error"/>
                                                 </p>
@@ -672,7 +680,7 @@
                                                                                orderModelBean.itemNo, 
                                                                                orderModelBean.paymentNo, 
                                                                                orderModelBean.customerId)}"/>
-                                                    
+
                                                     <h:commandButton value="Update" style="width: 25%; margin: 30px" 
                                                                      action="#{orderDbBean.updateOrderData(
                                                                                orderModelBean.orderDate, 
@@ -684,7 +692,7 @@
                                                                                orderModelBean.orderNo)}"/>
                                                 </p>
                                             </div>
-    <!--                                        // order image-->
+                                            <!-- order image -->
                                             <div style="width: 62%; height: 350px; float: right;">
                                                 <h:graphicImage url="../images/img_order.jpeg" style="height: 350px; width: 650px"/>
                                             </div>
@@ -696,7 +704,7 @@
                     </div> 
                 </div>
             </div>
-            
+
         </main>
 
         <!-- this is the footer section-->
@@ -707,6 +715,12 @@
         </footer>
     </body>
     <style>
+        .body{
+            width: 100%;
+            height: 600px;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
         .button{
             height: 40px;
             width: 200px;

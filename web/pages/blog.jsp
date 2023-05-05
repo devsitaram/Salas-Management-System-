@@ -161,7 +161,7 @@
         <header class="header">
 
             <div style=" width: 300px; height: 100%; float: left; margin-left: 20px;">
-                <div style="width: 25%; float: left;">
+                <div style="width: 20%; float: left;">
                     <div class="loader">
                         <div class="face">
                             <div class="circle"></div>
@@ -169,10 +169,11 @@
                         <div class="face">
                             <div class="circle"></div>
                         </div>
+                        <h3 style="color: black;">BTS</h3>
                     </div>
                 </div>
 
-                <div style="width: 50%; height: 100%; padding-top: 15px; float: right; margin-right: 70px;">
+                <div style="width: 50%; height: 100%; padding-top: 15px; float: right; margin-right: 80px;">
                     <h3>BuyToSale</h3>   	 
                 </div>
             </div>
