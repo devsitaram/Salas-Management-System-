@@ -27,13 +27,14 @@ public class PaymentDatabaseUtil {
     // create an object SaleConstants class
     SaleConstants saleConstants = new SaleConstants();
     DriverConnection driverConnection = new DriverConnection();
-    Connection connection; // create an object of driver connection
+    Connection connection = null; // create an object of driver connection
+    Statement statement = null;
     
     // get the all payments data
     public ResultSet getPaymentData() {
         try {
             connection = driverConnection.getDatabaseConnection();
-            Statement statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+            statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
             ResultSet resultSet = statement.executeQuery(saleConstants.GET_ALL_PAYMENT_DATA);
             return resultSet;
@@ -51,7 +52,6 @@ public class PaymentDatabaseUtil {
             insertStatement.setDouble(2, amounts);
             insertStatement.setString(3, paymentDate);
             insertStatement.setString(4, remarks);
-//            insertStatement.setInt(4, customerId);
 
             insertStatement.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {

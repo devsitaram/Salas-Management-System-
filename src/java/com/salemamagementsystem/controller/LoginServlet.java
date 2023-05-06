@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
 
-        // initialize the  variable
+        // initialize the variable
         String userName = request.getParameter("userName");
         String password = request.getParameter("userPassword");
 

@@ -189,16 +189,14 @@
                                         <h:message for="remarksInputText" styleClass="error"/>
                                     </p>
                                     <p>
-                                        <h:commandButton class="button" value="Payment"
+                                        <h:commandButton class="button" value="Insert"
                                                          action="#{paymentDbBean.insertPaymentData(
                                                                    paymentModelBean.paymentNo, 
                                                                    paymentModelBean.amounts, 
                                                                    paymentModelBean.paymentDate, 
                                                                    paymentModelBean.remarks)}"/>
-
                                     </p>
                                 </div>
-                                <!--                                        // payment image-->
                                 <div style="width: 55%; float: right;">
                                     <h:graphicImage url="../images/img_payment.jpeg" style="width: 500px"/>
                                 </div>

@@ -23,7 +23,6 @@ public class OrderModelBean {
     int customerId;
 
     // getter and setter methods
-
     public int getOrderNo() {
         return orderNo;
     }

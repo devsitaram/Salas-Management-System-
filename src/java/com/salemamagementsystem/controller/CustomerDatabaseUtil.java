@@ -21,13 +21,12 @@ import resources.SaleConstants;
 public class CustomerDatabaseUtil {
 
     // customer table's global variables and also create an object of customer class, supplier class, payment class, item class and order class
-    CustomerModelBean customerModelBean = new CustomerModelBean();
     // create an object SaleConstants class
     SaleConstants saleConstants = new SaleConstants();
     DriverConnection driverConnection = new DriverConnection();
-    Connection connection; // create an object of driver connection
-    Statement statement;
-    ResultSet resultSet;
+    Connection connection = null; // create an object of driver connection
+    Statement statement = null;
+    ResultSet resultSet = null;
 
     // get all the customer detials from data bases
     public ResultSet getCustomerData() {
@@ -101,18 +100,16 @@ public class CustomerDatabaseUtil {
             try {
                 // driver connection error
                 connection = driverConnection.getDatabaseConnection();
-                PreparedStatement preStatementOrder = connection.prepareStatement(saleConstants.INSERT_CUSTOMER_ALL_DATA);
+                PreparedStatement preStatementCustomer = connection.prepareStatement(saleConstants.INSERT_CUSTOMER_ALL_DATA);
                 // set/insert the  data
-                preStatementOrder.setInt(1, customerId);
-                preStatementOrder.setString(2, customerName);
-                preStatementOrder.setString(3, email);
-                preStatementOrder.setString(4, address);
-                preStatementOrder.setString(5, phoneNo);
-                preStatementOrder.setString(6, password);
+                preStatementCustomer.setInt(1, customerId);
+                preStatementCustomer.setString(2, customerName);
+                preStatementCustomer.setString(3, email);
+                preStatementCustomer.setString(4, address);
+                preStatementCustomer.setString(5, phoneNo);
+                preStatementCustomer.setString(6, password);
                 // exexute to insert data
-                preStatementOrder.executeUpdate();
-                statement.close();
-                connection.close();
+                preStatementCustomer.executeUpdate();
 
             } catch (ClassNotFoundException | SQLException ex) {
                 // handle ClassNotFoundException
@@ -190,17 +187,9 @@ public class CustomerDatabaseUtil {
                 preStatementOrder.setString(6, password);
                 // exexute to insert data
                 preStatementOrder.executeUpdate();
-
                 statement.close();
                 connection.close();
                 return true;
-
-                // System.out.println("Customer Id: "+customerId);
-                // System.out.println("Customer Name: "+customerName);
-                // System.out.println("Customer email: "+email);
-                // System.out.println("Customer address: "+address);
-                // System.out.println("Customer phone No: "+phoneNo);
-                // System.out.println("Customer password: "+password);
             } catch (ClassNotFoundException | SQLException ex) {
                 // handle ClassNotFoundException
                 ex.printStackTrace();
@@ -220,56 +209,3 @@ public class CustomerDatabaseUtil {
         }
     }
 }
-
-// get all customer data from databses and check to insert the valid data (customer data are register)
-//    public void insertCustomerData(int customer_id, String customer_name, String email, String address, String phone_no, String password) {
-//        try {
-//            connection = driverConnection.getDatabaseConnection();
-//            Statement statement = (Statement) connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-//            ResultSet rsCustomersData = statement.executeQuery(saleConstants.GET_CUSTOMER_DATA);
-// while loop
-//            while (rsCustomersData.next()) {
-// get the customer details and store the veriable
-//                customerId = rsCustomersData.getInt("customer_id");
-//                customerName = rsCustomersData.getString("customer_name");
-//                customerEmail = rsCustomersData.getString("email"); // must be uniques
-//                customerAddress = rsCustomersData.getString("address");
-//                customerPhone = rsCustomersData.getString("phone_no"); // must be uniques
-//                customerPassword = rsCustomersData.getString("password");
-// check the if statements
-//                if (!password.equals(customerPassword) && !customer_name.equals(customerName)) {
-//                    if (!phone_no.equals(customerPhone)) {
-//                        if (!email.equals(customerEmail)) {
-//                            // data insert in databases 
-//                            PreparedStatement preStatementCustomer = connection.prepareStatement(saleConstants.INSERT_CUSTOMER_ALL_DATA);
-//                            // set the  data
-//                            preStatementCustomer.setInt(1, customer_id);
-//                            preStatementCustomer.setString(2, customer_name);
-//                            preStatementCustomer.setString(3, email);
-//                            preStatementCustomer.setString(4, address);
-//                            preStatementCustomer.setString(5, phone_no);
-//                            preStatementCustomer.setString(6, password);
-////                            System.out.println("Id: " + customerId + " Name: " + customerName + " Email: " + customerEmail + " Address: " + customerAddress + " Phone: " + customerPhone + " Password: " + customerPassword);
-//                            // exexute to insert data
-//                            preStatementCustomer.executeUpdate();
-//                            // Close the result set, statement, and connection
-//                            rsCustomersData.close();
-//                            statement.close();
-//                            connection.close();
-//                        } else {
-//                            System.out.println("The email must be unique");
-//                            break;
-//                        }
-//                    } else {
-//                        System.out.println("The phone number must be unique");
-//                        break;
-//                    }
-//                } else {
-//                    System.out.println("The password must be unique");
-//                    break;
-//                }
-////            }
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            System.out.println("Customer Id must be uniqe: " + ex);
-//        }
-//    }

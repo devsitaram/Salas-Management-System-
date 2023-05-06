@@ -54,7 +54,6 @@
                             <p>Address: <input class="input_textfields" style="margin-left: 15px;" type="text" name="userAddress"></p>
                             <p>Phone No: <input class="input_textfields" style="margin-left: 5px;" type="text" name="userPhoneNo"></p><br>
 
-
                             <p><h4>Enter the strong password and confirm again!</h4></p>
 
                             <p>Password: <input class="password_textfields" style="margin-left: 5px;" type="password" name="newPassword"></p>
@@ -115,7 +114,7 @@
 		</script>
             </div>
 	</div>
-    </body> 
+    </body>
     <script type="text/javascript">
         function registerValidate() {
 //            // initialize the variable and get tex from getElementById

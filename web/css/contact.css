@@ -197,7 +197,10 @@ body{
     border: 2px solid grey;
     border-radius: 9px;
 }
-
+.searchButton{
+    text-decoration: none;
+    color: white;   
+}
 .background {
     width: 100%;
     background-color: grey;
