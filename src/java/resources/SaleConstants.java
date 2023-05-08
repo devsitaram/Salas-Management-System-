@@ -5,7 +5,9 @@
 package resources;
 
 /**
- *
+ * this is the constrainable class where the each data cannot be change the 
+ * because the all variable id final
+ * this call have fully final String variable declared
  * @author Lenovo
  */
 public class SaleConstants {

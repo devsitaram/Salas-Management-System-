@@ -1,6 +1,6 @@
 package com.salemamagementsystem.model;
 /**
- *
+ * this is the customer model bean class where initialize the variable and create the getter and setter methods
  * @author Lenovo
  */
 

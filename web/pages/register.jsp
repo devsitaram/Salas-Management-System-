@@ -33,13 +33,13 @@
                         streamline processes, and track results. A sales management system adds predictability and forecasting capacity and 
                         ensures your sales department process is repeatable and measurable.
                     </h4>
-                </p>
-                <p>
-                    <image src="../images/img_register.jpg" style="width: 95%; height: 500px; margin-right: 50px"/>
-                </p><br>
-                <p>
+                    </p>
+                    <p>
+                        <image src="../images/img_register.jpg" style="width: 95%; height: 500px; margin-right: 50px"/>
+                    </p><br>
+                    <p>
                     <h3 style="text-align: justify; padding-right: 30px;">You have give the some information for register details. So, 
-                            Please follow the given step by step and successfully register your details and gook luck.
+                        Please follow the given step by step and successfully register your details and gook luck.
                     </h3>
                     <h3>-> User id must be unique number/integer only three digits.</h3>
                     <h3>-> User name must be String where enter the full name.</h3>
@@ -48,13 +48,13 @@
                     <h3>-> Phone number must be integer/number and start to 98/97 total 10 digits.</h3>
                     <h3>-> Password must be strong and again conform.</h3>
                     <h3>-> Gender and feedback is optional information.</h3>
-                </p>
-                <p style="text-align: right; margin-right: 20px;">
-                    <a class="button" style="width: 10%; color: black; font-size: 30px; text-decoration: none;" href="../pages/login.jsp">< Back</a>
-                </p>
-                
+                    </p>
+                    <p style="text-align: right; margin-right: 20px;">
+                        <a class="button" style="width: 10%; color: black; font-size: 30px; text-decoration: none;" href="../pages/login.jsp">< Back</a>
+                    </p>
+
             </div>
-            
+
             <!--this is the left side div where the user can register the valid details-->
             <div class="mainDivleft">
                 <H2 style="color: #232222; text-align: center; margin-top: 10px;">Sign Up</H2>
@@ -94,8 +94,8 @@
                         <script src="../javascript/javascript.js" type="text/javascript"/>
                     </div>
 
-                <!--javascript for validation-->
-    		<script type="text/javascript">
+                    <!--javascript for validation-->
+                    <script type="text/javascript">
                         function validateForm() {
                             var id = document.forms["messageForm"]["userId"].value;
                             var name = document.forms["messageForm"]["userName"].value;
@@ -108,28 +108,28 @@
 
                             /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
                             if (id == "" || name == "" || email == "" || address == "" || phoneNo == "") {
-                                    alert("Empty fields fund! Please enter the valid personal information.");
+                                alert("Empty fields fund! Please enter the valid personal information.");
                             } else {
-                                if(newPassword == "" || confirmPassword == "") {
+                                if (newPassword == "" || confirmPassword == "") {
                                     alert("The password is empty!");
                                 } else {
                                     // id validation
-                                    if(idValidation(id)){
+                                    if (idValidation(id)) {
                                         // name validation
-                                        if(nameValidation(name)){
+                                        if (nameValidation(name)) {
                                             // email validation
-                                            if(emailValidatio(email)){
+                                            if (emailValidatio(email)) {
                                                 // address validation
-                                                if(addressVlidation(address)){
+                                                if (addressVlidation(address)) {
                                                     // phone number validation
-                                                    if(phoneNoValidation(phoneNo)){
+                                                    if (phoneNoValidation(phoneNo)) {
                                                         if (!(newPassword == confirmPassword)) {
                                                             alert("Please confirm your password!");
                                                         } else {
                                                             var xhr = new XMLHttpRequest();
                                                             xhr.open("POST", "../RegisterServlet");
                                                             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                                                            xhr.onreadystatechange = function() {
+                                                            xhr.onreadystatechange = function () {
                                                                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                                                                     alert(this.responseText);
                                                                 }
@@ -170,12 +170,12 @@
                             }
                         }
 
-                            // email vallidation
+                        // email vallidation
                         function emailValidatio(email) {
                             var emaliPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
                             // chcek the email
-                            if(!email.match(emaliPattern)){
-                                alert("Email is not valid: "+email);
+                            if (!email.match(emaliPattern)) {
+                                alert("Email is not valid: " + email);
                                 return false;
                             } else {
                                 return true;
@@ -184,10 +184,10 @@
 
                         // address vallidation
                         function addressVlidation(address) {
-                            var addressPattern =  /^[A-Za-z]/;    
+                            var addressPattern = /^[A-Za-z]/;
                             // chcek the address
-                            if(!address.match(addressPattern)){
-                                alert("Address is not valid: "+address);
+                            if (!address.match(addressPattern)) {
+                                alert("Address is not valid: " + address);
                                 return false;
                             } else {
                                 return true;
@@ -196,17 +196,16 @@
 
                         // phone number vallidation
                         function phoneNoValidation(phoneNo) {
-                            var numberPattern =  /^(97|98)\d{8}$/;
+                            var numberPattern = /^(97|98)\d{8}$/;
                             // chcek the phone number
-                            if(!phoneNo.match(numberPattern)){
-                                alert("Phone number is not valid. must be 10 digit: "+phoneNo);
+                            if (!phoneNo.match(numberPattern)) {
+                                alert("Phone number is not valid. must be 10 digit: " + phoneNo);
                                 return false;
                             } else {
                                 return true;
                             }
                         }
                     </script>
-
                 </div>
             </div>
         </div>

@@ -10,12 +10,15 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="supplierModelBean")
 @SessionScoped 
 public class SupplierModelBean {
+    
+    // initialize the variable
     private int supplierId;
     private String supplierName;
     private String mail;
     private String location;
     private String contactNo;
 
+    // create the getter and setter methods
     public int getSupplierId() {
         return supplierId;
     }

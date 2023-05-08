@@ -5,7 +5,7 @@
 package com.salemamagementsystem.model;
 
 /**
- *
+ * this is the item model bean class where has getter and setter methods are availabe
  * @author Lenovo
  */
 import javax.faces.bean.ManagedBean;
@@ -22,7 +22,6 @@ public class ItemModelBean {
     int supplierId;
     
     // getter and setter methods
-
     public int getItemNo() {
         return itemNo;
     }

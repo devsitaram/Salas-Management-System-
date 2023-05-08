@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ *this is the Servlet class where this class is connect the JSP file
+ * the data get from JSP the connect the java class the response the system for register the system
  * @author Lenovo
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})

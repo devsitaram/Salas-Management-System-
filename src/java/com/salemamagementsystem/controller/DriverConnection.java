@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import resources.SaleConstants;
 
 /**
- *
+ * this is the driver connection where the connect the driver and database
  * @author Lenovo
  */
 public class DriverConnection {
@@ -18,7 +18,7 @@ public class DriverConnection {
     // connect to the databses driver
     public Connection getDatabaseConnection() throws SQLException, ClassNotFoundException {
         SaleConstants saleConstants = new SaleConstants(); // create an object of SaleConstants class
-        Class.forName(saleConstants.JDBC_DRIVER);
+        Class.forName(saleConstants.JDBC_DRIVER); // connect to the driver class
         Connection connection = DriverManager.getConnection(saleConstants.DB_URL);
         return connection;
     }

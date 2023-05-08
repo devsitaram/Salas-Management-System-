@@ -5,7 +5,8 @@
 package com.salemamagementsystem.model;
 
 /**
- *
+ * this is the payment model bean class where has initialize the variable and 
+ * grate the getter and setter methods
  * @author Lenovo
  */
 import javax.faces.bean.ManagedBean;
@@ -19,6 +20,7 @@ public class PaymentModelBean {
     String paymentDate;
     String remarks;
 
+    // getter ans setter methods
     public int getPaymentNo() {
         return paymentNo;
     }

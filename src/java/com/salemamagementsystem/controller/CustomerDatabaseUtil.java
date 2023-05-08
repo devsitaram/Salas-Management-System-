@@ -4,7 +4,6 @@ package com.salemamagementsystem.controller;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import com.salemamagementsystem.model.CustomerModelBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +14,11 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import resources.SaleConstants;
 
+/**
+ * this is the item database Util class where the direct the connect 
+ * the data to get the data, insert, update and delete in the data base
+ * @author Lenovo
+ */
 @RequestScoped
 @ManagedBean(name = "customerDbBean")
 @SessionScoped
@@ -50,7 +54,7 @@ public class CustomerDatabaseUtil {
                 // establish database connection
                 connection = driverConnection.getDatabaseConnection();
                 // create statement
-                statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+                statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 // execute query
                 resultSet = statement.executeQuery(saleConstants.SELCT_CUSTOMER_DNAME_PASSWORD);
                 // check each record in the result set
@@ -93,7 +97,7 @@ public class CustomerDatabaseUtil {
 
     // insert the customer data
     public void insertCustomer(int customerId, String customerName, String email, String address, String phoneNo, String password) {
-
+        // check the system where all the paremeter is empty or not empty
         if (customerId == 0 || customerName == null || email == null || address == null || phoneNo == null || null == password) {
             System.out.println("the input fields is empty!");
         } else {
@@ -117,6 +121,7 @@ public class CustomerDatabaseUtil {
             } finally {
                 // make sure to close connection object in case of any exception
                 try {
+                    // check the diver connection is null or not
                     if (connection != null) {
                         connection.close();
                     }
@@ -145,6 +150,16 @@ public class CustomerDatabaseUtil {
                 updateStatement.executeUpdate(); // retur
             } catch (SQLException ex) {
                 System.out.println("Failed: " + customerId);
+            } finally {
+                // make sure to close connection object in case of any exception
+                try {
+                    // check the diver connection is null or not
+                    if (connection != null) {
+                        connection.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }
@@ -153,18 +168,19 @@ public class CustomerDatabaseUtil {
     public void deleteCustomer(int customerId) {
 //        if (customerId == 0) {
 //            System.out.println("The customer id is empty!");
-//        } else {
-            try {
-                PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_CUSTOMER_DATA);
-                deleteStatement.setInt(1, customerId);
-                if (deleteStatement.executeUpdate() >= 0) {
-                    System.out.println("Sucess");
-                } else {
-                    System.out.println("Failed");
-                }
-            } catch (SQLException ex) {
-                System.out.println("Failed: " + customerId);
+//        } else {  
+//  
+        try {
+            PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_CUSTOMER_DATA);
+            deleteStatement.setInt(1, customerId);
+            if (deleteStatement.executeUpdate() >= 0) {
+                System.out.println("Sucess");
+            } else {
+                System.out.println("Failed");
             }
+        } catch (SQLException ex) {
+            System.out.println("Failed: " + customerId);
+        }
 //        }
     }
 

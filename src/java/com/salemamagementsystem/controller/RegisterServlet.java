@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * this is the servlet class where this class is connect the JSP file
+ * the data get from JSP the connect the java class the response the system
  * @author Lenovo
  */
 public class RegisterServlet extends HttpServlet {

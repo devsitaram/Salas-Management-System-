@@ -15,18 +15,20 @@ import javax.faces.bean.SessionScoped;
 import resources.SaleConstants;
 
 /**
- *
+ * this is the item database Util class where the direct the connect 
+ * the data to get the data, insert, update and delete in the data base
  * @author Lenovo
  */
 @RequestScoped
 @ManagedBean(name = "orderDbBean")
 @SessionScoped
 public class OrderDatabaseUtil {
+
     SaleConstants saleConstants = new SaleConstants();
     DriverConnection driverConnection = new DriverConnection();
     Connection connection = null; // create an object of driver connection
     Statement statement = null;
-    
+
     // get the orders details
     public ResultSet getOrderData() {
         try {
@@ -39,57 +41,85 @@ public class OrderDatabaseUtil {
             return null;
         }
     }
-    
+
     // insert the new data in databases
     public void insertOrderData(int orderNo, String orderDate, int orderQty, String descriptions, int itemNo, int paymentNo, int customerId) {
-        try {
-            connection = driverConnection.getDatabaseConnection();
-            PreparedStatement insertStatement = connection.prepareStatement(saleConstants.INSERT_ORDER_ALL_DATA);
-            insertStatement.setInt(1, orderNo);
-            insertStatement.setString(2, orderDate);
-            insertStatement.setInt(3, orderQty);
-            insertStatement.setString(4, descriptions);
-            insertStatement.setInt(5, itemNo);
-            insertStatement.setInt(6, paymentNo); 
-            insertStatement.setInt(7, customerId);
-            // insert data in the databse
-            insertStatement.executeUpdate();
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("Supplier data cannot insert.");
+        if (orderNo == 0 || orderDate == null || orderQty == 0 || descriptions == null || itemNo == 0 || paymentNo == 0 || customerId == 0) {
+            System.out.println("Order textfields is empty.");
+        } else {
+            try {
+                connection = driverConnection.getDatabaseConnection();
+                PreparedStatement insertStatement = connection.prepareStatement(saleConstants.INSERT_ORDER_ALL_DATA);
+                insertStatement.setInt(1, orderNo);
+                insertStatement.setString(2, orderDate);
+                insertStatement.setInt(3, orderQty);
+                insertStatement.setString(4, descriptions);
+                insertStatement.setInt(5, itemNo);
+                insertStatement.setInt(6, paymentNo);
+                insertStatement.setInt(7, customerId);
+                // insert data in the databse
+                insertStatement.executeUpdate();
+            } catch (ClassNotFoundException | SQLException ex) {
+                System.out.println("Supplier data cannot insert.");
+            } finally {
+                // make sure to close connection object in case of any exception
+                try {
+                    // check the diver connection is null or not
+                    if (connection != null) {
+                        connection.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
-    
+
     // update the orders data
-    public void updateOrderData(String orderDate, int orderQty, String descriptions, int itemNo, int paymentNo, int customerId, int orderNo) throws ClassNotFoundException{
-        try{
-            connection = driverConnection.getDatabaseConnection();
-            PreparedStatement updateStatement = connection.prepareStatement(saleConstants.UPDATE_ORDER_DATA);
-            updateStatement.setString(1, orderDate);
-            updateStatement.setInt(2, orderQty);
-            updateStatement.setString(3, descriptions);
-            updateStatement.setInt(4, itemNo);
-            updateStatement.setInt(5, paymentNo); 
-            updateStatement.setInt(6, customerId);
-            updateStatement.setInt(7, orderNo);
-             
-            updateStatement.executeUpdate(); 
-        } catch(SQLException ex){
-            System.out.println("Failed: "+orderNo);
+    public void updateOrderData(String orderDate, int orderQty, String descriptions, int itemNo, int paymentNo, int customerId, int orderNo) throws ClassNotFoundException {
+        if (orderNo == 0 || orderDate == null || orderQty == 0 || descriptions == null || itemNo == 0 || paymentNo == 0 || customerId == 0) {
+            System.out.println("Order textfields is empty.");
+        } else {
+            try {
+                connection = driverConnection.getDatabaseConnection();
+                PreparedStatement updateStatement = connection.prepareStatement(saleConstants.UPDATE_ORDER_DATA);
+                updateStatement.setString(1, orderDate);
+                updateStatement.setInt(2, orderQty);
+                updateStatement.setString(3, descriptions);
+                updateStatement.setInt(4, itemNo);
+                updateStatement.setInt(5, paymentNo);
+                updateStatement.setInt(6, customerId);
+                updateStatement.setInt(7, orderNo);
+
+                updateStatement.executeUpdate();
+            } catch (SQLException ex) {
+                System.out.println("Failed: " + orderNo);
+            } finally {
+                // make sure to close connection object in case of any exception
+                try {
+                    // check the diver connection is null or not
+                    if (connection != null) {
+                        connection.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
-    
+
     // delete orders data from database
     public void deleteOrder(int orderNo) {
-        try{
+        try {
             PreparedStatement deleteStatement = connection.prepareStatement(saleConstants.DELETE_ORDER_DATA);
             deleteStatement.setInt(1, orderNo);
-            if(deleteStatement.executeUpdate()>=0){
+            if (deleteStatement.executeUpdate() >= 0) {
                 System.out.println("Sucess");
-            }else{
+            } else {
                 System.out.println("Failed");
             }
-        }catch(SQLException ex){
-            System.out.println("SQLException: "+orderNo);
-        }  
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + orderNo);
+        }
     }
 }

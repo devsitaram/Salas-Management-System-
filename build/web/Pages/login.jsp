@@ -18,7 +18,7 @@
         <script src="Slider.JS" type="text/javascript"></script>
         <title>Login Page</title>
     </head>
-    
+
     <%-- display error message if it exists --%>
     <c:if test="${not empty errorMessage}">
         <style>
@@ -91,47 +91,47 @@
         </div>
     </body>
     <script type="text/javascript">
-//        function loginValidate() {
-//            // initialize the variable and get tex from getElementById
-//            var isNew = true;
-//            
-//            var id = document.getElementById("userId").value;
-//            var password = document.getElementById("newPassword");
-//
-//            var isUserId = false;
-//            /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
-//            if (id == "" ||password == "") {
-//                alert("The fields is empty!");
-//            } else if (!isUserName) {
-//                alert("Please enter the valid username and password!");
-//            } else {
-//                if ($("#loginform").valid()) {
-//                    var url = "";
-//                    var data = "";
-//                    var method = "";
-//                }
-//                
-//                // check the is new is true or not
-//                if(isNew){
-//                    url = "add.jsp";
-//                    data = $("#loginform").serialize();
-//                    method = "POST";
-//                }
-//                
-//                // used the ajax 
-//                $.ajax({
-//                    type: method,
-//                    url: url,
-//                    dataType: 'JSON',
-//                    data: data,
-//                    
-//                    // call the success funcation
-//                    success: function (data) {
-//                        alert("Login successful.");
-//                    }
-//                });
-//            }
-//        }
+        function loginValidate() {
+            // initialize the variable and get tex from getElementById
+            var isNew = true;
+
+            var name = document.getElementById("userName").value;
+            var password = document.getElementById("newPassword");
+
+            var isUserId = false;
+            /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
+            if (name == "" || password == "") {
+                alert("The fields is empty!");
+            } else if (!isUserName) {
+                alert("Please enter the valid username and password!");
+            } else {
+                if ($("#loginform").valid()) {
+                    var url = "";
+                    var data = "";
+                    var method = "";
+                }
+
+                // check the is new is true or not
+                if (isNew) {
+                    url = "add.jsp";
+                    data = $("#loginform").serialize();
+                    method = "POST";
+                }
+
+                // used the ajax 
+                $.ajax({
+                    type: method,
+                    url: url,
+                    dataType: 'JSON',
+                    data: data,
+
+                    // call the success funcation
+                    success: function (data) {
+                        alert("Login successful.");
+                    }
+                });
+            }
+        }
     </script>
-    
+
 </html>

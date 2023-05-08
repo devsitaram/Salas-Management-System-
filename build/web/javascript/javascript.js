@@ -14,30 +14,32 @@ function validateForm() {
     var confirmPassword = document.forms["messageForm"]["confirmPassword"].value;
     var message = document.forms["messageForm"]["feedback"].value;
 
-//    /* Alert the message when the empty fields are present "Please enter your values" but valied the form than given "Thank your Feedback" */
+    /* Alert the message when the empty fields are present "Please enter your values"
+     *  but valied the form than given "Thank your Feedback" 
+     *  */
     if (id == "" || name == "" || email == "" || address == "" || phoneNo == "") {
         alert("Empty fields fund! Please enter the valid personal information.");
     } else {
-        if(newPassword == "" || confirmPassword == "") {
+        if (newPassword == "" || confirmPassword == "") {
             alert("The password is empty!");
         } else {
             // id validation
-            if(idValidation(id)){
+            if (idValidation(id)) {
                 // name validation
-                if(nameValidation(name)){
+                if (nameValidation(name)) {
                     // email validation
-                    if(emailValidatio(email)){
+                    if (emailValidatio(email)) {
                         // address validation
-                        if(addressVlidation(address)){
+                        if (addressVlidation(address)) {
                             // phone number validation
-                            if(phoneNoValidation(phoneNo)){
+                            if (phoneNoValidation(phoneNo)) {
                                 if (!(newPassword == confirmPassword)) {
                                     alert("Please confirm your password!");
                                 } else {
                                     var xhr = new XMLHttpRequest();
                                     xhr.open("POST", "../RegisterServlet");
                                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                                    xhr.onreadystatechange = function() {
+                                    xhr.onreadystatechange = function () {
                                         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                                             alert(this.responseText);
                                         }
@@ -51,13 +53,14 @@ function validateForm() {
             }
         }
     }
+    
 }
-
-<!--// validation for email, name, id, password, address, phone number etc.
-// email vallidation-->
+    
+// validation for email, name, id, password, address, phone number etc.
+// email vallidation
 function idValidation(id) {
     var idPattern = /^\d{3}$/;
-//     check the id
+    // check the id
     if (!id.match(idPattern)) {
         alert("ID is not valid. must be three digit.: " + id);
         return false;
@@ -65,8 +68,9 @@ function idValidation(id) {
         return true;
     }
 }
+    
 
-<!--// email vallidation-->
+// email vallidation
 function nameValidation(name) {
     var namePattern = /^[A-Za-z]+(\s[A-Za-z-]+)?$/;
     // check the name
@@ -77,39 +81,42 @@ function nameValidation(name) {
         return true;
     }
 }
+    
 
-    <!--// email vallidation-->
+// email vallidation
 function emailValidatio(email) {
     var emaliPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     // chcek the email
-    if(!email.match(emaliPattern)){
-        alert("Email is not valid: "+email);
+    if (!email.match(emaliPattern)) {
+        alert("Email is not valid: " + email);
         return false;
     } else {
         return true;
     }
 }
+    
 
-<!--// address vallidation-->
+// address vallidation
 function addressVlidation(address) {
-    var addressPattern =  /^[A-Za-z]/;    
+    var addressPattern = /^[A-Za-z]/;
     // chcek the address
-    if(!address.match(addressPattern)){
-        alert("Address is not valid: "+address);
+    if (!address.match(addressPattern)) {
+    alert("Address is not valid: " + address);
         return false;
     } else {
         return true;
     }
 }
 
-<!--// phone number vallidation-->
+// phone number vallidation
 function phoneNoValidation(phoneNo) {
-    var numberPattern =  /^(97|98)\d{8}$/;
+    var numberPattern = /^(97|98)\d{8}$/;
     // chcek the phone number
-    if(!phoneNo.match(numberPattern)){
-        alert("Phone number is not valid. must be 10 digit: "+phoneNo);
+    if (!phoneNo.match(numberPattern)) {
+        alert("Phone number is not valid. must be 10 digit: " + phoneNo);
         return false;
     } else {
         return true;
     }
 }
+

@@ -5,7 +5,8 @@
 package com.salemamagementsystem.model;
 
 /**
- *
+ * this is the order model bean class where has the getter and setter 
+ * methods are available
  * @author Lenovo
  */
 import javax.faces.bean.ManagedBean;
@@ -14,6 +15,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="orderModelBean")
 @SessionScoped 
 public class OrderModelBean {
+    
+    // initialize the variable
     int orderNo;
     String orderDate;
     int orderQty;
